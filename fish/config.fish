@@ -6,6 +6,8 @@ alias uinst 'sudo pacman -Rsnc'
 alias i3conf 'vim ~/.i3/config'
 alias cddot 'cd ~/dotfiles/'
 alias givepw 'base64 /dev/urandom | head -c 10'
+alias update 'yaourt -Syua'
+alias gn 'sleep 1.5h; and poweroff'
 
 set EDITOR vim
 set VISUAL vim

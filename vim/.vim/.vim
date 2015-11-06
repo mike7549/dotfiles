@@ -1,1 +1,1 @@
-/home/effi/dotfiles/vim/.vim
+/home/michael/dotfiles/vim/.vim
