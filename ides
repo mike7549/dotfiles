@@ -1,0 +1,1 @@
+cmake clang clang-analyzer clang-tools-extra jdk8-openjdk jre8-openjdk jre8-openjdk-headless java-openjfx clion eclipse-common intellij-idea-ultimate-edition android-studio android-google-repository android-sdk android-sdk-platform-tools android-sdk-build-tools android-support android-support-repository android-tools android-udev
