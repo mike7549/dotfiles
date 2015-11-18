@@ -1,8 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/michael/dotfiles/.git'
 let g:netrw_dirhist_2='/home/michael/dotfiles/vim'
 let g:netrw_dirhist_3='/home/michael/winDocs/Heroes of the Storm'
 let g:netrw_dirhist_4='/home/michael/dotfiles'
 let g:netrw_dirhist_5='/boot/EFI/refind'
 let g:netrw_dirhist_6='/home/michael/dev/para/matmult/tmp/ps2_matrix_mul_cllib'
+let g:netrw_dirhist_7='/home/michael/.mozilla/extensions'
+let g:netrw_dirhist_8='/home/michael/dotfiles/i3'
+let g:netrw_dirhist_9='/home/michael/.config/gtk-3.0'

@@ -6,8 +6,9 @@ alias uinst 'sudo pacman -Rsnc'
 alias i3conf 'vim ~/.i3/config'
 alias cddot 'cd ~/dotfiles/'
 alias givepw 'base64 /dev/urandom | head -c 10'
-alias update 'yaourt -Syua'
+alias update 'yaourt -Syua: --noconfirm'
 alias gn 'sleep 1.5h; and poweroff'
+
 
 set EDITOR vim
 set VISUAL vim
@@ -16,6 +17,23 @@ set WINEPREFIX /home/michael/.wine/
 
 set PATH /usr/bin/ /usr/local/bin/ /usr/local/sbin /usr/sbin/ /usr/bin/core_perl/
 
+# declare solarize colors
+set u_col0 "#002b36"
+set u_col1 "#657b83"
+set u_col2 "#073642"
+set u_col3 "#dc322f"
+set u_col4 "#859900"
+set u_col5 "#b58900"
+set u_col6 "#268bd2"
+set u_col7 "#d33682"
+set u_col8 "#2aa198"
+set u_col9 "#eee8d5"
+set u_cola "#cb4b16"
+set u_colb "#586e75"
+set u_colc "#839496"
+set u_cold "#6c71c4"
+set u_cole "#93a1a1"
+set u_colf "#fdf6e3"
 
 set TERMINAL termite
 set WINEARCH win64 
@@ -44,3 +62,39 @@ if status --is-login
         exec startx -- -keeptty
     end
 end
+
+# Path to Oh My Fish install.
+set -gx OMF_PATH /home/michael/.local/share/omf
+
+# Customize Oh My Fish configuration path.
+#set -gx OMF_CONFIG /home/michael/.config/omf
+
+# Load oh-my-fish configuration.
+source $OMF_PATH/init.fish
+
+set -g theme_display_user yes
+
+
+
+function fish_mode_prompt
+# Do nothing if not in vi mode
+  if set -q __fish_vi_mode
+    switch $fish_bind_mode
+      case default
+        set_color --bold --background $u_col8 $u_colb
+        echo ' N '
+      case insert
+        set_color --bold --background $u_col8 $u_colf
+        echo ' I '
+      case replace-one
+        set_color --bold --background $u_col8 $u_col1 
+        echo ' R '
+      case visual
+        set_color --bold --background $u_col8 $u_col3
+        echo ' V '
+    end
+    set_color $u_col8 --background $u_cole
+    echo ''
+  end
+end
+

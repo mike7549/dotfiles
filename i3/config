@@ -14,6 +14,7 @@ exec_always --no-startup-id ~/dotfiles/scripts/configure_xrandr.sh
 
 #Set Keyboard
 exec_always --no-startup-id setxkbmap de
+exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 #Background Color
 #exec_always xsetroot -solid "#333333"
@@ -32,7 +33,10 @@ exec_always --no-startup-id compton -c -C --vsync opengl --config /home/michael/
 exec --no-startup-id telegram -startintray
 
 #disable touchpad
-#exec --no-startup-id touchpad-state --off
+exec --no-startup-id touchpad-state --off
+
+#thunderbird
+exec --no-startup-id thunderbird
 
 #redshift
 exec --no-startup-id redshift -l 47.267:11.383
@@ -178,12 +182,8 @@ workspace $ws4 output eDP1
 workspace $ws6 output eDP1
 workspace $ws8 output eDP1
 
-for_window [class="^mpv$"] border none focus
-assign [class="(?i)mpv"] $ws5
-
-for_window [class="pavucontrol"] focus
-assign [class="pavucontrol"] $ws6
-
+for_window [class="^bomi$"] border none focus
+assign [class="(?i)bomi"] $ws5
 
 #start ranger on $WS2
 #bindsym $mod+m exec i3-msg 'workspace $ws2' && exec termite -e ranger 
