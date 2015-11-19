@@ -13,8 +13,7 @@ set $alt Mod1
 exec_always --no-startup-id ~/dotfiles/scripts/configure_xrandr.sh 
 
 #Set Keyboard
-exec_always --no-startup-id setxkbmap de
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id setxkbmap de -option ctrl:nocaps
 
 #Background Color
 #exec_always xsetroot -solid "#333333"
