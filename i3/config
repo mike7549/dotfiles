@@ -51,9 +51,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 #Lock
 bindsym $mod+$alt+l exec ~/dotfiles/scripts/lock.sh
 
-#Futurama
-bindsym $mod+$alt+f exec ~/dotfiles/scripts/futurama.sh
-
 #Ranger
 bindsym $mod+m exec termite -e ranger
 
