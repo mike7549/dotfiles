@@ -123,7 +123,7 @@ function get_hostname -d "Set current hostname to prompt variable $HOSTNAME_PROM
 end
 
 function prompt_dir -d "Display the current directory"
-  prompt_segment blue black (prompt_pwd)
+  prompt_segment $u_col6 $u_col0 (prompt_pwd)
 end
 
 
