@@ -16,7 +16,7 @@
 
 #------------------------------------------------------------------------
 
-INTERFACE="${BLOCK_INSTANCE:-wlan0}"
+INTERFACE="${BLOCK_INSTANCE:-wlp2s0}"
 
 #------------------------------------------------------------------------
 
@@ -31,8 +31,19 @@ QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }
 
 #------------------------------------------------------------------------
 
-echo $QUALITY% # full text
-echo $QUALITY% # short text
+SSID=$(nmcli device | grep wlp2s0 | awk '{print $4;}')
+ 
+if [ $SSID = "--" ]; then
+	echo "Not connected"
+else
+	echo  $SSID  $QUALITY%
+fi
+
+case $BLOCK_BUTTON in
+	1) (termite -e nmtui &) && disown ;;
+esac
+
+echo $QUALITY%
 
 # color
 if [[ $QUALITY -ge 80 ]]; then
