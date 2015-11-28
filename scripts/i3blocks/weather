@@ -1,0 +1,73 @@
+#!/bin/bash
+
+weather=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=EUR|AT|AU007|INNSBRUCK" | perl -ne 'use utf8; if (/Currently/) {chomp;/\<title\>Currently: (.*)?\<\/title\>/; my @values=split(":",$1);binmode(STDOUT, ":utf8");print"$values[0]"}')
+
+temp=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=EUR|AT|AU007|INNSBRUCK" | perl -ne 'use utf8; if (/Currently/) {chomp;/\<title\>Currently: (.*)?\<\/title\>/; my @values=split(":",$1);binmode(STDOUT, ":utf8");print"$values[1]"}')
+
+echo "$weather$temp"
+
+echo $weather 
+
+#color
+
+if [[ "$weather" = "Clear" ]]; then
+	echo "#ffff00"
+elif [[ "$weather" = "Mostly Clear" ]]; then
+	echo "#ffff99"
+elif [[ "$weather" = "Partly Cloudy" ]]; then
+	echo "#ffffcc"
+elif [[ "$weather" = "Intermittent Clouds" ]]; then
+	echo "#999999"
+elif [[ "$weather" = "Hazy Moonlight" ]]; then
+	echo "#808080"
+elif [[ "$weather" = "Mostly Cloudy" ]]; then
+	echo "#d3d3d3"
+elif [[ "$weather" = "Partly Cloudy W/ Showers" ]]; then
+	echo "#778899"
+elif [[ "$weather" = "Mostly Cloudy W/ Showers" ]]; then
+	echo "#a2a9af"
+elif [[ "$weather" = "Partly Cloudy W/ T-Storms" ]]; then
+	echo "#272c34"
+elif [[ "$weather" = "Mostly Cloudy W/ Flurries" ]]; then
+	echo "#6666cc"
+elif [[ "$weather" = "Mostly Cloudy W/ Snow" ]]; then
+	echo "#e8e8e8"
+elif [[ "$weather" = "Flurries" ]]; then
+	echo "#6699ff"
+elif [[ "$weather" = "Partly Sunny W/ Flurries" ]]; then
+	echo "#6666cc"
+elif [[ "$weather" = "Snow" ]]; then
+	echo "#ffffff"
+elif [[ "$weather" = "Ice" ]]; then
+	echo "#5ea3b3"
+elif [[ "$weather" = "Sleet" ]]; then
+	echo "#6699ff"
+elif [[ "$weather" = "Freezing Rain" ]]; then
+	echo "#00cccc"
+elif [[ "$weather" = "Rain and Snow" ]]; then
+	echo "#66ccff"
+elif [[ "$weather" = "Cold" ]]; then
+	echo "#33ffff"
+elif [[ "$weather" = "Windy" ]]; then
+	echo "#ccccff"
+elif [[ "$weather" = "Showers" ]]; then
+	echo "#0099ff"
+elif [[ "$weather" = "Partly Sunny W/ Showers" ]]; then
+	echo "#a2a9af"
+elif [[ "$weather" = "T-Storms" ]]; then
+	echo "#272c34"
+elif [[ "$weather" = "Mostly Cloudy W/ T-Storms" ]]; then
+	echo "#272c34"
+elif [[ "$weather" = "Partly Sunny W/ T-Storms" ]]; then
+	echo "#272c34"
+elif [[ "$weather" = "Rain" ]]; then
+	echo "#0099ff"
+elif [[ "$weather" = "Mostly Cloudy" ]]; then
+	echo "#c8c8c8"
+elif [[ "$weather" = "Cloudy" ]]; then
+	echo "#c0c0c0"
+elif [[ "$weather" = "Dreary (Overcast)" ]]; then
+	echo "#d0d0d0"
+elif [[ "$weather" = "Fog" ]]; then
+	echo "#b0b0b0"
+fi

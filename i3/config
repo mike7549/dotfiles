@@ -172,11 +172,11 @@ workspace $ws5 output HDMI2
 workspace $ws7 output HDMI2
 workspace $ws9 output HDMI2
 
-workspace $ws0 output eDP1
 workspace $ws2 output eDP1
 workspace $ws4 output eDP1
 workspace $ws6 output eDP1
 workspace $ws8 output eDP1
+workspace $ws0 output eDP1
 
 for_window [class="^bomi$"] border none focus
 assign [class="(?i)bomi"] $ws5

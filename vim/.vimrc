@@ -14,6 +14,10 @@ set relativenumber
 set nowrap
 filetype plugin on
 
+if has('nvim')
+	let g:python_host_prog = '/usr/bin/python2'
+	let g:python3_host_prog = '/usr/bin/python'
+endif
 let g:neocomplete#enable_at_startup = 1
 
 let g:go_highlight_functions = 1
@@ -45,3 +49,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:loaded_python_provider = 1
