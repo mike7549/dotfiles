@@ -60,4 +60,4 @@ elif [[ "$weather" = "Fog" ]]; then
 	SYMBOL=''
 fi
 
-echo "<span font = \"Weather Icons\"><b>${SYMBOL}  ${weather}  </b></span><b><i>${temp}</i></b>"
+echo "<span font = \"Weather Icons\"><b>${SYMBOL}</b></span> ${weather} <span font = \"Weather Icons\"><b></b></span><b><i>${temp}</i></b>"
