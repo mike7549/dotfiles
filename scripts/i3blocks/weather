@@ -4,70 +4,60 @@ weather=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&l
 
 temp=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=EUR|AT|AU007|INNSBRUCK" | perl -ne 'use utf8; if (/Currently/) {chomp;/\<title\>Currently: (.*)?\<\/title\>/; my @values=split(":",$1);binmode(STDOUT, ":utf8");print"$values[1]"}')
 
-echo "$weather$temp"
+SYMBOL=""
 
-echo $weather 
-
-#color
-
-if [[ "$weather" = "Clear" ]]; then
-	echo "#ffff00"
-elif [[ "$weather" = "Mostly Clear" ]]; then
-	echo "#ffff99"
-elif [[ "$weather" = "Partly Cloudy" ]]; then
-	echo "#ffffcc"
-elif [[ "$weather" = "Intermittent Clouds" ]]; then
-	echo "#999999"
+if [[ "$weather" = "Clear" ]] || [[  "$weather" = "Mostly Clear" ]]; then
+	SYMBOL=''
+elif [[ "$weather" = "Partly Cloudy" ]] || [[ "$weather" = "Intermittent Clouds" ]]; then
+	SYMBOL=''
 elif [[ "$weather" = "Hazy Moonlight" ]]; then
-	echo "#808080"
-elif [[ "$weather" = "Mostly Cloudy" ]]; then
-	echo "#d3d3d3"
+	SYMBOL=''
 elif [[ "$weather" = "Partly Cloudy W/ Showers" ]]; then
-	echo "#778899"
+	SYMBOL=''
 elif [[ "$weather" = "Mostly Cloudy W/ Showers" ]]; then
-	echo "#a2a9af"
+	SYMBOL=''
 elif [[ "$weather" = "Partly Cloudy W/ T-Storms" ]]; then
-	echo "#272c34"
+	SYMBOL=''
 elif [[ "$weather" = "Mostly Cloudy W/ Flurries" ]]; then
-	echo "#6666cc"
+	SYMBOL=''
 elif [[ "$weather" = "Mostly Cloudy W/ Snow" ]]; then
-	echo "#e8e8e8"
+	SYMBOL=''
 elif [[ "$weather" = "Flurries" ]]; then
-	echo "#6699ff"
+	SYMBOL=''
 elif [[ "$weather" = "Partly Sunny W/ Flurries" ]]; then
-	echo "#6666cc"
+	SYMBOL=''
 elif [[ "$weather" = "Snow" ]]; then
-	echo "#ffffff"
+	SYMBOL=''
 elif [[ "$weather" = "Ice" ]]; then
-	echo "#5ea3b3"
+	SYMBOL=''
 elif [[ "$weather" = "Sleet" ]]; then
-	echo "#6699ff"
+	SYMBOL=''
 elif [[ "$weather" = "Freezing Rain" ]]; then
-	echo "#00cccc"
+	SYMBOL=''
 elif [[ "$weather" = "Rain and Snow" ]]; then
-	echo "#66ccff"
+	SYMBOL=''
 elif [[ "$weather" = "Cold" ]]; then
-	echo "#33ffff"
+	SYMBOL=''
 elif [[ "$weather" = "Windy" ]]; then
-	echo "#ccccff"
+	SYMBOL=''
 elif [[ "$weather" = "Showers" ]]; then
-	echo "#0099ff"
+	SYMBOL=''
 elif [[ "$weather" = "Partly Sunny W/ Showers" ]]; then
-	echo "#a2a9af"
+	SYMBOL=''
 elif [[ "$weather" = "T-Storms" ]]; then
-	echo "#272c34"
+	SYMBOL=''
 elif [[ "$weather" = "Mostly Cloudy W/ T-Storms" ]]; then
-	echo "#272c34"
+	SYMBOL=''
 elif [[ "$weather" = "Partly Sunny W/ T-Storms" ]]; then
-	echo "#272c34"
+	SYMBOL=''
 elif [[ "$weather" = "Rain" ]]; then
-	echo "#0099ff"
-elif [[ "$weather" = "Mostly Cloudy" ]]; then
-	echo "#c8c8c8"
-elif [[ "$weather" = "Cloudy" ]]; then
-	echo "#c0c0c0"
+	SYMBOL=''
+elif [[ "$weather" = "Cloudy" ]] || [[ "$weather" = "Mostly Cloudy" ]]; then
+	SYMBOL=''
 elif [[ "$weather" = "Dreary (Overcast)" ]]; then
-	echo "#d0d0d0"
+	SYMBOL=''
 elif [[ "$weather" = "Fog" ]]; then
-	echo "#b0b0b0"
+	SYMBOL=''
 fi
+
+echo "<span font = \"Weather Icons\"><b>${SYMBOL}  ${weather}  </b></span><b><i>${temp}</i></b>"
