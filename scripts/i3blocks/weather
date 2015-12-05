@@ -6,7 +6,7 @@ temp=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locC
 
 SYMBOL=""
 
-if [[ "$weather" = "Clear" ]] || [[  "$weather" = "Mostly Clear" ]]; then
+if [[ "$weather" = "Clear" ]] || [[  "$weather" = "Mostly Clear" ]] || [[ "$weather" = "Sunny" ]]; then
 	SYMBOL=''
 elif [[ "$weather" = "Partly Cloudy" ]] || [[ "$weather" = "Intermittent Clouds" ]]; then
 	SYMBOL=''

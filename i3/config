@@ -19,7 +19,7 @@ exec_always --no-startup-id setxkbmap de -option ctrl:nocaps
 #exec_always xsetroot -solid "#333333"
 
 #Background Picture
-exec_always --no-startup-id feh --bg-scale /home/michael/dotfiles/Pictures/bgabstract.jpg --bg-scale /home/michael/dotfiles/Pictures/bgDesert.jpg
+exec_always --no-startup-id feh --bg-scale /home/michael/dotfiles/Pictures/bgabstract.jpg --bg-scale /home/michael/dotfiles/Pictures/bgabstract1.jpg
 #exec_always --no-startup-id feh --bg-max --no-xinerama /home/michael/dotfiles/Pictures/bgwSF.jpg
 
 #load Xresources
@@ -201,7 +201,7 @@ bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 moveRcontainer to workspace $ws5
+bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
