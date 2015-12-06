@@ -11,6 +11,7 @@ let g:solarized_termcolor=256
 colorscheme solarized
 set laststatus=2
 set relativenumber
+set number
 set nowrap
 filetype plugin on
 

@@ -28,7 +28,7 @@ fi
 
 # As per #36 -- It is transparent: e.g. if the machine has no battery or wireless
 # connection (think desktop), the corresponding block should not be displayed.
-[[ ! -d /sys/class/net/${IF} ]] && exit
+#[[ ! -d /sys/class/net/${IF} ]] && exit
 
 #------------------------------------------------------------------------
 
@@ -57,5 +57,5 @@ esac
 
 #------------------------------------------------------------------------
 
-echo "$IPADDR" # full text
-echo "$IPADDR" # short text
+echo " $IPADDR" # full text
+echo " $IPADDR" # short text

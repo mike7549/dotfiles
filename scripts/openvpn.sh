@@ -1,6 +1,6 @@
 #!/bin/bash
 
-state=$(pgrep openvpn)
+State=$(pgrep openvpn)
 
 if [ -z "$State" ]; then
 	sudo openvpn --config /home/michael/.tmp/vpn/client.ovpn
