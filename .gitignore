@@ -1,0 +1,4 @@
+# ignoring i3config and i3blocks network script
+
+scripts/i3blocks/network
+i3/config
