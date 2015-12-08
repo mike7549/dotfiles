@@ -166,8 +166,8 @@ set $ws8 8:
 set $ws9 9:
 set $ws0 0:
 
-workspace $ws1 output eDP1
-workspace $ws3 output eDP1
+workspace $ws1 output HDMI2
+workspace $ws3 output HDMI2
 workspace $ws5 output HDMI2
 workspace $ws7 output HDMI2
 workspace $ws9 output HDMI2

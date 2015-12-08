@@ -8,6 +8,8 @@ SYMBOL=""
 
 if [[ "$weather" = "Clear" ]] || [[  "$weather" = "Mostly Clear" ]] || [[ "$weather" = "Sunny" ]]; then
 	SYMBOL=''
+elif [[ "$weather" = "Partly Sunny" ]]; then
+	SYMBOL=''
 elif [[ "$weather" = "Partly Cloudy" ]] || [[ "$weather" = "Intermittent Clouds" ]]; then
 	SYMBOL=''
 elif [[ "$weather" = "Hazy Moonlight" ]]; then
@@ -60,4 +62,4 @@ elif [[ "$weather" = "Fog" ]]; then
 	SYMBOL=''
 fi
 
-echo "<span font = \"Weather Icons\"><b>${SYMBOL}</b></span> ${weather} <span font = \"Weather Icons\"><b></b></span>${temp}"
+echo "<span font = \"Weather Icons\"><b>${SYMBOL}</b></span> ${weather} <span font = \"Weather Icons\"></span>${temp}"

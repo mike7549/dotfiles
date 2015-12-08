@@ -1,4 +1,4 @@
 # ignoring i3config and i3blocks network script
 
-scripts/i3blocks/network
+scripts/i3blocks/wifi
 i3/config
