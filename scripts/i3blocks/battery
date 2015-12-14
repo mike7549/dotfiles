@@ -52,7 +52,7 @@ if ($status eq 'Discharging') {
 } elsif ($status eq 'Charging') {
 	$full_text = "  $percent<small></small>";
 } elsif ($status eq 'Full') {
-	$full_text = " Charged";
+	$full_text = "<i> Charged</i>";
 }	
 
 $short_text = $full_text;
