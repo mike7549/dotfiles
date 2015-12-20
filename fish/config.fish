@@ -9,6 +9,7 @@ alias givepw 'base64 /dev/urandom | head -c 10'
 alias update 'yaourt -Syua --force --noconfirm'
 alias gn 'sleep 1.5h; and poweroff'
 alias vim 'nvim'
+alias x 'atool -x'
 
 set EDITOR vim
 set VISUAL vim

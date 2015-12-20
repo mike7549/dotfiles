@@ -20,7 +20,7 @@ exec_always --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 #exec_always xsetroot -solid "#333333"
 
 #Background Picture
-exec_always --no-startup-id feh --bg-scale /home/michael/dotfiles/Pictures/bgabstract.jpg --bg-scale /home/michael/dotfiles/Pictures/bgabstract1.jpg
+exec_always --no-startup-id feh --bg-scale /home/michael/dotfiles/Pictures/bgabstract.jpg --bg-scale /home/michael/dotfiles/Pictures/bgningai.jpg
 #exec_always --no-startup-id feh --bg-max --no-xinerama /home/michael/dotfiles/Pictures/bgwSF.jpg
 
 #load Xresources
