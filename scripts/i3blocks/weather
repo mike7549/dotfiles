@@ -4,6 +4,7 @@ weather=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&l
 
 temp=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=EUR|AT|AU007|INNSBRUCK" | perl -ne 'use utf8; if (/Currently/) {chomp;/\<title\>Currently: (.*)?\<\/title\>/; my @values=split(":",$1);binmode(STDOUT, ":utf8");print"$values[1]"}')
 
+temp2=${temp//C}
 SYMBOL=""
 
 if [[ "$weather" = "Clear" ]] || [[  "$weather" = "Mostly Clear" ]] || [[ "$weather" = "Sunny" ]]; then
@@ -62,4 +63,26 @@ elif [[ "$weather" = "Fog" ]]; then
 	SYMBOL=''
 fi
 
-echo "<span font = \"Weather Icons\"><b>${SYMBOL}</b></span> <i>${weather}</i> <span font = \"Weather Icons\"></span>${temp}"
+echo "<span font = \"Weather Icons\"><b>${SYMBOL}</b></span> <i>${weather}</i> <span font = \"Weather Icons\"></span>${temp2}<small>°C</small>"
+
+echo $temp2
+
+# color
+
+if [[ $temp2 -le 0 ]]; then
+	echo "#71ccd0"
+elif [[ $temp2 -le 3 ]]; then
+	echo "#c6de86"
+elif [[ $temp2 -le 6 ]]; then
+	echo "#dde566"
+elif [[ $temp2 -le 10 ]]; then
+	echo "#ffe900"
+elif [[ $temp2 -le 15 ]]; then
+	echo "#ffbf0f"
+elif [[ $temp2 -le 20 ]]; then
+	echo "#fcad17"
+elif [[ $temp2 -le 25 ]]; then
+	echo "#f47321"
+elif [[ $temp2 -gt 25 ]]; then
+	echo "#ff0000"
+fi

@@ -27,7 +27,7 @@ exec_always --no-startup-id feh --bg-scale /home/michael/dotfiles/Pictures/bgabs
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/urxvt/Xresources
 
 #Compositor //kills performance
-exec_always --no-startup-id compton -c -C --vsync opengl --config /home/michael/.compton.conf
+exec_always --no-startup-id compton -c -C --vsync drm --config /home/michael/.compton.conf
 
 #telegram
 exec --no-startup-id telegram -startintray
@@ -255,7 +255,7 @@ bindsym $mod+r mode "resize"
 bar {
   status_command i3blocks
   strip_workspace_numbers yes
-  tray_output primary
+#  tray_output primary
   mode dock
   position top
   font pango:Hack,\override Weather Icons, Icons 8
