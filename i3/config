@@ -13,8 +13,7 @@ set $alt Mod1
 exec_always --no-startup-id ~/dotfiles/scripts/configure_xrandr.sh 
 
 #Set Keyboard
-exec_always --no-startup-id setxkbmap de -option ctrl:nocaps
-exec_always --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+exec_always --no-startup-id setxkbmap de -option caps:escape
 
 #Background Color
 #exec_always xsetroot -solid "#333333"
@@ -179,8 +178,7 @@ workspace $ws6 output eDP1
 workspace $ws8 output eDP1
 workspace $ws0 output eDP1
 
-for_window [class="^mpv$"] border none focus
-assign [class="(?i)mpv"] $ws5
+assign [class="(?i)baka-mplayer"] $ws5
 
 #start ranger on $WS2
 #bindsym $mod+m exec i3-msg 'workspace $ws2' && exec termite -e ranger 
