@@ -34,10 +34,10 @@ set shiftwidth=4
 set softtabstop=4
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-syntax on
+syntax enable
 set background=dark
 let g:solarized_termcolor=256
-colorscheme gruvbox
+colorscheme solarized
 set laststatus=2
 set relativenumber
 set number

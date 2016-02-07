@@ -1,10 +1,10 @@
 #! /bin/bash
 
 PRIMARY="eDP1"
-EXT1="HDMI2"
+EXT1="HDMI1"
 
 if ((xrandr | grep "$PRIMARY connected") && (xrandr | grep "$EXT1 connected")); then
-	xrandr --output $PRIMARY --primary --auto --output $EXT1 --auto --left-of $PRIMARY
+	xrandr --output $PRIMARY --primary --auto --output $EXT1 --auto --right-of $PRIMARY
 	echo "EXT1  enabled"
 elif (xrandr | grep "$EXT1 disconnected" && xrandr | grep "$PRIMARY connected"); then
 	xrandr --output $EXT1 --off

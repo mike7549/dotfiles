@@ -33,7 +33,7 @@ exec_always --no-startup-id compton -c -C --vsync drm --config /home/michael/.co
 exec --no-startup-id telegram -startintray
 
 #disable touchpad
-exec --no-startup-id touchpad-state --off
+#exec --no-startup-id touchpad-state --off
 
 #thunderbird
 exec --no-startup-id thunderbird
@@ -179,8 +179,8 @@ workspace $ws6 output eDP1
 workspace $ws8 output eDP1
 workspace $ws0 output eDP1
 
-for_window [class="^bomi$"] border none focus
-assign [class="(?i)bomi"] $ws5
+for_window [class="^mpv$"] border none focus
+assign [class="(?i)mpv"] $ws5
 
 #start ranger on $WS2
 #bindsym $mod+m exec i3-msg 'workspace $ws2' && exec termite -e ranger 

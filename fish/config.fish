@@ -8,8 +8,8 @@ alias cddot 'cd ~/dotfiles/'
 alias givepw 'base64 /dev/urandom | head -c 10'
 alias update 'yaourt -Syua --force --noconfirm'
 alias gn 'sh /home/michael/dotfiles/scripts/gn.sh'
-alias vim 'nvim'
 alias x 'atool -x'
+alias vim 'nvim'
 
 set EDITOR vim
 set VISUAL vim
