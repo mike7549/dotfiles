@@ -11,5 +11,5 @@ function countdown(){
 
 MOV="$(find ~/myDrive/Filme -type f -print0 | xargs -0 ls -t | shuf -n1)"
 baka-mplayer "$MOV" &
-countdown 2
+countdown 5400
 
