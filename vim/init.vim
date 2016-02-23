@@ -42,6 +42,7 @@ set laststatus=2
 set relativenumber
 set number
 set nowrap
+set magic
 
 let g:neocomplete#enable_at_startup = 1
 

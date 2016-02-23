@@ -11,5 +11,6 @@ function countdown(){
 
 MOV="$(find ~/myDrive/Filme -type f -print0 | xargs -0 ls -t | shuf -n1)"
 baka-mplayer "$MOV" &
+sleep 1 && xdotool click --repeat 2 1 &
 countdown 5400
 

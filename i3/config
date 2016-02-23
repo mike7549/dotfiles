@@ -19,8 +19,8 @@ exec_always --no-startup-id setxkbmap de -option caps:escape
 #exec_always xsetroot -solid "#333333"
 
 #Background Picture
-exec_always --no-startup-id feh --bg-scale /home/michael/dotfiles/Pictures/bgabstract.jpg --bg-scale /home/michael/dotfiles/Pictures/bgningai.jpg
-#exec_always --no-startup-id feh --bg-max --no-xinerama /home/michael/dotfiles/Pictures/bgwSF.jpg
+#exec_always --no-startup-id feh --bg-scale /home/michael/dotfiles/Pictures/bgabstract.jpg --bg-scale /home/michael/dotfiles/Pictures/bgningai.jpg
+exec_always --no-startup-id feh --bg-max --no-xinerama /home/michael/dotfiles/Pictures/bgLarge.jpg
 
 #load Xresources
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/urxvt/Xresources
@@ -32,7 +32,7 @@ exec_always --no-startup-id compton -c -C --vsync drm --config /home/michael/.co
 exec --no-startup-id telegram -startintray
 
 #disable touchpad
-#exec --no-startup-id touchpad-state --off
+exec --no-startup-id touchpad-state --off
 
 #thunderbird
 exec --no-startup-id thunderbird
