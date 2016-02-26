@@ -48,6 +48,11 @@ set __GL_THREADED_OPTIMIZATIONS 1
 
 fish_vi_mode
 
+function win_reboot
+	sudo efibootmgr -n 0000
+	reboot
+end
+
 
 function sudo
     if test "$argv" = !!
