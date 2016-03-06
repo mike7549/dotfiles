@@ -1,0 +1,14 @@
+#!/bin/bash
+
+INTERFACE=$(nmcli device | grep ethernet | awk '{print $1;}')
+
+if [ "$1" = "INTERFACE" ]; then
+	case "$2" in
+		up)
+			nmcli r wifi off
+			;;
+		down)
+			nmcli r wifi on
+			;;
+	esac
+fi	
