@@ -30,7 +30,7 @@ SSID=$(nmcli device | grep connected | head -n 1 | awk '{print $4;}')
 if [[ "$SSID" = "--" ]]; then
 	echo "Not connected"
 elif [[ "$SSID" = "Wired" ]]; then
-	echo "<i> Wired Connection</i>"
+	echo "  <i> Wired </i>"
 else
 	echo " <i>$SSID</i>  $QUALITY<small></small>"
 fi
