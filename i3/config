@@ -254,7 +254,7 @@ bindsym $mod+r mode "resize"
 bar {
   status_command i3blocks
   strip_workspace_numbers yes
-#  tray_output primary
+  tray_output primary
   mode dock
   position top
   font pango:Hack,\override Weather Icons, Icons 8
