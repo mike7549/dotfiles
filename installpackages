@@ -1,5 +1,5 @@
 nvidia
-gtk-theme-numix-solarized
+flatplat-theme-git
 nodejs-how2
 ranger
 neovim
@@ -55,7 +55,6 @@ opencl-nvidia
 lib32-opencl-nvidia
 intel-opencl-runtime
 intel-opencl-sdk
-xf86-video-intel
 openal
 lib32-nvidia-utils
 bumblebee
