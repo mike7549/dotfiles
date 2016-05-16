@@ -16,4 +16,6 @@ ln -sf /home/michael/dotfiles/fish/functions/fish_prompt.fish /home/michael/.con
 ln -sf /home/michael/dotfiles/gtk/settings.ini /home/michael/.config/gtk-3.0/settings.ini
 ln -sf /home/michael/dotfiles/.dircolors /home/michael/.dircolors
 ln -sf /home/michael/dotfiles/vim /home/michael/.config/nvim
+ln -sf /home/michael/dotfiles/.compton.conf /home/michael/.compton.conf
+sudo ln -sf /home/michael/dotfiles/.20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 sudo ln -sf /home/michael/dotfiles/scripts/wlan-on /etc/NetworkManager/dispatcher.d/99-wlan

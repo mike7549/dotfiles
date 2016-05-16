@@ -1,7 +1,7 @@
 alias ls 'ls --color=auto'
 alias ll 'ls -l --color=auto'
 alias la 'ls -l -a --color=auto'
-alias inst 'sudo yaourt -S'
+alias inst 'yaourt -S'
 alias uinst 'sudo pacman -Rsnc'
 alias i3conf 'vim ~/.i3/config'
 alias cddot 'cd ~/dotfiles/'
