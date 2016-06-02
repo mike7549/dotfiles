@@ -13,7 +13,6 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'c.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'petRUShka/vim-opencl'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
@@ -37,7 +36,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 syntax enable
 set background=dark
 let g:solarized_termcolor=256
-colorscheme solarized
+colorscheme gruvbox
 set laststatus=2
 set relativenumber
 set number

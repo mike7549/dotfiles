@@ -69,22 +69,3 @@ echo " <span font = \"Weather Icons\"><b>${SYMBOL}</b></span> <i>${weather}</i> 
 
 echo $temp2
 
-# color
-
-if [[ $temp2 -le 0 ]]; then
-	echo "#71ccd0"
-elif [[ $temp2 -le 3 ]]; then
-	echo "#c6de86"
-elif [[ $temp2 -le 6 ]]; then
-	echo "#dde566"
-elif [[ $temp2 -le 10 ]]; then
-	echo "#ffe900"
-elif [[ $temp2 -le 15 ]]; then
-	echo "#ffbf0f"
-elif [[ $temp2 -le 20 ]]; then
-	echo "#fcad17"
-elif [[ $temp2 -le 25 ]]; then
-	echo "#f47321"
-elif [[ $temp2 -gt 25 ]]; then
-	echo "#ff0000"
-fi

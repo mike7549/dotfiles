@@ -15,8 +15,8 @@
 
 
 set -g current_bg NONE
-set segment_separator \uE0B0
-set right_segment_separator \uE0B0
+set segment_separator 
+set right_segment_separator 
 # ===========================
 # Helper methods
 # ===========================
@@ -222,8 +222,8 @@ function fish_prompt
   prompt_virtual_env
   prompt_user
   prompt_dir
-  available hg;  and prompt_hg
-  available git; and prompt_git
-  available svn; and prompt_svn
+  type -q hg;  and prompt_hg
+  type -q git; and prompt_git
+  type -q svn; and prompt_svn
   prompt_finish
 end
