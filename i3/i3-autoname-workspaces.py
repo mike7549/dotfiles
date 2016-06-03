@@ -48,13 +48,25 @@ FA_TERMINAL = '\uf120'
 FA_GAME = '\uf11b'
 FA_STEAM = '\uf1b6'
 FA_VOIP = '\uf2a0'
+FA_MAIL = '\uf003'
 FA_CHAT = '\uf27a'
+FA_PIC = '\uf03e'
+FA_TEXT = '\uf0f6'
 WINDOW_ICONS = {
     'urxvt': FA_TERMINAL,
+    'gimp-2.8': FA_PIC,
+    'kile': FA_TEXT,
+    'libreoffice': FA_TEXT,
+    'Thunderbird': FA_MAIL,
+    'baka-mplayer': FA_VIDEO,
+    'jetbrains-idea': FA_CODE,
+    'Okular': FA_FILE_PDF_O,
+    'jetbrains-studio': FA_CODE,
+    'mtp-ng-qt': FA_FILES_O,
     'termite': FA_TERMINAL,
     'google-chrome': FA_CHROME,
     'chromium': FA_CHROME,
-    'clion' : FA_CODE,
+    'clion': FA_CODE,
     'libreoffice': FA_FILE_TEXT_O,
     'feh': FA_PICTURE_O,
     'mupdf': FA_FILE_PDF_O,

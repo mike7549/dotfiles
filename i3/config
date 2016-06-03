@@ -181,7 +181,7 @@ workspace $ws6 output HDMI-2
 workspace $ws8 output HDMI-2
 workspace $ws0 output HDMI-2
 
-assign [class="(?i)baka-mplayer"] $ws5
+assign [class="(?i)baka-mplayer"] $ws4
 for_window [class="(?i)baka-mplayer"] focus
 
 #start ranger on $WS2
