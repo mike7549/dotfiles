@@ -51,8 +51,12 @@ FA_VOIP = '\uf2a0'
 FA_MAIL = '\uf003'
 FA_CHAT = '\uf27a'
 FA_PIC = '\uf03e'
+FA_DL = '\uf019'
 FA_TEXT = '\uf0f6'
+FA_VOL = '\uf028'
 WINDOW_ICONS = {
+    'Pavucontrol' : FA_VOL,
+    'qBittorrent' : FA_DL,
     'urxvt': FA_TERMINAL,
     'gimp-2.8': FA_PIC,
     'kile': FA_TEXT,
