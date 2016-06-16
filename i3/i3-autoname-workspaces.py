@@ -70,7 +70,7 @@ WINDOW_ICONS = {
     'termite': FA_TERMINAL,
     'google-chrome': FA_CHROME,
     'chromium': FA_CHROME,
-    'clion': FA_CODE,
+    'jetbrains-clion': FA_CODE,
     'libreoffice': FA_FILE_TEXT_O,
     'feh': FA_PICTURE_O,
     'mupdf': FA_FILE_PDF_O,
