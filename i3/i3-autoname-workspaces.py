@@ -58,7 +58,7 @@ WINDOW_ICONS = {
     'Pavucontrol' : FA_VOL,
     'qBittorrent' : FA_DL,
     'urxvt': FA_TERMINAL,
-    'gimp-2.8': FA_PIC,
+    'gimp': FA_PIC,
     'kile': FA_TEXT,
     'libreoffice': FA_TEXT,
     'Thunderbird': FA_MAIL,

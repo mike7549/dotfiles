@@ -207,6 +207,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Dou you want to quit?' -b 'Exit i3' 'i3-msg exit' -b 'Reboot' 'reboot' -b 'Shutdown' 'poweroff' -b 'Suspend' 'sudo systemctl suspend'"
 
+mouse_warping none
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -255,7 +257,7 @@ bar {
     statusline #b16286
     focused_workspace	#d65d0e #282828 #d65d0e
     active_workspace	#ebdbb2 #282828 #ebdbb2
-    inactive_workspace	#ebdbb2 #282828 #ebdbb2
+    inactive_workspace	#928374 #282828 #928374
     urgent_workspace	#cc241d #cc241d #282828
   }
 }
