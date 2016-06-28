@@ -256,7 +256,7 @@ bar {
     statusline #b16286
     focused_workspace	#d65d0e #282828 #d65d0e
     active_workspace	#ebdbb2 #282828 #ebdbb2
-    inactive_workspace	#ebdbb2 #282828 #ebdbb2
+    inactive_workspace	#928374 #282828 #928374
     urgent_workspace	#cc241d #cc241d #282828
   }
 }
