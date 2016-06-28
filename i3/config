@@ -12,8 +12,9 @@ set $alt Mod1
 #Monitor
 exec_always --no-startup-id ~/dotfiles/scripts/configure_xrandr.sh 
 
-#Set Keyboard
+#Set Keyboard/Mouse
 exec_always --no-startup-id setxkbmap de -option caps:escape
+exec_always --no-startup-id synclient TapButton1=1
 
 #Background Color
 #exec_always xsetroot -solid "#333333"
@@ -157,7 +158,7 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-assign [class="(?i)baka-mplayer"] $ws4
+assign [class="(?i)baka-mplayer"] 4
 for_window [class="(?i)baka-mplayer"] focus
 
 #start ranger on $WS2
