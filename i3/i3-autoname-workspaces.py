@@ -48,7 +48,7 @@ FA_TERMINAL = '\uf120'
 FA_GAME = '\uf11b'
 FA_STEAM = '\uf1b6'
 FA_VOIP = '\uf2a0'
-FA_MAIL = '\uf003'
+FA_MAIL = '\uf0e0'
 FA_CHAT = '\uf27a'
 FA_PIC = '\uf03e'
 FA_DL = '\uf019'
@@ -58,7 +58,7 @@ WINDOW_ICONS = {
     'Pavucontrol' : FA_VOL,
     'qBittorrent' : FA_DL,
     'urxvt': FA_TERMINAL,
-    'gimp-2.8': FA_PIC,
+    'gimp': FA_PIC,
     'kile': FA_TEXT,
     'libreoffice': FA_TEXT,
     'Thunderbird': FA_MAIL,
