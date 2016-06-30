@@ -94,6 +94,8 @@ alias i3conf="vim $DOTFILES/i3/config"
 alias cddot="cd $DOTFILES"
 alias givepw='base64 /dev/urandom | head -c 10'
 alias ccmake='cmake . && make'
+alias gn='sh ~/dotfiles/scripts/gn.sh'
+alias x='atool -x'
 
 autoload -Uz compinit -u
 compinit -u
