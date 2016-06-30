@@ -11,12 +11,11 @@ sudo mkdir -p "$rootdir/.config/ranger/"
 ln -sf $dotfiles/ranger/rc.conf $homedir/.config/ranger/rc.conf
 ln -sf $dotfiles/zsh/.zshrc $homedir/.zshrc
 ln -sf $dotfiles/vim/init.vim $homedir/.vimrc
-ln -sf $dotfiles/.xinitrc $homedir/.xinitrc
+ln -sf $dotfiles/xorg/.xinitrc $homedir/.xinitrc
 ln -sf $dotfiles/termite/config $homedir/.config/termite/config
 ln -sf $dotfiles/i3/config $homedir/.i3/config
 ln -sf $dotfiles/i3/i3blocks.conf $homedir/.i3blocks.conf
-ln -sf $dotfiles/urxvt/Xresources $homedir/.Xresources
-ln -sf $dotfiles/urxvt/Xdefaults $homedir/.Xdefaults
+ln -sf $dotfiles/xorg/Xresources $homedir/.Xresources
 ln -sf $dotfiles/.bashrc $homedir/.bashrc
 ln -sf $dotfiles/gtk/settings.ini $homedir/.config/gtk-3.0/settings.ini
 ln -sf $dotfiles/.dircolors $homedir/.dircolors
