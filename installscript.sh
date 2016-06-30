@@ -14,7 +14,7 @@ makepkg -s -i
 
 
 #install all the dotfile dependecies
-pacaur -S $(cat dotfiles/dependency.txt)
+pacaur -S $(cat $dotdir/dependency.txt)
 
 #zsh installation
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -26,7 +26,7 @@ rm ~/.zshrc
 
 #vim
 git clone https://github.com/VundleVim/Vundle.vim.git $dotdir/vim/bundle/Vundle.vim
-vim -c PluginInstall -c :q -c :q
+vim -c :PluginInstall -c :q -c :q
 
 sudo npm install -g typescript
 cd ~/dotfiles/vim/bundle/YouCompleteMe
