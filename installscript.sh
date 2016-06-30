@@ -1,12 +1,12 @@
 #!/bin/bash
 
-dotdir='~/dotfiles'
+dotdir="/home/$USER/dotfiles"
 #update System before starting
 sudo pacman -Syu wget
 
 #pacaur
-git clone https://aur.archlinux.org/cower.git /tmp
-git clone https://aur.archlinux.org/pacaur.git /tmp
+git clone https://aur.archlinux.org/cower.git /tmp/cower
+git clone https://aur.archlinux.org/pacaur.git /tmp/pacaur
 cd /tmp/cower/
 makepkg -s -i 
 cd /tmp/pacaur/
@@ -24,6 +24,8 @@ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh
 
 rm ~/.zshrc
 
+sh $dotdir/installDotfiles.sh
+
 #vim
 git clone https://github.com/VundleVim/Vundle.vim.git $dotdir/vim/bundle/Vundle.vim
 vim -c :PluginInstall -c :q -c :q
@@ -40,4 +42,3 @@ sudo pip install i3ipc
 sudo chsh -s /usr/bin/zsh
 
 
-sh $dotdir/installDotfiles.sh
