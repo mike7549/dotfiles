@@ -28,6 +28,7 @@ sudo ln -sf $dotfiles/scripts/wlan-on /etc/NetworkManager/dispatcher.d/99-wlan
 sudo ln -sf $dotfiles/ranger/rc.conf $rootdir/.config/ranger/rc.conf
 sudo ln -sf $dotfiles/zsh/.zshrc $rootdir/.zshrc
 sudo ln -sf $dotfiles/vim/init.vim $rootdir/.vimrc
+sudo ln -sf $dotfiles/.resolv.conf	/etc/resolv.conf
 
 sudo sh -c "if [ -d $rootdir/dotfiles ]; then sudo rm -rf $rootdir/dotfiles; fi"
 sudo ln -s $dotfiles $rootdir/dotfiles
