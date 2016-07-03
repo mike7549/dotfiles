@@ -58,8 +58,8 @@ bindsym $mod+m exec termite -e ranger
 bindsym $mod+$alt+d exec ~/dotfiles/scripts/configure_xrandr.sh 
 
 #BrightnessControl
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 40
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 40
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 25 -s "intel_backlight"
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 25 -s "intel_backlight"
 
 #window gaps
 new_window pixel 3
