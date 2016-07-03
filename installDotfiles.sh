@@ -19,6 +19,7 @@ ln -sf $dotfiles/xorg/Xresources $homedir/.Xresources
 ln -sf $dotfiles/.bashrc $homedir/.bashrc
 ln -sf $dotfiles/.dircolors $homedir/.dircolors
 ln -sf $dotfiles/.compton.conf $homedir/.compton.conf
+ln -sf $dotfiles/zsh/.zlogin $homedir/.zlogin
 
 #ln -sf $dotfiles/fish/config.fish $homedir/.config/fish/config.fish
 #ln -sf $dotfiles/fish/functions/fish_prompt.fish $homedir/.config/fish/functions/fish_prompt.fish
