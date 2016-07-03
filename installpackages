@@ -4,7 +4,7 @@ valgrind
 gdb
 pmount
 ntfs-3g
-kile
+texstudio
 intel-opencl-runtime
 intel-opencl-sdk
 android-studio
@@ -31,10 +31,10 @@ telegram-desktop-bin
 thunderbird
 dolphin-emu
 mupen64plus
-okular
-ebook-tools
+evince
 baka-mplayer
 android-file-transfer
 chromium-pepper-flash
 chromium-widevine
-
+ckb-git-latest
+python-steamcontroller-git
