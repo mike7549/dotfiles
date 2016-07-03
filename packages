@@ -3,6 +3,7 @@ chromium
 pmount
 ntfs-3g
 texstudio
+texlive-most
 intel-opencl-runtime
 intel-opencl-sdk
 android-tools
