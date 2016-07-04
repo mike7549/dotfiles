@@ -1,1 +1,1 @@
-nvidia primus lib32-primus opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils bumblebee nvidia-utils
+nvidia opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils nvidia-utils nvidia-xrun
