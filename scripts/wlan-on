@@ -1,14 +1,11 @@
 #!/bin/bash
 
 INTERFACE=$(nmcli device | grep ethernet | awk '{print $1;}')
+IFACE_STATE=$(cat /sys/class/net/$INTERFACE/operstate)
 
-if [ "$1" = "INTERFACE" ]; then
-	case "$2" in
-		up)
-			nmcli r wifi off
-			;;
-		down)
-			nmcli r wifi on
-			;;
-	esac
+if [ "$IFACE_STATE" = "up" ]; 
+	then
+		nmcli r wifi off	
+	else
+		nmcli r wifi on
 fi	
