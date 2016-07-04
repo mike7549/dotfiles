@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 source ~/dotfiles/zsh/colors.zsh
 source ~/dotfiles/zsh/dotfiles.zsh
+source ~/dotfiles/zsh/functions
 export ZSH="$HOMEDIR/.oh-my-zsh"
 
 # Set name of the theme to load.
