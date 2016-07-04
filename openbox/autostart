@@ -7,5 +7,5 @@ feh --bg-max --no-xinerama ~/dotfiles/Pictures/bgLarge.jpg &
 #set screens
 ~/dotfiles/scripts/configure_xrandr.sh &
 xset -dpms s off &
-
+xset r rate 200 50
 
