@@ -1,4 +1,14 @@
-# ignoring i3config and i3blocks network script
-
-scripts/i3blocks/wifi
-i3/config
+ranger/history
+vim/.vim/bundle/gruvbox
+vim/.vim/bundle/cvim
+vim/.vim/bundle/vim-airline
+vim/.vim/bundle/vim-surround
+vim/.vim/bundle/vim-fugitive
+vim/.vim/bundle/auto-pairs
+vim/.vim/bundle/LaTeX-Box
+vim/.vim/bundle/neocomplete.vim
+vim/.vim/bundle/vim-go
+vim/.vim/bundle
+vim/.vim/bundle/
+vim/bundle
+vim/undo
