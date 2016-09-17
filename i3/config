@@ -29,7 +29,7 @@ exec_always --no-startup-id feh --bg-scale /home/michael/dotfiles/Pictures/bgabs
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/xorg/Xresources
 
 #Compositor //kills performance
-exec_always --no-startup-id compton -c -C --vsync opengl-oml --backend glx --config /home/michael/.compton.conf
+exec_always --no-startup-id compton -c -C --vsync drm --backend glx --paint-on-overlay --unredir-if-possible --config /home/michael/.compton.conf
 
 exec_always --no-startup-id python /home/michael/dotfiles/i3/i3-autoname-workspaces.py &
 
@@ -88,6 +88,8 @@ floating_modifier $mod
 #start browser
 bindsym $mod+c exec chromium
 
+bindsym $mod+g exec "~/dotfiles/scripts/dmenu_search.sh -g"
+bindsym $mod+y exec "~/dotfiles/scripts/dmenu_search.sh -y"
 #open current clipboard link in mpv (for example youtube)
 bindsym $mod+p exec mpv $(xclip -o)
 
@@ -98,7 +100,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -w 620 -l 6 -o 0.8 -x 19 -y 19  -i -nf '#ebdbb2' -nb '#282828' -sb '#ebdbb2' -sf '#d65d0e' -fn 'Hack-9'" --term="i3-sensible-terminal"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -p '>' -w 620 -l 6 -o 1 -x 19 -y 19  -i -nf '#ebdbb2' -nb '#282828' -sb '#a89984' -sf '#32302f' -fn 'Hack-12'"
 
 #border 2pixel
 gaps inner 2

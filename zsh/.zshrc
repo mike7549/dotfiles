@@ -80,8 +80,8 @@ export ARCHFLAGS="-arch x86_64"
 #
 # Example aliases
 alias ls='ls --color=auto'
-alias ll='ls -l --color=auto'
-alias la='ls -l -a --color=auto'
+alias ll='ls -lh --color=auto'
+alias la='ls -lha --color=auto'
 
 alias inst='pacaur -S'
 alias instll='pacaur -S'

@@ -20,7 +20,7 @@ pacaur -S $(cat $dotdir/dependency.txt)
 #zsh installation
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.config/oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
 
@@ -34,7 +34,7 @@ vim -c :PluginInstall -c :q -c :q
 
 sudo npm install -g typescript
 cd ~/dotfiles/vim/bundle/YouCompleteMe
-./install.py --all
+./install.py --clang-completer --system-libclang --system-boost
 
 
 

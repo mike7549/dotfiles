@@ -11,6 +11,7 @@ sudo mkdir -p "$rootdir/.config/ranger/"
 ln -sf $dotfiles/ranger/rc.conf $homedir/.config/ranger/rc.conf
 ln -sf $dotfiles/zsh/.zshrc $homedir/.zshrc
 ln -sf $dotfiles/vim/init.vim $homedir/.vimrc
+ln -sf $dotfiles/vim/init.vim $homedir/.config/nvim/init.vim
 ln -sf $dotfiles/xorg/.xinitrc $homedir/.xinitrc
 ln -sf $dotfiles/termite/config $homedir/.config/termite/config
 ln -sf $dotfiles/i3/i3blocks.conf $homedir/.i3blocks.conf
@@ -19,9 +20,7 @@ ln -sf $dotfiles/.bashrc $homedir/.bashrc
 ln -sf $dotfiles/.dircolors $homedir/.dircolors
 ln -sf $dotfiles/.compton.conf $homedir/.compton.conf
 ln -sf $dotfiles/zsh/.zlogin $homedir/.zlogin
-
-#ln -sf $dotfiles/fish/config.fish $homedir/.config/fish/config.fish
-#ln -sf $dotfiles/fish/functions/fish_prompt.fish $homedir/.config/fish/functions/fish_prompt.fish
+ln -sf $dotfiles/mpv.conf $homedir/.config/mpv/mpv.conf
 
 sudo touch /etc/NetworkManager/dispatcher.d/99-wlan
 sudo ln -sf $dotfiles/scripts/wlan-on /etc/NetworkManager/dispatcher.d/99-wlan
