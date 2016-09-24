@@ -109,8 +109,8 @@ smart_gaps on
 smart_borders on
 
 for_window [class="Steam"] floating enable
-for_window [class="baka-mplayer"] floating enable
-for_window [class="baka-mplayer"] sticky enable
+for_window [class="mpv"] floating enable
+for_window [class="mpv"] sticky enable
 
 # change focus
 bindsym $mod+h focus left
