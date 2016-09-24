@@ -55,6 +55,7 @@ FA_DL = '\uf019'
 FA_TEXT = '\uf0f6'
 FA_VOL = '\uf028'
 WINDOW_ICONS = {
+    'evince' : FA_FILE_PDF_O,
     'Pavucontrol' : FA_VOL,
     'qBittorrent' : FA_DL,
     'urxvt': FA_TERMINAL,

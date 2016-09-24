@@ -108,6 +108,10 @@ gaps outer 1
 smart_gaps on
 smart_borders on
 
+for_window [class="Steam"] floating enable
+for_window [class="baka-mplayer"] floating enable
+for_window [class="baka-mplayer"] sticky enable
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
