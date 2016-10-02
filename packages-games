@@ -1,7 +1,5 @@
 wine-staging
 dolphin-emu
 steam
-steam-libs
-mupen64plus
+steam-native-runtime
 ckb-git-latest
-python-steamcontroller-git
