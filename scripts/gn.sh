@@ -9,7 +9,7 @@ function countdown(){
    `poweroff`
 }
 
-MOV="$(find ~/myDrive/Filme -type f -print0 | xargs -0 ls -t | shuf -n1)"
+MOV="$(find ~/ext/myDrive/Filme -type f -print0 | xargs -0 ls -t | shuf -n1)"
 baka-mplayer "$MOV" &
 sleep 1 && xdotool click --repeat 2 1 &
 pacaur -Syu --noconfirm && pacaur -Syua --noconfirm
