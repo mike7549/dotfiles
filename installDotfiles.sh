@@ -20,6 +20,9 @@ ln -sf $dotfiles/.dircolors $homedir/.dircolors
 ln -sf $dotfiles/.compton.conf $homedir/.compton.conf
 ln -sf $dotfiles/zsh/.zlogin $homedir/.zlogin
 ln -sf $dotfiles/mpv.conf $homedir/.config/mpv/mpv.conf
+ln -sf $dotfiles/.xdg/user-dirs.dirs $homedir/.config/user-dirs.dirs
+sudo ln -sf $dotfiles/.xdg/user-dirs.defaults /etc/xdg/user-dirs/defaults
+
 
 sudo touch /etc/NetworkManager/dispatcher.d/99-wlan
 sudo ln -sf $dotfiles/scripts/wlan-on /etc/NetworkManager/dispatcher.d/99-wlan
