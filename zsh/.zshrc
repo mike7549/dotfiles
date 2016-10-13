@@ -92,6 +92,12 @@ alias updatea='pacaur -Syua --noconfirm --devel && pacaur -Syu --noconfirm --dev
 alias search='pacaur -Ss'
 alias searchr='pacman -Ss'
 
+alias dd='sudo dd status=progress bs=4M'
+alias vim='nvim'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
 alias i3conf="vim $DOTFILES/i3/config"
 alias cddot="cd $DOTFILES"
 alias givepw='base64 /dev/urandom | head -c 10'
