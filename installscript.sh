@@ -32,7 +32,6 @@ rm ~/.zshrc
 
 #vim
 sudo pip3 install neovim
-nvim 
 
 sudo npm install -g typescript
 
