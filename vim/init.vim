@@ -2,26 +2,31 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set shell=/bin/bash
 
-set rtp+=~/dotfiles/vim/bundle/Vundle.vim
-call vundle#begin('$DOTFILES/vim/bundle')
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
 
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'VundleVim/Vundle.vim'
 
 
-Plugin 'vim-latex/vim-latex'
-Plugin 'c.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'petRUShka/vim-opencl'
-Plugin 'dantler/vim-alternate'
-Plugin 'morhetz/gruvbox'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'ervandew/supertab'
-Plugin 'JesseKPhillips/d.vim'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'Shougo/deoplete.nvim'
+Plug 'vim-latex/vim-latex'
+Plug 'c.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'petRUShka/vim-opencl'
+Plug 'dantler/vim-alternate'
+Plug 'morhetz/gruvbox'
+Plug 'easymotion/vim-easymotion'
+Plug 'ervandew/supertab'
+Plug 'JesseKPhillips/d.vim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 let g:python_host_prog = '/usr/bin/python2.7'

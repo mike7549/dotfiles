@@ -29,18 +29,12 @@ rm ~/.zshrc
 sh $dotdir/installDotfiles.sh
 
 #vim
-git clone https://github.com/VundleVim/Vundle.vim.git $dotdir/vim/bundle/Vundle.vim
-vim -c :PluginInstall -c :q -c :q
+sudo pip3 install neovim
+nvim 
 
 sudo npm install -g typescript
-cd ~/dotfiles/vim/bundle/YouCompleteMe
-./install.py --clang-completer --system-libclang --system-boost
-
-
 
 #other installations
 yes | sudo sensors-detect
 sudo pip install i3ipc
 sudo chsh -s /usr/bin/zsh
-
-

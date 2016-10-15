@@ -93,7 +93,6 @@ alias search='pacaur -Ss'
 alias searchr='pacman -Ss'
 
 alias dd='sudo dd status=progress bs=4M'
-alias vim='nvim'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -104,6 +103,10 @@ alias givepw='base64 /dev/urandom | head -c 10'
 alias ccmake='cmake . && make'
 alias gn='sh ~/dotfiles/scripts/gn.sh'
 alias x='atool -x'
+
+alias reload='source ~/.zshrc'
+
+source ~/dotfiles/zsh/functions
 
 autoload -Uz compinit -u
 compinit -u
