@@ -9,9 +9,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
-
-
 Plug 'vim-latex/vim-latex'
 Plug 'c.vim'
 Plug 'scrooloose/nerdtree'

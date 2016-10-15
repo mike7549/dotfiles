@@ -17,6 +17,7 @@ makepkg -s -i
 #install all the dotfile dependecies
 pacaur -S $(cat $dotdir/dependency.txt)
 
+sudo chsh -s /usr/bin/zsh
 #zsh installation
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
@@ -38,4 +39,3 @@ sudo npm install -g typescript
 #other installations
 yes | sudo sensors-detect
 sudo pip install i3ipc
-sudo chsh -s /usr/bin/zsh
