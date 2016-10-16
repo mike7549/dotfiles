@@ -18,10 +18,6 @@ makepkg -s -i
 pacaur -S $(cat $dotdir/dependency.txt)
 
 sudo chsh -s /usr/bin/zsh
-#zsh installation
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-
-
 sh $dotdir/installDotfiles.sh
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
@@ -38,3 +34,8 @@ sudo npm install -g typescript
 #other installations
 yes | sudo sensors-detect
 sudo pip install i3ipc
+
+
+#zsh installation
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+vim -c :UpdateRemotePlugins -c :q -c :q
