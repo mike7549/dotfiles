@@ -39,3 +39,4 @@ sudo pip install i3ipc
 #zsh installation
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 vim -c :UpdateRemotePlugins -c :q -c :q
+sudo ln -sf $dotdir/.resolv.conf /etc/resolv.conf

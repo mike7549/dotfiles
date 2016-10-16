@@ -88,6 +88,7 @@ floating_modifier $mod
 #start browser
 bindsym $mod+c exec chromium
 
+bindsym $mod+i exec nmcli_dmenu
 bindsym $mod+g exec "~/dotfiles/scripts/dmenu_search.sh -g"
 bindsym $mod+y exec "~/dotfiles/scripts/dmenu_search.sh -y"
 #open current clipboard link in mpv (for example youtube)
