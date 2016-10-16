@@ -16,14 +16,14 @@ exec_always --no-startup-id ~/dotfiles/scripts/configure_xrandr.sh
 exec_always --no-startup-id setxkbmap de -option caps:escape
 exec_always --no-startup-id synclient TapButton1=1
 
-exec_always --no-startup-id ckb -b
+#exec_always --no-startup-id ckb -b
 
 #Background Color
 #exec_always xsetroot -solid "#333333"
 
 #Background Picture
-#exec_always --no-startup-id feh --randomize --bg-scale /home/michael/dotfiles/Pictures/bg*
-exec_always --no-startup-id feh --randomize --bg-max --no-xinerama ~/dotfiles/Pictures/wbg*
+exec_always --no-startup-id feh --randomize --bg-scale /home/michael/dotfiles/Pictures/bg*
+#exec_always --no-startup-id feh --randomize --bg-max --no-xinerama ~/dotfiles/Pictures/wbg*
 
 #load Xresources
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/xorg/Xresources
