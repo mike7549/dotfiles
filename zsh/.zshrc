@@ -88,7 +88,7 @@ alias instll='pacaur -S'
 alias uinst='pacaur -Rsnc'
 alias uninstall='pacaur -Rsnc'
 alias update='pacaur -Syu --noconfirm && pacaur -Syua --noconfirm'
-alias updatea='pacaur -Syua --noconfirm --devel && pacaur -Syu --noconfirm --devel'
+alias updatea='pacaur -Syua --noconfirm --devel'
 alias search='pacaur -Ss'
 alias searchr='pacman -Ss'
 
