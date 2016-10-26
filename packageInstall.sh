@@ -12,10 +12,10 @@ echo -e "${RED}5. Packages for Gaming"
 echo -e "${RED}6. Packages for Dedicated Graphics Card"
 echo -e "${RED}7. XMG specific"
 echo -e "${RED}8. Others"
-echo -e "${RED}q. quit${NC}"
+echo -e "${RED}9. quit${NC}"
 
 while read input; do
-	if [ $input -ge 1 -a $input -le 6 ]; then
+	if [ $input -ge 1 -a $input -le 8 ]; then
 		case $input in
 		"1")
 		echo -e "${GREEN}Installing General Packages${NC}"
@@ -31,11 +31,11 @@ while read input; do
 		;;
 		"4")
 		echo -e "${GREEN}Installing Android IDE${NC}"
-		pacaur -S android-platform android-sdk-build-tools android-sdk-platform-tools android-sdk android-studioi
+		pacaur -S android-platform android-sdk-build-tools android-sdk-platform-tools android-sdk android-studio 
 		;;
 		"5")
 		echo -e "${GREEN}Installing Gaming Packages${NC}"
-		pacaur -S dolphin-emu steam steam-native-runtime 
+		pacaur -S dolphin-emu steam steam-native-runtime wine-staging
 		;;
 		"6")
 		echo -e "${GREEN}Installing Nvidia Packages${NC}"
@@ -51,7 +51,8 @@ while read input; do
 		;;
 		esac
 		break
-	elif [ $input == q ]; then
+	elif [ $input = 9 ]; then
+		echo -e "${GREEN}Exiting..${NC}"
 		break
 	else
 		echo "invalid option, try again"
