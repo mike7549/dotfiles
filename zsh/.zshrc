@@ -96,6 +96,8 @@ alias dd='sudo dd status=progress bs=4M'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias pcp='rsync -aP'
+alias mvp='rsync -aP --remove-source-files' 
 
 alias i3conf="vim $DOTFILES/i3/config"
 alias cddot="cd $DOTFILES"

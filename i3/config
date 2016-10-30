@@ -87,6 +87,7 @@ floating_modifier $mod
 
 #start browser
 bindsym $mod+c exec chromium
+bindsym $mod+b exec chromium --incognito
 
 bindsym $mod+i exec nmcli_dmenu
 bindsym $mod+g exec "~/dotfiles/scripts/dmenu_search.sh -g"
@@ -109,9 +110,9 @@ gaps outer 1
 smart_gaps on
 smart_borders on
 
-for_window [class="Steam"] floating enable
-for_window [class="mpv"] floating enable
-for_window [class="mpv"] sticky enable
+#for_window [class="Steam"] floating enable
+#for_window [class="mpv"] floating enable
+#for_window [class="mpv"] sticky enable
 
 # change focus
 bindsym $mod+h focus left
