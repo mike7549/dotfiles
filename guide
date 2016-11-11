@@ -1,0 +1,26 @@
+VT Autologin:
+sudo systemctl edit getty@tty1
+add following lines:
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
+
+rEFInd manual boot entries:
+add: scanfor manual, external
+
+menuentry Arch {
+	icon Path/to/Icon
+	loader vmlinuz-linux
+	initrd initramfs-linux.img
+	options "rw root=UUID=... quiet initrd=intel-ucode.img initrd=initramfs-linux.img"
+}
+
+menuentry Win {
+	icon Path/to/icon
+	loader path/to/loader/bootmgfw.efi
+}
+
+NetworkManger disable autocreation of resolv.conf:
+change dns=none in /etc/NetworkManager/NetworkManager.conf
+
+

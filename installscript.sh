@@ -18,6 +18,7 @@ makepkg -s -i
 pacaur -S $(cat $dotdir/dependency.txt)
 
 sudo chsh -s /usr/bin/zsh
+chsh -s /usr/bin/zsh
 sh $dotdir/installDotfiles.sh
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
@@ -35,8 +36,9 @@ sudo npm install -g typescript
 yes | sudo sensors-detect
 sudo pip install i3ipc
 
+sudo systemctl enable NetworkManager.service
+sudo systemctl start NetworkManager.service
 
 #zsh installation
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-vim -c :UpdateRemotePlugins -c :q -c :q
 sudo ln -sf $dotdir/.resolv.conf /etc/resolv.conf
