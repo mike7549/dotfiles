@@ -23,4 +23,5 @@ menuentry Win {
 NetworkManger disable autocreation of resolv.conf:
 change dns=none in /etc/NetworkManager/NetworkManager.conf
 
-
+fstab automount drives:
+UUID=... /path/to/mountpoint ntfs-3g(or whatever fs) nofail,auto,noatime,rw 0 0

@@ -19,6 +19,9 @@ Plug 'dantler/vim-alternate'
 Plug 'morhetz/gruvbox'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
+Plug 'posva/vim-vue'
+Plug 'tpope/vim-sleuth'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JesseKPhillips/d.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -95,3 +98,9 @@ let g:ycm_autoclose_preview_window_after_instertion = 1
 let g:ycm_confirm_extra_conf = 0
 
 let g:deoplete#enable_at_startup = 1
+
+" ctrlp
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }

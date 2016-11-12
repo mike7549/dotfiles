@@ -27,7 +27,7 @@ exec_always --no-startup-id feh --randomize --bg-max --no-xinerama ~/dotfiles/Pi
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/xorg/Xresources
 
 #Compositor //kills performance
-exec_always --no-startup-id compton -c -C --vsync opengl-swc --backend glx --paint-on-overlay --unredir-if-possible --config /home/michael/.compton.conf
+exec_always --no-startup-id compton -c -C --opengl --vsync opengl-swc --backend glx --paint-on-overlay -b --unredir-if-possible --config /home/michael/.compton.conf
 
 exec_always --no-startup-id python /home/michael/dotfiles/i3/i3-autoname-workspaces.py &
 

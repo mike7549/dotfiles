@@ -39,7 +39,7 @@ while read input; do
 		;;
 		"6")
 		echo -e "${GREEN}Installing Nvidia Packages${NC}"
-		pacaur -S nvidia opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils nvidia-utils 
+		pacaur -S nvidia opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils nvidia-utils nvidia-settings nvidia-libgl lib32-libvdpau libvdpau 
 		;;
 		"7")
 		echo -e "${GREEN}Installing XMG Packages${NC}"
