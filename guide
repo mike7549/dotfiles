@@ -25,3 +25,6 @@ change dns=none in /etc/NetworkManager/NetworkManager.conf
 
 fstab automount drives:
 UUID=... /path/to/mountpoint ntfs-3g(or whatever fs) nofail,auto,noatime,rw 0 0
+
+mogrify -format pdf -- *.jpg -> converts multiple jpg files to pdf
+mergepdf: gs -dBATCH -dNOPAUSE -q -SDEVICE=pdfwrite -sOutputFile=....pdf file1.pdf file2.pdf

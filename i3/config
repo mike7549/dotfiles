@@ -144,7 +144,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
+bindsym $mod+Shift+s sticky toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -155,12 +155,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 assign [class="(?i)baka-mplayer"] 4
 for_window [class="(?i)baka-mplayer"] focus
@@ -188,18 +182,21 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 0
 
-# workspaces on different outputs
-workspace 1 output eDP-1
-workspace 3 output eDP-1
-workspace 5 output eDP-1
-workspace 7 output eDP-1
-workspace 9 output eDP-1
+set $D1 DVI-D-1
+set $D2 HDMI-1
 
-workspace 2 output HDMI-2
-workspace 4 output HDMI-2
-workspace 6 output HDMI-2
-workspace 8 output HDMI-2
-workspace 0 output HDMI-2
+# workspaces on different outputs
+workspace 1 output $D1
+workspace 3 output $D1
+workspace 5 output $D1
+workspace 7 output $D1
+workspace 9 output $D1
+
+workspace 2 output $D2
+workspace 4 output $D2
+workspace 6 output $D2
+workspace 8 output $D2
+workspace 0 output $D2
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
