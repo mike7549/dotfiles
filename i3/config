@@ -182,7 +182,7 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 0
 
-set $D1 DVI-D-1
+set $D1 HDMI-0
 set $D2 HDMI-1
 
 # workspaces on different outputs
