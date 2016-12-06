@@ -5,10 +5,13 @@ rootdir='/root'
 dotfiles="$homedir/dotfiles"
 
 mkdir -p "$homedir/.config/termite/"
-mkdir -p "$homedir/.config/ranger/"
+
 sudo mkdir -p "$rootdir/.config/ranger/"
 
+
 ln -sf $dotfiles/ranger/rc.conf $homedir/.config/ranger/rc.conf
+mkdir -p $homedir/.config/ranger/ && touch $homedir/.config/ranger/rifle.conf
+ln -sf $dotfiles/ranger/rifle.conf 
 ln -sf $dotfiles/zsh/.zshrc $homedir/.zshrc
 touch $homedir/.vimrc
 ln -sf $dotfiles/vim/init.vim $homedir/.vimrc
