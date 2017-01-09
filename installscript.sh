@@ -21,14 +21,20 @@ sudo chsh -s /usr/bin/zsh
 chsh -s /usr/bin/zsh
 sh $dotdir/installDotfiles.sh
 
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussel/oh-my-zsh/master/tools/install.sh -O -)"
+
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
 
 rm ~/.zshrc
 
+#Nvim
+
 #vim
-sudo pip3 install neovim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
+mkdir -p $dotdir/vim/deinvim
+sh /tmp/installer.sh $dotdir/vim/deinvim/
 
 sudo npm install -g typescript
 

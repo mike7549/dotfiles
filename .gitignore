@@ -12,3 +12,4 @@ vim/.vim/bundle
 vim/.vim/bundle/
 vim/bundle
 vim/undo
+vim/deinvim/*

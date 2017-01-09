@@ -84,8 +84,8 @@ font pango:Hack 6
 floating_modifier $mod
 
 #start browser
-bindsym $mod+c exec chromium
-bindsym $mod+b exec chromium --incognito
+bindsym $mod+c exec firefox
+bindsym $mod+b exec firefox -private-window
 
 bindsym $mod+i exec nmcli_dmenu
 bindsym $mod+g exec "~/dotfiles/scripts/dmenu_search.sh -g"
