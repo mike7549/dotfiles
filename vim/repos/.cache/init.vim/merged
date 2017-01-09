@@ -1,2 +1,0 @@
-100
-['Easymotion/vim-easymotion', 'JesseKPhillips/d.vim', 'Shougo/dein.vim', 'Shougo/deoplete.nvim', 'Shougo/neoinclude.vim', 'Yggdroot/indentLine', 'bling/vim-airline', 'ctrlpvim/ctrlp.vim', 'dantler/vim-alternate', 'ervandew/supertab', 'jeetsukumaran/vim-buffergator', 'jiangmiao/auto-pairs', 'morhetz/gruvbox', 'petRUShka/vim-opencl', 'posva/vim-vue', 'scrooloose/nerdtree', 'tikhomirov/vim-glsl', 'tpope/vim-sleuth', 'vim-latex/vim-latex', 'zchee/deoplete-clang']
