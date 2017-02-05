@@ -5,49 +5,33 @@ endif
 filetype off                  " required
 set shell=/bin/zsh
 
-"if empty(glob('~/.config/nvim/autoload/plug.vim'))
-"	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"	autocmd VimEnter * PlugInstall
-"endif
-"call plug#begin('~/.config/nvim/plugged')
-"Plug 'c.vim
-"call plug#end()            " required
-
-" Required:
-set runtimepath+=/home/michael/dotfiles/vim/deinvim/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('home/michael/dotfiles/vim/deinvim/repos')
-call dein#begin('/home/michael/dotfiles/vim/deinvim/repos')
-call dein#add('Shougo/dein.vim')
-call dein#add('vim-latex/vim-latex')
-call dein#add('bling/vim-airline')
-call dein#add('petRUShka/vim-opencl')
-call dein#add('dantler/vim-alternate')
-call dein#add('morhetz/gruvbox')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('ervandew/supertab')
-call dein#add('scrooloose/nerdtree')
-call dein#add('Easymotion/vim-easymotion')
-call dein#add('JesseKPhillips/d.vim')
-call dein#add('posva/vim-vue')
-call dein#add('tikhomirov/vim-glsl')
-call dein#add('tpope/vim-sleuth')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('zchee/deoplete-clang')
-call dein#add('Shougo/neoinclude.vim')
-call dein#add('jiangmiao/auto-pairs')
-call dein#add('jeetsukumaran/vim-buffergator')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('Yggdroot/indentLine')
-call dein#end()
-call dein#save_state()
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
 endif
 
-"check on startupp for non installed plugins
-if dein#check_install()
-  call dein#install()
-endif
+call plug#begin('~/.config/nvim/plugged')
+Plug 'c.vim'
+Plug 'vim-latex/vim-latex'
+Plug 'bling/vim-airline'
+Plug 'petRUShka/vim-opencl'
+Plug 'dantler/vim-alternate'
+Plug 'morhetz/gruvbox'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle'}
+Plug 'Easymotion/vim-easymotion'
+Plug 'JesseKPhillips/d.vim'
+Plug 'posva/vim-vue'
+Plug 'tikhomirov/vim-glsl'
+Plug 'tpope/vim-sleuth'
+Plug 'Shougo/deoplete.nvim', {'do':':UpdateRemotePlugins'}
+Plug 'zchee/deoplete-clang'
+Plug 'Shougo/neoinclude.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Yggdroot/indentLine'
+call plug#end()            " required
 
 filetype plugin indent on    " required
 
@@ -128,7 +112,7 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 "deoplete
-call deoplete#enable()
+let g:deoplete#enable_at_startup = 1
 
 "deoplete clang
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'

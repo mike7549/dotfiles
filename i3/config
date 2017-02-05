@@ -20,8 +20,8 @@ exec_always --no-startup-id synclient TapButton1=1
 #exec_always xsetroot -solid "#333333"
 
 #Background Picture
-exec_always --no-startup-id feh --randomize --bg-scale /home/michael/dotfiles/Pictures/bg*
-#exec_always --no-startup-id feh --randomize --bg-max --no-xinerama ~/dotfiles/Pictures/wbg*
+#exec_always --no-startup-id feh --randomize --bg-scale /home/michael/dotfiles/Pictures/bg*
+exec_always --no-startup-id feh --randomize --bg-max --no-xinerama ~/dotfiles/Pictures/wbg*
 
 #load Xresources
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/xorg/Xresources
@@ -156,8 +156,8 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-assign [class="(?i)baka-mplayer"] 4
-for_window [class="(?i)baka-mplayer"] focus
+assign [class="(?i)smplayer"] 4
+for_window [class="(?i)smplayer"] focus
 # switch to workspace bindsym $mod+1 workspace $ws1
 bindsym $mod+1 workspace number 1 
 bindsym $mod+2 workspace number 2

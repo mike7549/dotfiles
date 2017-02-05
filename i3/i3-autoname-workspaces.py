@@ -64,6 +64,7 @@ WINDOW_ICONS = {
     'kile': FA_TEXT,
     'libreoffice': FA_TEXT,
     'Thunderbird': FA_MAIL,
+    'smplayer': FA_VIDEO,
     'baka-mplayer': FA_VIDEO,
     'jetbrains-idea': FA_CODE,
     'Okular': FA_FILE_PDF_O,

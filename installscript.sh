@@ -29,13 +29,6 @@ git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/
 
 rm ~/.zshrc
 
-#Nvim
-
-#vim
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
-mkdir -p $dotdir/vim/deinvim
-sh /tmp/installer.sh $dotdir/vim/deinvim/
-
 sudo npm install -g typescript
 
 #other installations

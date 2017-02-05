@@ -12,6 +12,8 @@ ln -sf $dotfiles/openbox/autostart $homedir/.config/openbox/autostart
 ln -sf $dotfiles/openbox/menu.xml $homedir/.config/openbox/menu.xml
 ln -sf $dotfiles/openbox/rc.xml $homedir/.config/openbox/rc.xml
 
+ln -sf $dotfiles/smplayer/smplayer.ini $homedir/.config/smplayer/smplayer.ini
+ln -sf $dotfiles/smplayer/styles.ass $homedir/.config/smplayer/styles.ass
 ln -sf $dotfiles/ranger/rc.conf $homedir/.config/ranger/rc.conf
 mkdir -p $homedir/.config/ranger/ && touch $homedir/.config/ranger/rifle.conf
 ln -sf $dotfiles/ranger/rifle.conf $homedir/.config/ranger/rifle.conf
@@ -41,6 +43,5 @@ sudo ln -sf $dotfiles/vim/init.vim $rootdir/.vimrc
 
 sudo sh -c "if [ -d $rootdir/dotfiles ]; then sudo rm -rf $rootdir/dotfiles; fi"
 sudo ln -s $dotfiles $rootdir/dotfiles
-
-echo "export DOTFILES=$dotfiles" > $dotfiles/zsh/dotfiles.zsh
+ !echo "export DOTFILES=$dotfiles" > $dotfiles/zsh/dotfiles.zsh
 echo "export HOMEDIR=$homedir" >> $dotfiles/zsh/dotfiles.zsh
