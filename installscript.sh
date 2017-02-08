@@ -31,6 +31,11 @@ rm ~/.zshrc
 
 sudo npm install -g typescript
 
+sudo pip2 install neovim
+sudo pip3 install neovim
+nvim -u $dotdir/vim/init.vim -c :PlugInstall -c :q -c :q
+sudo nvim -u $dotdir/vim/init.vim -c :PlugInstall -c :q -c :q
+
 #other installations
 yes | sudo sensors-detect
 sudo pip install i3ipc
