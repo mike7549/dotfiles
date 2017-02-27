@@ -11,25 +11,51 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'c.vim'
-Plug 'vim-latex/vim-latex'
-Plug 'bling/vim-airline'
-Plug 'petRUShka/vim-opencl'
 Plug 'dantler/vim-alternate'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
 Plug 'morhetz/gruvbox'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle'}
-Plug 'Easymotion/vim-easymotion'
 Plug 'JesseKPhillips/d.vim'
-Plug 'posva/vim-vue'
-Plug 'tikhomirov/vim-glsl'
-Plug 'tpope/vim-sleuth'
-Plug 'Shougo/neoinclude.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-dispatch'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Chiel92/vim-autoformat'
+Plug 'rdnetto/YCM-Generator'
+Plug 'xolox/vim-easytags', { 'for': ['html', 'vue.html.javascript.css'] }
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'vue.html.javascript.css'] }
+Plug 'xolox/vim-misc'
+Plug 'majutsushi/tagbar'
+" highlighting
+Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' } 
+Plug 'petRUShka/vim-opencl', { 'for': 'opencl' }
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'vue.html.javascript.css'] }
+Plug 'posva/vim-vue', { 'for': 'vue.html.javascript.css' }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue.html.javascript.css'] }
+Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'othree/html5.vim', { 'for': ['html', 'vue.html.javascript.css'] }
+Plug 'luochen1990/rainbow'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+Plug 'bling/vim-airline'
+Plug 'w0rp/ale'
+Plug 'rdnetto/YCM-Generator'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'drmikehenry/vim-fixkey'
 call plug#end()            " required
 
 filetype plugin indent on    " required

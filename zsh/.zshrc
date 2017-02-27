@@ -116,3 +116,5 @@ autoload -Uz compinit -u
 compinit -u
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
