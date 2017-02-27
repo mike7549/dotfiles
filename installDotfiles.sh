@@ -31,7 +31,7 @@ mkdir -p $homedir/.config/mpv/ && touch $homedir/.config/mpv/mpv.conf
 ln -sf $dotfiles/.mpv.conf $homedir/.config/mpv/mpv.conf
 mkdir -p $homedir/.config/networkmanager-dmenu && touch $homedir/.config/networkmanager-dmenu/config.ini
 ln -sf $dotfiles/.config.ini $homedir/.config/networkmanager-dmenu/config.ini
-
+sudo ln -sf $dotfiles/.pacaur.config /etc/xdg/pacaur/config
 
 sudo touch /etc/NetworkManager/dispatcher.d/99-wlan
 sudo ln -sf $dotfiles/scripts/wlan-on /etc/NetworkManager/dispatcher.d/99-wlan
