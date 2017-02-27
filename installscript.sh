@@ -35,9 +35,5 @@ sudo npm install -g typescript
 yes | sudo sensors-detect
 sudo pip install i3ipc
 
-sudo systemctl enable NetworkManager.service
-sudo systemctl start NetworkManager.service
-
 #zsh installation
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-sudo ln -sf $dotdir/.resolv.conf /etc/resolv.conf

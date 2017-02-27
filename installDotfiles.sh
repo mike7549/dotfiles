@@ -7,13 +7,13 @@ dotfiles="$homedir/dotfiles"
 mkdir -p "$homedir/.config/termite/"
 
 sudo mkdir -p "$rootdir/.config/ranger/"
-mkdir -p "$homedir.config/openbox/"
-ln -sf $dotfiles/openbox/autostart $homedir/.config/openbox/autostart
-ln -sf $dotfiles/openbox/menu.xml $homedir/.config/openbox/menu.xml
-ln -sf $dotfiles/openbox/rc.xml $homedir/.config/openbox/rc.xml
+#mkdir -p "$homedir/.config/openbox/"
+#ln -sf $dotfiles/openbox/autostart $homedir/.config/openbox/autostart
+#ln -sf $dotfiles/openbox/menu.xml $homedir/.config/openbox/menu.xml
+#ln -sf $dotfiles/openbox/rc.xml $homedir/.config/openbox/rc.xml
 
-ln -sf $dotfiles/smplayer/smplayer.ini $homedir/.config/smplayer/smplayer.ini
-ln -sf $dotfiles/smplayer/styles.ass $homedir/.config/smplayer/styles.ass
+#ln -sf $dotfiles/smplayer/smplayer.ini $homedir/.config/smplayer/smplayer.ini
+#ln -sf $dotfiles/smplayer/styles.ass $homedir/.config/smplayer/styles.ass
 ln -sf $dotfiles/ranger/rc.conf $homedir/.config/ranger/rc.conf
 mkdir -p $homedir/.config/ranger/ && touch $homedir/.config/ranger/rifle.conf
 ln -sf $dotfiles/ranger/rifle.conf $homedir/.config/ranger/rifle.conf
@@ -29,12 +29,8 @@ ln -sf $dotfiles/.compton.conf $homedir/.compton.conf
 ln -sf $dotfiles/zsh/.zlogin $homedir/.zlogin
 mkdir -p $homedir/.config/mpv/ && touch $homedir/.config/mpv/mpv.conf
 ln -sf $dotfiles/.mpv.conf $homedir/.config/mpv/mpv.conf
-mkdir -p $homedir/.config/networkmanager-dmenu && touch $homedir/.config/networkmanager-dmenu/config.ini
-ln -sf $dotfiles/.config.ini $homedir/.config/networkmanager-dmenu/config.ini
 sudo ln -sf $dotfiles/.pacaur.config /etc/xdg/pacaur/config
 
-sudo touch /etc/NetworkManager/dispatcher.d/99-wlan
-sudo ln -sf $dotfiles/scripts/wlan-on /etc/NetworkManager/dispatcher.d/99-wlan
 sudo ln -sf $dotfiles/ranger/rc.conf $rootdir/.config/ranger/rc.conf
 sudo ln -sf $dotfiles/ranger/rifle.conf $rootdir/.config/ranger/rifle.conf
 sudo ln -sf $dotfiles/zsh/.zshrc $rootdir/.zshrc
@@ -43,5 +39,5 @@ sudo ln -sf $dotfiles/vim/init.vim $rootdir/.vimrc
 
 sudo sh -c "if [ -d $rootdir/dotfiles ]; then sudo rm -rf $rootdir/dotfiles; fi"
 sudo ln -s $dotfiles $rootdir/dotfiles
- !echo "export DOTFILES=$dotfiles" > $dotfiles/zsh/dotfiles.zsh
+echo "export DOTFILES=$dotfiles" > $dotfiles/zsh/dotfiles.zsh
 echo "export HOMEDIR=$homedir" >> $dotfiles/zsh/dotfiles.zsh

@@ -106,8 +106,8 @@ alias ccmake='cmake . && make'
 alias gn='sh ~/dotfiles/scripts/gn.sh'
 alias x='atool -x'
 
-alias vim='sudo nvim -u $DOTFILES/vim/init.vim'
-
+alias nvim='sudo nvim -u $DOTFILES/vim/init.vim'
+alias vim='nvim -u $DOTFILES/vim/init.vim'
 alias reload='source ~/.zshrc'
 
 source ~/dotfiles/zsh/functions

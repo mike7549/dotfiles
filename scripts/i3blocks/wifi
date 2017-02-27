@@ -17,15 +17,14 @@
 #------------------------------------------------------------------------
 
 #INTERFACE="${BLOCK_INSTANCE:-wlp2s0}"
-INTERFACE=$(nmcli device | grep connected | head -n 1 | awk '{print $1;}')
-
+INTERFACE=$(iw dev | grep Interface | head -n 1 | awk '{print $2;}')
 #------------------------------------------------------------------------
 
 QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
 #------------------------------------------------------------------------
 
-SSID=$(nmcli device | grep connected | head -n 1 | awk '{print $4;}')
+SSID=$(iw dev $INTERFACE link | grep SSID | awk '{print $2;}')
  
 if [[ "$SSID" = "--" ]]; then
 	echo "Not connected"

@@ -19,7 +19,7 @@ while read input; do
 		case $input in
 		"1")
 		echo -e "${GREEN}Installing General Packages${NC}"
-		pacaur -S chromium qbittorrent gdb valgrind  android-tools android-udev jre8-openjdk jre8-openjdk-headless telegram-desktop-bin thunderbird evince smplayer smplayer-skins smtube chromium-widevine
+		pacaur -S firefox chromium qbittorrent gdb valgrind  android-tools android-udev jre8-openjdk jre8-openjdk-headless telegram-desktop-bin thunderbird evince smplayer smplayer-skins smtube chromium-widevine
 		;;
 		"2")
 		echo -e "${GREEN}Installing latex IDE${NC}"
@@ -39,7 +39,7 @@ while read input; do
 		;;
 		"6")
 		echo -e "${GREEN}Installing Nvidia Packages${NC}"
-		pacaur -S nvidia opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils nvidia-utils nvidia-settings nvidia-libgl lib32-libvdpau libvdpau lib32-nvidia-libgl
+		pacaur -S nvidia opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils nvidia-utils nvidia-settings lib32-libvdpau libvdpau 
 		;;
 		"7")
 		echo -e "${GREEN}Installing XMG Packages${NC}"
