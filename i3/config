@@ -32,10 +32,10 @@ exec_always --no-startup-id compton -c -C --opengl --vsync opengl-swc --backend 
 exec_always --no-startup-id python /home/michael/dotfiles/i3/i3-autoname-workspaces.py &
 
 #telegram
-exec --no-startup-id telegram-desktop -startintray
+#exec --no-startup-id telegram-desktop -startintray
 
 #thunderbird
-exec --no-startup-id thunderbird
+#exec --no-startup-id thunderbird
 
 #redshift
 exec --no-startup-id redshift -l 47.267:11.383

@@ -20,73 +20,10 @@ menuentry Win {
 	loader path/to/loader/bootmgfw.efi
 }
 
+NetworkManger disable autocreation of resolv.conf:
+change dns=none in /etc/NetworkManager/NetworkManager.conf
+
 fstab automount drives:
 UUID=... /path/to/mountpoint ntfs-3g(or whatever fs) nofail,auto,noatime,rw 0 0
 
 mogrify -format pdf -- *.jpg -> converts multiple jpg files to pdf
-
-Systemd as wifi:
-
-# /etc/systemd/network/wireless.network
-[Match]
-Name=wl*
-
-[Network]
-DHCP=yes
-RouteMetric=20
-IPv6PrivacyExtensions=true
-## to use static IP uncomment these instead of DHCP
-#DNS=192.168.1.254
-#Address=192.168.1.87/24
-#Gateway=192.168.1.254
-
-/etc/wpa_supplicant/wpa_supplicant-wlp1s0.conf
-
-# /etc/wpa_supplicant/wpa_supplicant-wlp1s0.conf
-ctrl_interface=/var/run/wpa_supplicant
-ctrl_interface_group=wheel
-update_config=1
-eapol_version=1
-ap_scan=1
-fast_reauth=1
-
-Optional: to make networkd also manage your wired connection, also create
-/etc/systemd/network/wired.network
-
-# /etc/systemd/network/wired.network
-[Match]
-Name=en*
-
-[Network]
-DHCP=yes
-RouteMetric=10
-IPv6PrivacyExtensions=true
-## to use static IP uncomment these instead of DHCP
-#DNS=192.168.1.254
-#Address=192.168.1.87/24
-#Gateway=192.168.1.254
-
-2) Disable networkmanager, connman, wicd or any other service you might have managing your internet. For network manager, the command is
-
-sudo systemctl disable networkmanager
-sudo systemctl stop networkmanager
-
-I also had to uninstall networkmanager to prevent it from autostarting, but that might not be the case for you. Many packages, such as gnome, depend on networkmanager.
-
-3) Run following commands to enable right services and replace your resolv.conf with a symlink to systemd folder. Again, replace wlp1s0 with the name of your interface.
-
-sudo -i
-rm /etc/resolv.conf
-systemctl enable systemd-networkd 
-systemctl enable wpa_supplicant@wlp1s0
-systemctl enable systemd-resolved
-systemctl start systemd-networkd
-systemctl start wpa_supplicant@wlp1s0
-systemctl start systemd-resolved
-ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
-
-4) Add your wifi to your configuration with
-
-set +o history
-sudo wpa_passphrase <ESSID> <passphrase> >> /etc/wpa_supplicant/wpa_supplicant-wlp1s0.conf
-set -o history
