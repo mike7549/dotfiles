@@ -26,6 +26,8 @@ ln -sf $dotfiles/.compton.conf $homedir/.compton.conf
 ln -sf $dotfiles/zsh/.zlogin $homedir/.zlogin
 mkdir -p $homedir/.config/mpv/ && touch $homedir/.config/mpv/mpv.conf
 ln -sf $dotfiles/.mpv.conf $homedir/.config/mpv/mpv.conf
+mkdir -p $homedir/.config/networkmanager-dmenu && touch $homedir/.config/networkmanager-dmenu/config.ini
+ln -sf $dotfiles/.config.ini $homedir/.config/networkmanager-dmenu/config.ini
 
 sudo ln -sf $dotfiles/.pacaur.config /etc/xdg/pacaur/config
 sudo ln -sf $dotfiles/ranger/rc.conf $rootdir/.config/ranger/rc.conf

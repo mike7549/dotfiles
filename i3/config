@@ -83,6 +83,9 @@ font xft:Hack 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+#dmenu network
+bindsym $mod+i exec networkmanager_dmenu
+
 #start browser
 bindsym $mod+c exec firefox
 bindsym $mod+b exec firefox -private-window
