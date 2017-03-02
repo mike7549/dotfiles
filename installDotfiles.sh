@@ -29,6 +29,8 @@ ln -sf $dotfiles/.mpv.conf $homedir/.config/mpv/mpv.conf
 mkdir -p $homedir/.config/networkmanager-dmenu && touch $homedir/.config/networkmanager-dmenu/config.ini
 ln -sf $dotfiles/.config.ini $homedir/.config/networkmanager-dmenu/config.ini
 
+sudo touch /etc/NetworkManager/dispatcher.d/99-wlan
+sudo ln -sf $dotfiles/scripts/wlan-on /etc/NetworkManager/dispatcher.d/99-wlan
 sudo ln -sf $dotfiles/.pacaur.config /etc/xdg/pacaur/config
 sudo ln -sf $dotfiles/ranger/rc.conf $rootdir/.config/ranger/rc.conf
 sudo ln -sf $dotfiles/ranger/rifle.conf $rootdir/.config/ranger/rifle.conf
