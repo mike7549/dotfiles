@@ -52,7 +52,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions history-substring-search zsh-directory-history dirhistory vi-mode zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions history-substring-search zsh-directory-history dirhistory zsh-syntax-highlighting)
 
 # User configuration
 
@@ -65,7 +65,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='nvim -u $DOTFILES/vim/init.vim'
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -106,8 +106,8 @@ alias ccmake='cmake . && make'
 alias gn='sh ~/dotfiles/scripts/gn.sh'
 alias x='atool -x'
 
-alias vim='sudo nvim -u $DOTFILES/vim/init.vim'
-
+alias nvim='sudo nvim -u $DOTFILES/vim/init.vim'
+alias vim='nvim -u $DOTFILES/vim/init.vim'
 alias reload='source ~/.zshrc'
 
 source ~/dotfiles/zsh/functions

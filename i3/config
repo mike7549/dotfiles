@@ -32,10 +32,10 @@ exec_always --no-startup-id compton -c -C --opengl --vsync opengl-swc --backend 
 exec_always --no-startup-id python /home/michael/dotfiles/i3/i3-autoname-workspaces.py &
 
 #telegram
-exec --no-startup-id telegram-desktop -startintray
+#exec --no-startup-id telegram-desktop -startintray
 
 #thunderbird
-exec --no-startup-id thunderbird
+#exec --no-startup-id thunderbird
 
 #redshift
 exec --no-startup-id redshift -l 47.267:11.383
@@ -83,11 +83,13 @@ font xft:Hack 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+#dmenu network
+bindsym $mod+i exec networkmanager_dmenu
+
 #start browser
 bindsym $mod+c exec firefox
 bindsym $mod+b exec firefox -private-window
 
-bindsym $mod+i exec nmcli_dmenu
 bindsym $mod+g exec "~/dotfiles/scripts/dmenu_search.sh -g"
 bindsym $mod+y exec "~/dotfiles/scripts/dmenu_search.sh -y"
 #open current clipboard link in mpv (for example youtube)
@@ -183,6 +185,7 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 0
 
 set $D1 HDMI-0
+#set $D1 eDP-1
 set $D2 HDMI-1
 
 # workspaces on different outputs
