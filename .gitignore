@@ -13,3 +13,5 @@ vim/.vim/bundle/
 vim/bundle
 vim/undo
 vim/deinvim/repos
+zsh/dotfiles.zsh
+

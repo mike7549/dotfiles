@@ -84,13 +84,10 @@ alias ll='ls -lh --color=auto'
 alias la='ls -lha --color=auto'
 
 alias inst='pacaur -S'
-alias instll='pacaur -S'
 alias uinst='pacaur -Rsnc'
-alias uninstall='pacaur -Rsnc'
-alias update='pacaur -Syu --noconfirm && pacaur -Syua --noconfirm'
-alias updatea='pacaur -Syua --noconfirm --devel'
+alias update='pacaur -Syu --noconfirm --noedit'
+alias updatea='pacaur -Syu --noconfirm --noedit --devel'
 alias search='pacaur -Ss'
-alias searchr='pacman -Ss'
 
 alias dd='sudo dd status=progress bs=4M'
 alias ..='cd ..'
@@ -116,3 +113,5 @@ autoload -Uz compinit -u
 compinit -u
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

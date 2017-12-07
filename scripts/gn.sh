@@ -10,8 +10,8 @@ function countdown(){
 }
 
 MOV="$(find ~/ext/myDrive/Filme -type f -print0 | xargs -0 ls -t | shuf -n1)"
-smplayer "$MOV" &
+baka-mplayer "$MOV" &
 sleep 1 && xdotool click --repeat 2 1 &
-pacaur -Syu --noconfirm && pacaur -Syua --noconfirm
+pacaur -Syu --noconfirm --noedit
 countdown 5400
 

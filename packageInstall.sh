@@ -19,7 +19,7 @@ while read input; do
 		case $input in
 		"1")
 		echo -e "${GREEN}Installing General Packages${NC}"
-		pacaur -S firefox chromium qbittorrent gdb valgrind  android-tools android-udev jre8-openjdk jre8-openjdk-headless telegram-desktop-bin thunderbird evince smplayer smplayer-skins smtube chromium-widevine
+		pacaur -S firefox chromium qbittorrent gdb valgrind  android-tools android-udev jre8-openjdk jre8-openjdk-headless evince chromium-widevine
 		;;
 		"2")
 		echo -e "${GREEN}Installing latex IDE${NC}"
@@ -40,14 +40,6 @@ while read input; do
 		"6")
 		echo -e "${GREEN}Installing Nvidia Packages${NC}"
 		pacaur -S nvidia opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils nvidia-utils nvidia-settings lib32-libvdpau libvdpau 
-		;;
-		"7")
-		echo -e "${GREEN}Installing XMG Packages${NC}"
-		pacaur -S nvidia-xrun
-		;;
-		"8")
-		echo -e "${GREEN}Installing Other Packages${NC}"
-		pacaur -S rtl8812au_rtl8821au-dkms-git ckb-git-latest
 		;;
 		esac
 		break

@@ -3,7 +3,7 @@ if &compatible
 endif
 
 filetype off                  " required
-set shell=/bin/zsh
+set shell=/usr/bin/fish
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -12,9 +12,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'dantler/vim-alternate'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
 Plug 'morhetz/gruvbox'
-Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle'}
 Plug 'JesseKPhillips/d.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -26,7 +24,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Chiel92/vim-autoformat'
-Plug 'rdnetto/YCM-Generator'
 Plug 'xolox/vim-easytags', { 'for': ['html', 'vue.html.javascript.css'] }
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'vue.html.javascript.css'] }
 Plug 'xolox/vim-misc'
@@ -52,7 +49,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'bling/vim-airline'
 Plug 'w0rp/ale'
-Plug 'rdnetto/YCM-Generator'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'drmikehenry/vim-fixkey'

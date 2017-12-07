@@ -20,22 +20,16 @@ exec_always --no-startup-id synclient TapButton1=1
 #exec_always xsetroot -solid "#333333"
 
 #Background Picture
-#exec_always --no-startup-id feh --randomize --bg-scale /home/michael/dotfiles/Pictures/bg*
-exec_always --no-startup-id feh --randomize --bg-max --no-xinerama ~/dotfiles/Pictures/wbg*
+exec_always --no-startup-id feh --randomize --bg-scale /home/michael/dotfiles/Pictures/bg*
+#exec_always --no-startup-id feh --randomize --bg-max --no-xinerama ~/dotfiles/Pictures/wbg*
 
 #load Xresources
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/xorg/Xresources
 
 #Compositor //kills performance
-exec_always --no-startup-id compton -c -C --opengl --vsync opengl-swc --backend glx --paint-on-overlay -b --unredir-if-possible --config /home/michael/.compton.conf
+exec_always --no-startup-id compton --config $dotdir/compton/compton.conf
 
 exec_always --no-startup-id python /home/michael/dotfiles/i3/i3-autoname-workspaces.py &
-
-#telegram
-#exec --no-startup-id telegram-desktop -startintray
-
-#thunderbird
-#exec --no-startup-id thunderbird
 
 #redshift
 exec --no-startup-id redshift -l 47.267:11.383
@@ -49,7 +43,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 #bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle  && killall -SIGUSR1 i3status
 
 #Lock
-bindsym $mod+$alt+l exec ~/dotfiles/scripts/lock.sh
+bindsym $mod+$alt+l exec ~/dotfiles/scripts/i3lock.sh
 
 #Ranger
 bindsym $mod+m exec termite -e ranger
@@ -87,8 +81,10 @@ floating_modifier $mod
 bindsym $mod+i exec networkmanager_dmenu
 
 #start browser
-bindsym $mod+c exec firefox
-bindsym $mod+b exec firefox -private-window
+bindsym $mod+c exec firejail --seccomp firefox
+bindsym $mod+b exec firejail --seccomp firefox -private-window
+
+bindsym $mod+s exec sh $dotdir/scripts/i3_settings.sh
 
 bindsym $mod+g exec "~/dotfiles/scripts/dmenu_search.sh -g"
 bindsym $mod+y exec "~/dotfiles/scripts/dmenu_search.sh -y"
@@ -184,8 +180,7 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 0
 
-set $D1 HDMI-0
-#set $D1 eDP-1
+set $D1 eDP-1
 set $D2 HDMI-1
 
 # workspaces on different outputs
