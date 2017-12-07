@@ -2,12 +2,9 @@ if &compatible
 	set nocompatible              " be iMproved, required
 endif
 
-filetype off                  " required
-set shell=/usr/bin/fish
-
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.config/nvim/plugged')
@@ -53,12 +50,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'drmikehenry/vim-fixkey'
 call plug#end()            " required
-
-filetype plugin indent on    " required
-
-syntax enable
-
-"let g:python_host_prog = '/usr/bin/python2.7'
 
 let mapleader = ","
 let g:mapleader = ","

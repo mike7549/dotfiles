@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DMENU="dmenu -i -x 1320 -y 830 -l 9 -h 50 -w 1000 -p > -nf $color15 -nb $color0 -sb $color0 -sf $color7 -o 0.8 -dim 0.1 -dc $color0 -fn 'Hack-16'"
+DMENU="dmenu -b -i -l 10 -w 640 -p > -nf #ebdbb2 -nb #181818 -sb #a89984 -sf #32302f -fn 'Hack-12'"
 ACTION="$(printf "Audio Options\ni3 Options\nSystem Options\nGoodnight\nBack\n" | $DMENU $*)"
 
 

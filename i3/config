@@ -65,7 +65,7 @@ new_float pixel 3
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font xft:Hack 9
+font xft:Hack 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -84,7 +84,7 @@ bindsym $mod+i exec networkmanager_dmenu
 bindsym $mod+c exec firejail --seccomp firefox
 bindsym $mod+b exec firejail --seccomp firefox -private-window
 
-bindsym $mod+s exec sh $dotdir/scripts/i3_settings.sh
+bindsym $mod+s exec "~/dotfiles/scripts/i3_settings.sh"
 
 bindsym $mod+g exec "~/dotfiles/scripts/dmenu_search.sh -g"
 bindsym $mod+y exec "~/dotfiles/scripts/dmenu_search.sh -y"
@@ -98,7 +98,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -p '>' -w 640 -l 6 -o 0.9 -b  -i -nf '#ebdbb2' -nb '#282828' -sb '#a89984' -sf '#32302f' -fn 'Hack-12'"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -p '>' -w 640 -l 6 -o 0.9 -b -i -nf '#ebdbb2' -nb '#181818' -sb '#a89984' -sf '#32302f' -fn 'Hack-12'"
 
 #border 2pixel
 gaps inner 2
@@ -144,7 +144,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+s sticky toggle
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -154,8 +154,8 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-assign [class="(?i)smplayer"] 4
-for_window [class="(?i)smplayer"] focus
+assign [class="(?i)baka-mplayer"] 4
+for_window [class="(?i)baka-mplayer"] focus
 # switch to workspace bindsym $mod+1 workspace $ws1
 bindsym $mod+1 workspace number 1 
 bindsym $mod+2 workspace number 2

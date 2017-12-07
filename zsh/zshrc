@@ -2,13 +2,13 @@
 source ~/dotfiles/zsh/colors.zsh
 source ~/dotfiles/zsh/dotfiles.zsh
 source ~/dotfiles/zsh/functions
-export ZSH="$HOMEDIR/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="gnzh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -62,10 +62,10 @@ export PATH="/usr/bin/:/usr/local/bin/:/usr/local/sbin:/usr/sbin/:/usr/bin/core_
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='nvim -u $DOTFILES/vim/init.vim'
+export EDITOR='nvim -u ~/dotfiles/vim/init.vim'
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -103,8 +103,8 @@ alias ccmake='cmake . && make'
 alias gn='sh ~/dotfiles/scripts/gn.sh'
 alias x='atool -x'
 
-alias nvim='sudo nvim -u $DOTFILES/vim/init.vim'
-alias vim='nvim -u $DOTFILES/vim/init.vim'
+alias nvim='sudo nvim -u ~/dotfiles/vim/init.vim'
+alias vim='nvim -u ~/dotfiles/vim/init.vim'
 alias reload='source ~/.zshrc'
 
 source ~/dotfiles/zsh/functions

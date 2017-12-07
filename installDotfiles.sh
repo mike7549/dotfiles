@@ -16,6 +16,8 @@ ln -sf $dotfiles/vim/init.vim $homedir/.config/nvim/init.vim
 ln -sf $dotfiles/xorg/xinitrc $homedir/.xinitrc
 ln -sf $dotfiles/config/compton.conf $homedir/.compton.conf
 ln -sf $dotfiles/termite/config $homedir/.config/termite/config
+ln -sf $dotfiles/i3/i3blocks.conf $homedir/.i3blocks.conf
+mkdir -p .config/networkmanager-dmenu/ && ln -sf $dotfiles/config/network_dmenu.conf $homedir/.config/networkmanager-dmenu/config.ini
 ln -sf $dotfiles/zsh/zshrc $homedir/.zshrc
 ln -sf $dotfiles/zsh/zlogin $homedir/.zlogin
 
