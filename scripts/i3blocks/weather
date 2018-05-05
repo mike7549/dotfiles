@@ -8,64 +8,54 @@ temp2=${temp//C}
 SYMBOL=""
 
 if [[ "$weather" = "Clear" ]] || [[  "$weather" = "Mostly Clear" ]] || [[ "$weather" = "Sunny" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Partly Sunny" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Partly Cloudy" ]] || [[ "$weather" = "Intermittent Clouds" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Hazy Moonlight" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Partly Cloudy W/ Showers" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Mostly Cloudy W/ Showers" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Partly Cloudy W/ T-Storms" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Mostly Cloudy W/ Flurries" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Mostly Cloudy W/ Snow" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Flurries" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Rain And Snow" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Partly Sunny W/ Flurries" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Snow" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Ice" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Sleet" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Freezing Rain" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Rain and Snow" ]]; then
-	SYMBOL=''
+	SYMBOL=''
+elif [[ "$weather" = "Sleet" ]] || [[ "$weather" = "Freezing Rain" ]] || [[ "$weather" = "Rain and Snow" ]] || [[ "$weather" = "Flurries" ]] || [[ "$weather" = "Mostly Cloudy W/ Flurries" ]]; then
+	SYMBOL=''
 elif [[ "$weather" = "Cold" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Windy" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Showers" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Partly Sunny W/ Showers" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "T-Storms" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Mostly Cloudy W/ T-Storms" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Partly Sunny W/ T-Storms" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Rain" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Cloudy" ]] || [[ "$weather" = "Mostly Cloudy" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Dreary (Overcast)" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 elif [[ "$weather" = "Fog" ]]; then
-	SYMBOL=''
+	SYMBOL=''
 fi
 
-echo " <span font = \"Weather Icons\"><b>${SYMBOL}</b></span> <i>${weather}</i> <span font = \"Weather Icons\"></span>${temp2}<small>°C</small>"
+echo " <b>${SYMBOL}</b> <i>${weather}</i> ${temp2}<small>°C</small>"
 
 echo $temp2
 
