@@ -6,56 +6,30 @@ temp=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locC
 
 temp2=${temp//C}
 SYMBOL=""
-
-if [[ "$weather" = "Clear" ]] || [[  "$weather" = "Mostly Clear" ]] || [[ "$weather" = "Sunny" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Partly Sunny" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Partly Cloudy" ]] || [[ "$weather" = "Intermittent Clouds" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Hazy Moonlight" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Partly Cloudy W/ Showers" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Mostly Cloudy W/ Showers" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Partly Cloudy W/ T-Storms" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Mostly Cloudy W/ Snow" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Partly Sunny W/ Flurries" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Snow" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Ice" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Sleet" ]] || [[ "$weather" = "Freezing Rain" ]] || [[ "$weather" = "Rain and Snow" ]] || [[ "$weather" = "Flurries" ]] || [[ "$weather" = "Mostly Cloudy W/ Flurries" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Cold" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Windy" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Showers" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Partly Sunny W/ Showers" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "T-Storms" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Mostly Cloudy W/ T-Storms" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Partly Sunny W/ T-Storms" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Rain" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Cloudy" ]] || [[ "$weather" = "Mostly Cloudy" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Dreary (Overcast)" ]]; then
-	SYMBOL=''
-elif [[ "$weather" = "Fog" ]]; then
-	SYMBOL=''
-fi
-
+case "$weather" in
+	"Clear"|"Mostly Clear"|"Sunny") SYMBOL="";;
+	"Partly Sunny") SYMBOL='';;
+	"Partly Cloudy"|"Intermittent Clouds") SYMBOL='';;
+	"Hazy Moonlight") SYMBOL='';;
+	"Partly Cloudy W/ Showers") SYMBOL='';;
+	"Mostly Cloudy W/ Showers") SYMBOL='';;
+	"Partly Cloudy W/ T-Storms") SYMBOL='';;
+	"Partly Sunny W/ Flurries") SYMBOL='';;
+	"Mostly Cloudy"|"Cloudy") SYMBOL="";;
+	"Snow") SYMBOL='';;
+	"Ice") SYMBOL='';;
+	"Sleet"|"Freezing Rain"|"Rain and Snow"|"Flurries"|"Mostly Cloudy W/ Flurries") SYMBOL='';;
+	"Cold") SYMBOL='';;
+	"Windy") SYMBOL='';;
+	"Showers") SYMBOL='';;
+	"Partly Sunny W/ Showers") SYMBOL='';;
+	"T-Storms") SYMBOL='';;
+	"Mostly Cloudy W/ T-Storms") SYMBOL='';;
+	"Partly Sunny W/ T-Storms") SYMBOL='';;
+	"Rain") SYMBOL='';;
+	"Dreary (Overcast)") SYMBOL='';; 
+	"Fog") SYMBOL='';;
+	*) weather="You gonna die!" SYMBOL='';;
+esac
+		
 echo " <b>${SYMBOL}</b> <i>${weather}</i> ${temp2}<small>°C</small>"
-
-echo $temp2
-
