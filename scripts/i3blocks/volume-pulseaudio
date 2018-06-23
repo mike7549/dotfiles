@@ -99,7 +99,7 @@ function print_format {
     PERCENT="%"
     [[ $USE_PERCENT == 0 ]] && PERCENT=""
     case "$1" in
-        1) echo "$SYMBOL$VOL$PERCENT [$NAME]" ;;
+        1) echo "$SYMBOL$VOL$PERCENT <small>[$NAME]</small>" ;;
         2) echo "$SYMBOL$VOL$PERCENT [$INDEX]";;
         3) echo "$SYMBOL$VOL$PERCENT" ;;
         *) echo "$SYMBOL$VOL$PERCENT [$INDEX:$NAME]" ;;
