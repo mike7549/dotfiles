@@ -237,8 +237,7 @@ bar {
   position top
   font xft:Hack 12, Hack Nerd Font, Icons 10
   colors {
-    separator #d79921
-    background #282828
+    background #000000
     statusline #b16286
     focused_workspace	#d65d0e #282828 #d65d0e
     active_workspace	#ebdbb2 #282828 #ebdbb2
