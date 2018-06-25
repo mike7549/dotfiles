@@ -9,9 +9,9 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'dantler/vim-alternate'
-Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle'}
 Plug 'JesseKPhillips/d.vim'
+Plug 'ajmwagar/vim-deus'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -63,9 +63,10 @@ set softtabstop=4
 
 " color and optical enhancements
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-syntax on
+syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme deus
+let g:deus_termcolors=256
 set laststatus=2
 set relativenumber
 set number

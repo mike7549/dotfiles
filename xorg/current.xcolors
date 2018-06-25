@@ -1,6 +1,6 @@
 !-- Dark color theme 
-*background:	#282828
-*foreground:	#ebdbb2
+*background:	#000000
+*foreground:	#3399ff
 *color0:		#282828
 *color8:		#cc241d
 *color1:		#98971a

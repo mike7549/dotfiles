@@ -232,21 +232,21 @@ bindsym $mod+r mode "resize"
 
 bar {
   status_command i3blocks
-  tray_output primary
+  tray_output none
   mode dock
   position top
   font xft:Hack 12, Hack Nerd Font, Icons 10
   colors {
     background #000000
     statusline #b16286
-    focused_workspace	#d65d0e #282828 #d65d0e
-    active_workspace	#ebdbb2 #282828 #ebdbb2
-    inactive_workspace	#928374 #282828 #928374
-    urgent_workspace	#cc241d #cc241d #282828
+    focused_workspace	#3399ff #000000 #3399ff
+    active_workspace	#99ccff #000000 #99ccff
+    inactive_workspace	#666699 #000000 #666699
+    urgent_workspace	#ff0000 #000000 #ff0000
   }
 }
 
-client.focused			#d65d0e #d65d0e #282828 #d65d0e
-client.focused_inactive #ebdbb2 #ebdbb2 #eee8d5 #6c71c4
-client.unfocused		#ebdbb2 #ebdbb2 #93a1a1 #586e75
-client.urgent			#d33682 #d33682 #fdf6e3 #dc322f
+client.focused			#3399ff #3399ff #3399ff 
+client.focused_inactive #000066 #000066 #000066 
+client.unfocused		#000066 #000066 #000066 
+client.urgent			#ff0000 #ff0000 #ff0000 
