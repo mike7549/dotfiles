@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'dantler/vim-alternate'
 Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle'}
 Plug 'JesseKPhillips/d.vim'
-Plug 'ajmwagar/vim-deus'
+Plug 'mhartington/oceanic-next'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -62,11 +62,12 @@ set softtabstop=4
 
 
 " color and optical enhancements
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+ set termguicolors
+endif
 syntax enable
-set background=dark
-colorscheme deus
-let g:deus_termcolors=256
+" set background=dark
+colorscheme OceanicNext
 set laststatus=2
 set relativenumber
 set number

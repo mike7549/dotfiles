@@ -10,16 +10,14 @@ echo -e "${RED}3. Java IDE"
 echo -e "${RED}4. Android IDE"
 echo -e "${RED}5. Packages for Gaming"
 echo -e "${RED}6. Packages for Dedicated Graphics Card"
-echo -e "${RED}7. XMG specific"
-echo -e "${RED}8. Others"
-echo -e "${RED}9. quit${NC}"
+echo -e "${RED}7. quit${NC}"
 
 while read input; do
 	if [ $input -ge 1 -a $input -le 8 ]; then
 		case $input in
 		"1")
 		echo -e "${GREEN}Installing General Packages${NC}"
-		pacaur -S firefox chromium qbittorrent gdb valgrind  android-tools android-udev jre8-openjdk jre8-openjdk-headless evince chromium-widevine
+		pacaur -S firefox qbittorrent gdb valgrind  android-tools android-udev jre8-openjdk jre8-openjdk-headless evince
 		;;
 		"2")
 		echo -e "${GREEN}Installing latex IDE${NC}"
@@ -43,7 +41,7 @@ while read input; do
 		;;
 		esac
 		break
-	elif [ $input = 9 ]; then
+	elif [ $input = 7 ]; then
 		echo -e "${GREEN}Exiting..${NC}"
 		break
 	else

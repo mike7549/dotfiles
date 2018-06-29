@@ -21,8 +21,6 @@ mkdir -p .config/networkmanager-dmenu/ && ln -sf $dotfiles/config/network_dmenu.
 ln -sf $dotfiles/zsh/zshrc $homedir/.zshrc
 ln -sf $dotfiles/zsh/zlogin $homedir/.zlogin
 
-sudo ln -sf $dotfiles/ranger/rc.conf $rootdir/.config/ranger/rc.conf
-sudo ln -sf $dotfiles/ranger/rifle.conf $rootdir/.config/ranger/rifle.conf
 sudo ln -sf $dotfiles/zsh/.zshrc $rootdir/.zshrc
 sudo ln -sf $dotfiles/vim/init.vim $rootdir/.vimrc
 
