@@ -40,20 +40,20 @@ $full_text = "$percent";
 
 if ($status eq 'Discharging') {
 	if ($percent < 10) {
-		$full_text = "   $percent<small></small>";
+		$full_text = "   $percent<small></small> ";
 	} elsif ($percent < 25) {
-		$full_text = "   $percent<small></small>";
+		$full_text = "   $percent<small></small> ";
 	} elsif ($percent < 50) {
-		$full_text = "   $percent<small></small>";
+		$full_text = "   $percent<small></small> ";
 	} elsif ($percent < 75) {
-		$full_text = "   $percent<small></small>";
+		$full_text = "   $percent<small></small> ";
 	} elsif ($percent <= 100) {
-		$full_text = "   $percent<small></small>";
+		$full_text = "   $percent<small></small> ";
 	}
 } elsif ($status eq 'Charging') {
-	$full_text = "   $percent<small></small>";
+	$full_text = "   $percent<small></small> ";
 } elsif ($status eq 'Full') {
-	$full_text = " <i> Charged</i>";
+	$full_text = "  <i> Charged</i> ";
 }	
 
 $short_text = $full_text;

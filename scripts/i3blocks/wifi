@@ -29,9 +29,9 @@ SSID=$(iw dev $INTERFACE link | grep SSID | awk '{print $2;}')
 if [[ "$SSID" = "--" ]]; then
 	echo "Not connected"
 elif [[ "$SSID" = "Wired" ]]; then
-	echo "  <i> Wired </i>"
+	echo "  <i> Wired </i> "
 else
-	echo " <i>$SSID</i>  $QUALITY<small></small>"
+	echo " ﬉ <i>$SSID</i> 說 $QUALITY% "
 fi
 
 case $BLOCK_BUTTON in

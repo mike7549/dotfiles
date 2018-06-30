@@ -86,5 +86,5 @@ tx_kib=$(( $tx_rate >> 10 ))
 if [[ "$tx_rate" -gt 1048576 ]]; then
   printf '%s<small>M</small>' "`echo "scale=1; $tx_kib / 1024" | bc`"
 else
-  echo -n "${tx_kib}<small>K</small>"
+  echo -n "${tx_kib}<small>K</small> "
 fi

@@ -32,4 +32,4 @@ case "$weather" in
 	*) weather="You gonna die!" SYMBOL='';;
 esac
 		
-echo " <b>${SYMBOL}</b> <i>${weather}</i> ${temp2}<small>°C</small>"
+echo " <b>${SYMBOL}</b> <i>${weather}</i> ${temp2}<small>°C</small> "

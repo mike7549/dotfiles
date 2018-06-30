@@ -8,47 +8,25 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'dantler/vim-alternate'
-Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle'}
-Plug 'JesseKPhillips/d.vim'
+" theme
 Plug 'mhartington/oceanic-next'
-Plug 'jiangmiao/auto-pairs'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-dispatch'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Chiel92/vim-autoformat'
-Plug 'xolox/vim-easytags', { 'for': ['html', 'vue.html.javascript.css'] }
-Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'vue.html.javascript.css'] }
-Plug 'xolox/vim-misc'
-Plug 'majutsushi/tagbar'
-" highlighting
-Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' } 
-Plug 'petRUShka/vim-opencl', { 'for': 'opencl' }
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
-Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'vue.html.javascript.css'] }
-Plug 'posva/vim-vue', { 'for': 'vue.html.javascript.css' }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue.html.javascript.css'] }
-Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'othree/html5.vim', { 'for': ['html', 'vue.html.javascript.css'] }
-Plug 'luochen1990/rainbow'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'jiangmiao/auto-pairs'
-Plug 'alvan/vim-closetag'
 Plug 'bling/vim-airline'
-Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'drmikehenry/vim-fixkey'
+" formatting
+Plug 'Chiel92/vim-autoformat'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-commentary'
+Plug 'luochen1990/rainbow'
+Plug 'ervandew/supertab'
+Plug 'Yggdroot/indentLine'
+" highlighting
+Plug 'petRUShka/vim-opencl', {'on_ft' : 'cl'}
+Plug 'tikhomirov/vim-glsl', {'on_ft' : 'glsl'}
+Plug 'posva/vim-vue',{'on_ft' : 'vue'}
+Plug 'donRaphaco/neotex', {'on_ft': 'tex'}
+" completion
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-clang', {'on_ft' : ['c','h','cpp', 'hpp','cxx']}
 call plug#end()            " required
 
 let mapleader = ","
@@ -66,19 +44,11 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-" set background=dark
 colorscheme OceanicNext
 set laststatus=2
 set relativenumber
 set number
 set nowrap
-
-" highlights
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -88,17 +58,29 @@ set wildmenu
 set showcmd
 set hlsearch
 set hidden
-nnoremap <F3> :set hlsearch!<CR>
 set ruler
 
 set ignorecase
 
 set splitright
 
+"deoplete
+let g:deoplete#enable_at_startup = 1
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+"depoplete clang
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+let g:deoplete#sources#clang#std#cpp = 'c++14'
+
+"other addons
+let g:rainbow_active = 1
 "indent chars
-let g:indentLine_char = '|'
+let g:indentLine_char = '│'
 
 function OpenTermSplit()
+    set splitright
     :70vs term://zsh
 endfunction
 
@@ -111,30 +93,3 @@ set clipboard=unnamedplus
 map <F7> :w !xclip<CR><CR>
 vmap <F7> "*y
 map <S-F7> :r!xclip -o<CR>
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-"syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntasitc_c_clang_check_post_args = ""
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11'
-
-"deoplete
-let g:deoplete#enable_at_startup = 1
-
-"deoplete clang
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-let g:deoplete#sources#clang#std#cpp = 'c++14'
-
-"ctrlp
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
