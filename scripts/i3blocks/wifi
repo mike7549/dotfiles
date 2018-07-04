@@ -17,7 +17,8 @@
 #------------------------------------------------------------------------
 
 #INTERFACE="${BLOCK_INSTANCE:-wlp2s0}"
-INTERFACE=$(iw dev | grep Interface | head -n 1 | awk '{print $2;}')
+#INTERFACE=$(iw dev | grep Interface | head -n 1 | awk '{print $2;}')
+INTERFACE=$(ip link show | grep "state UP" | head -n 1 | awk '{print $2;}' | sed s'/.$//')
 #------------------------------------------------------------------------
 
 QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
@@ -25,13 +26,16 @@ QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }
 #------------------------------------------------------------------------
 
 SSID=$(iw dev $INTERFACE link | grep SSID | awk '{print $2;}')
- 
-if [[ "$SSID" = "--" ]]; then
+DEVNAME=$(echo "$INTERFACE" | cut -c-3 )
+
+if [[ "$DEVNAME" = "" ]]; then
 	echo "Not connected"
-elif [[ "$SSID" = "Wired" ]]; then
+elif [[ "$DEVNAME" = "enp" ]]; then
 	echo "  <i> Wired </i> "
-else
+elif [[ "$DEVNAME" = "wlp" ]]; then
 	echo " ﬉ <i>$SSID</i> 說 $QUALITY% "
+else 
+	echo " Unknown device "
 fi
 
 case $BLOCK_BUTTON in
