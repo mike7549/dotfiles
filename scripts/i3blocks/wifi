@@ -31,7 +31,7 @@ DEVNAME=$(echo "$INTERFACE" | cut -c-3 )
 if [[ "$DEVNAME" = "" ]]; then
 	echo "Not connected"
 elif [[ "$DEVNAME" = "enp" ]]; then
-	echo "  <i> Wired </i> "
+	echo "  <i>Wired</i> "
 elif [[ "$DEVNAME" = "wlp" ]]; then
 	echo " ﬉ <i>$SSID</i> 說 $QUALITY% "
 else 
