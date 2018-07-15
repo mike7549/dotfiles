@@ -10,7 +10,7 @@ SSID=$(iw dev $INTERFACE link | grep SSID | awk '{print $2;}')
 DEVNAME=$(echo "$INTERFACE" | cut -c-3 )
 
 if [[ "$DEVNAME" = "" ]]; then
-	echo "Not connected"
+	echo " Not connected "
 elif [[ "$DEVNAME" = "enp" ]]; then
 	echo "  <i>Wired</i> "
 elif [[ "$DEVNAME" = "wlp" ]]; then
@@ -20,7 +20,7 @@ else
 fi
 
 case $BLOCK_BUTTON in
-	1) (nmtui &) && disown ;;
+	1) (termite -e nmtui &) && disown ;;
 esac
 
 echo $QUALITY%
