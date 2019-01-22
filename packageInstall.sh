@@ -25,7 +25,7 @@ while read input; do
 		;;
 		"3")
 		echo -e "${GREEN}Installing Java IDE${NC}"
-		pacaur -S jdk8-openjdk java-openjfx intellij-idea-ultimate-edition 		
+		pacaur -S jdk-openjdk jre-openjdk jre-openjdk-headless jre8-openjdk jre8-openjdk-headless jdk8-openjdk java-openjfx intellij-idea-ultimate-edition 		
 		;;
 		"4")
 		echo -e "${GREEN}Installing Android IDE${NC}"

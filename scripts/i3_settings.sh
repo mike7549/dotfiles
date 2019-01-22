@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DMENU="dmenu -b -i -l 10 -w 640 -p > -nf #ebdbb2 -nb #181818 -sb #a89984 -sf #32302f -fn 'Hack-12'"
+DMENU="dmenu -b -i -l 10 -w 640 -p > -nf #000000 -nb #5c5c5c -sb #7c7c7c -sf #000000 -fn 'Hack-12'"
 ACTION="$(printf "Audio Options\ni3 Options\nSystem Options\nGoodnight\nBack\n" | $DMENU $*)"
 
 
@@ -13,6 +13,15 @@ then
 	elif [ "$ACTION" == "Exit i3" ]
 	then
 		i3-msg exit
+	elif [ "$ACTION" == "Logout" ]
+	then
+		logout
+	elif [ "$ACTION" == "Reboot" ]
+	then
+		reboot
+	elif [ "$ACTION" == "Poweroff" ]
+	then 
+		poweroff
 	fi
 elif [ "$ACTION" == "Audio Options" ]
 then
@@ -37,5 +46,7 @@ then
 	then
 		i3-msg restart
 	fi
+elif [ "$ACTION" == "Goodnight" ]
+then
+	sh ~/dotfiles/scripts/gn.sh
 fi
-
