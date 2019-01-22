@@ -117,7 +117,7 @@ function print_block {
     NAME=$(echo "$NAME" | sed \
 's/.*<.*\.\(.*\)>.*/\1/; t;'\
 's/.*<\(.*\)>.*/\1/; t;'\
-'s/.*/unknown/'| sed -e 's/ Analog Stereo//g')
+'s/.*/unknown/'| sed -e 's/\sAnalog Stereo//g')
 
     if [[ $USE_ALSA_NAME == 1 ]] ; then
         ALSA_NAME=$(pacmd list-sinks |\
@@ -131,7 +131,7 @@ sed 's/.*= "\(.*\)".*/\1/')
 awk '/^\s*\*/{f=1}/^\s*index:/{f=0}f' |\
 grep "device.description" |\
 head -n1 |\
-sed 's/.*= "\(.*\)".*/\1/' | sed -e 's/ Analog Stereo//g')
+sed 's/.*= "\(.*\)".*/\1/' | sed -e 's/\sAnalog Stereo//g')
         NAME=${DESCRIPTION:-$NAME}
     fi
 
