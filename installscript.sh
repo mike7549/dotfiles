@@ -4,21 +4,17 @@ dotdir="/home/$USER/dotfiles"
 #update System before starting
 sudo pacman -Syu wget
 
-#pacaur
-gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-git clone https://aur.archlinux.org/cower.git /tmp/cower
-git clone https://aur.archlinux.org/pacaur.git /tmp/pacaur
-cd /tmp/cower/
-makepkg -s -i 
-cd /tmp/pacaur/
-makepkg -s -i 
-
+#Yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
 
 #install all the dotfile dependecies
-pacaur -S $(cat $dotdir/dependency)
+yay -S $(cat $dotdir/dependency)  --answerclean N --answerdiff N --answeredit N 
 
 #nvim install
 sudo pip install neovim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim -u $dotdir/vim/init.vim -c :PlugInstall -c :q -c :q
 sudo nvim -u $dotdir/vim/init.vim -c :PlugInstall -c :q -c :q
 

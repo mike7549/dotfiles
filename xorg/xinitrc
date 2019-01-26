@@ -12,4 +12,3 @@ xset -dpms s off
 xset r rate 200 50
 xrdb -load dotfiles/xorg/Xresources
 exec i3 -c dotfiles/i3/config
-
