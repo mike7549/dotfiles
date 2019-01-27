@@ -12,7 +12,7 @@ set $alt Mod1
 exec_always --no-startup-id setxkbmap de -option caps:escape
 
 #Monitor
-exec_always --no-startup-id xrandr --output DP-2 --primary --pos 3840x0 --output HDMI-1 --left-of DP-2 --mode 1920x1080 --ps 0x0
+exec_always --no-startup-id xrandr --output DP-2 --primary --auto --output HDMI-0 --left-of DP-2 --auto
 
 #Compton
 exec_always --no-startup-id compton -CGb
