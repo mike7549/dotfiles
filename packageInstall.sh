@@ -17,7 +17,7 @@ while read input; do
 		case $input in
 		"1")
 		echo -e "${GREEN}Installing General Packages${NC}"
-		yay -S firefox qbittorrent gdb valgrind  android-tools android-udev jre8-openjdk jre8-openjdk-headless evince
+		yay -S qbittorrent gdb valgrind  android-tools android-udev jre8-openjdk jre8-openjdk-headless
 		;;
 		"2")
 		echo -e "${GREEN}Installing latex IDE${NC}"
@@ -37,7 +37,7 @@ while read input; do
 		;;
 		"6")
 		echo -e "${GREEN}Installing Nvidia Packages${NC}"
-		yay -S nvidia lib32-nvidia-utils nvidia-utils nvidia-settings 
+		yay -S nvidia
 		;;
 		esac
 		break
