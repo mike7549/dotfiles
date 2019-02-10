@@ -9,38 +9,24 @@
 set $mod Mod4 
 set $alt Mod1
 
-#Monitor
-exec_always --no-startup-id xrandr --output DP-2 --primary --auto --output HDMI-0 --left-of DP-2 --auto
+#exec_always --no-startup-id setxkbmap de -option caps:escape
 
-#Compton
-exec_always --no-startup-id compton -CGb
+#Background Color
+#exec_always xsetroot -solid "#333333"
 
 #Background Picture
-exec_always --no-startup-id feh --randomize --bg-fill /home/michael/dotfiles/Pictures/bg* --bg-fill /home/michael/dotfiles/Pictures/bg*
-#exec_always --no-startup-id feh --randomize --bg-max --no-xinerama ~/dotfiles/Pictures/wbg*
+exec_always --no-startup-id /home/michael/dotfiles/scripts/background
 
 #load Xresources
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/xorg/Xresources
 
 exec_always --no-startup-id python /home/michael/dotfiles/i3/i3-autoname-workspaces.py &
 
-#Audio Control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &&killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% &&killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &&killall -SIGUSR1 i3status
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+ unmute && killall -SIGUSR1 i3status
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB- unmute && killall -SIGUSR1 i3status
-#bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle  && killall -SIGUSR1 i3status
-
 #Lock
 bindsym $mod+$alt+l exec ~/dotfiles/scripts/i3lock.sh
 
 #Ranger
 bindsym $mod+m exec termite -e ranger
-
-#BrightnessControl
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 25 -s "intel_backlight"
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 25 -s "intel_backlight"
 
 #window gaps
 new_window pixel 3
@@ -233,7 +219,7 @@ bar {
   }
 }
 
-client.focused			#3399ff #3399ff #3399ff 
-client.focused_inactive #000066 #000066 #000066 
-client.unfocused		#000066 #000066 #000066 
-client.urgent			#ff0000 #ff0000 #ff0000 
+client.focused			#3399ff #3399ff #3399ff #ffffff #ffffff 
+client.focused_inactive #000066 #000066 #000066 #ffffff #ffffff
+client.unfocused		#000066 #000066 #000066 #ffffff #ffffff
+client.urgent			#ff0000 #ff0000 #ff0000 #ffffff #ffffff
