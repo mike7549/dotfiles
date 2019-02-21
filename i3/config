@@ -9,8 +9,6 @@
 set $mod Mod4 
 set $alt Mod1
 
-exec_always --no-startup-id setxkbmap de -option caps:escape
-
 #Monitor
 exec_always --no-startup-id xrandr --output DP-2 --primary --auto --output HDMI-0 --left-of DP-2 --auto
 
@@ -27,13 +25,7 @@ exec_always --no-startup-id feh --randomize --bg-fill /home/michael/dotfiles/Pic
 #load Xresources
 exec_always --no-startup-id xrdb -load /home/michael/dotfiles/xorg/Xresources
 
-#Compositor //kills performance
-exec_always --no-startup-id compton --config $dotdir/compton/compton.conf
-
 exec_always --no-startup-id python /home/michael/dotfiles/i3/i3-autoname-workspaces.py &
-
-#redshift
-exec --no-startup-id redshift -l 47.267:11.383
 
 #Audio Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &&killall -SIGUSR1 i3status
@@ -48,9 +40,6 @@ bindsym $mod+$alt+l exec ~/dotfiles/scripts/i3lock.sh
 
 #Ranger
 bindsym $mod+m exec termite -e ranger
-
-#Reconf Displays
-bindsym $mod+$alt+d exec ~/dotfiles/scripts/configure_xrandr.sh 
 
 #BrightnessControl
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 25 -s "intel_backlight"

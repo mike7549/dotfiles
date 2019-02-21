@@ -23,6 +23,7 @@ ln -sf $dotfiles/zsh/zlogin $homedir/.zlogin
 
 sudo ln -sf $dotfiles/zsh/.zshrc $rootdir/.zshrc
 sudo ln -sf $dotfiles/vim/init.vim $rootdir/.vimrc
+mkdir -p /etc/X11/xorg.conf.d/ && sudo ln -sf $dotfiles/config/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
 sudo sh -c "if [ -d $rootdir/dotfiles ]; then sudo rm -rf $rootdir/dotfiles; fi"
 sudo ln -s $dotfiles $rootdir/dotfiles
