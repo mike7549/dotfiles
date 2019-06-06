@@ -13,7 +13,7 @@ set $alt Mod1
 exec_always --no-startup-id xrandr --output DP-0 --primary --auto --output HDMI-1 --left-of DP-0 --auto
 
 #Compton
-exec_always --no-startup-id compton -CGb
+exec_always --no-startup-id compton -b --config ~/dotfiles/config/compton.conf
 
 #Background Picture
 exec_always --no-startup-id feh --randomize --bg-fill /home/michael/dotfiles/Pictures/bg* --bg-fill /home/michael/dotfiles/Pictures/bg*
