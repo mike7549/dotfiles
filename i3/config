@@ -10,7 +10,7 @@ set $mod Mod4
 set $alt Mod1
 
 #Monitor
-exec_always --no-startup-id xrandr --output DP-2 --primary --auto --output HDMI-0 --left-of DP-2 --auto
+exec_always --no-startup-id xrandr --output DP-0 --primary --auto --output HDMI-1 --left-of DP-0 --auto
 
 #Compton
 exec_always --no-startup-id compton -CGb
