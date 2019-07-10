@@ -69,6 +69,7 @@ WINDOW_ICONS = {
     'jetbrains-idea': FA_CODE,
     'Okular': FA_FILE_PDF_O,
     'jetbrains-studio': FA_CODE,
+    'MonoDevelop' : FA_CODE,
     'mtp-ng-qt': FA_FILES_O,
     'termite': FA_TERMINAL,
     'google-chrome': FA_CHROME,

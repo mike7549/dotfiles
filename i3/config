@@ -10,7 +10,7 @@ set $mod Mod4
 set $alt Mod1
 
 #Monitor
-exec_always --no-startup-id xrandr --output DP-0 --primary --auto --output HDMI-1 --left-of DP-0 --auto
+exec_always --no-startup-id xrandr --output DP-0 --auto --primary --scale 0.75x0.75 --output DP-2 --left-of DP-0 --scale 0.75x0.75 --auto
 
 #Compton
 exec_always --no-startup-id compton -b --config ~/dotfiles/config/compton.conf

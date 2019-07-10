@@ -2,3 +2,9 @@ win_reboot () {
 	sudo efibootmgr -n 0000
 	reboot
 }
+
+update_all () {
+	yay -Syu --answerdiff N --answerclean N --answeredit N --devel
+	upgrade_oh_my_zsh
+	sudo nvim -u ~/dotfiles/vim/init.vim -c :PlugUpgrade -c :PlugUpdate -c :q -c :q
+}
