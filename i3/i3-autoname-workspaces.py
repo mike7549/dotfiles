@@ -86,7 +86,8 @@ WINDOW_ICONS = {
     'telegram-desktop' : FA_CHAT,
     'Telegram' : FA_CHAT,
     'dolphin-emu' : FA_GAME,
-}
+    'spotify': FA_SPOTIFY,
+    }
 
 
 i3 = i3ipc.Connection()
