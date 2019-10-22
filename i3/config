@@ -74,7 +74,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -p '>' -w 640 -l 6 -o 0.9 -b -i -nf '#c0c5ce' -nb '#1b2b34' -sb '#8fa1b3' -sf '#2b303b' -fn 'Hack-12'"
 
 #border 2pixel
-gaps inner 2
+gaps inner 20
 gaps outer 1
 smart_gaps on
 smart_borders on
@@ -206,16 +206,17 @@ bar {
   position top
   font xft:Hack 12, Hack Nerd Font, Icons 10
   colors {
-    background #000000
+    background #141414
     statusline #b16286
-    focused_workspace	#3399ff #000000 #3399ff
-    active_workspace	#99ccff #000000 #99ccff
-    inactive_workspace	#666699 #000000 #666699
+    focused_workspace	#80007d #141414 #80007d
+    active_workspace	#80007d #141414 #80007d
+    inactive_workspace	#b16286 #141414 #b16286
     urgent_workspace	#ff0000 #000000 #ff0000
   }
 }
 
-client.focused			#3399ff #3399ff #3399ff 
-client.focused_inactive #000066 #000066 #000066 
-client.unfocused		#000066 #000066 #000066 
+# class					border	backgr.	text	indicator	child_border
+client.focused			#80007d #80007d #80007d 
+client.focused_inactive #b162ad #b162ad #b162ad 
+client.unfocused		#80003e #80003e #80003e 
 client.urgent			#ff0000 #ff0000 #ff0000 
