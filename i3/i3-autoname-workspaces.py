@@ -61,6 +61,7 @@ WINDOW_ICONS = {
     'qBittorrent' : FA_DL,
     'urxvt': FA_TERMINAL,
     'gimp': FA_PIC,
+    'code-oss' : FA_CODE,
     'kile': FA_TEXT,
     'libreoffice': FA_TEXT,
     'Thunderbird': FA_MAIL,
