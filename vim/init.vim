@@ -9,8 +9,8 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 " theme
-Plug 'mhartington/oceanic-next'
 Plug 'bling/vim-airline'
+Plug 'arcticicestudio/nord-vim'
 " formatting
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-commentary'
@@ -37,7 +37,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme OceanicNext
+colorscheme nord
 set laststatus=2
 set relativenumber
 set number

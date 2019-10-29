@@ -11,30 +11,5 @@ Xft.autohint: 0
 Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.rgba: rgb
-Xft.dpi:  115
+Xft.dpi:  137
 
-!-------------------------------------------------------------------------------
-! Rofi Settings
-!-------------------------------------------------------------------------------
-
-! Layout
-rofi.width:							 1920 
-rofi.height:						 1080
-rofi.padding:						 400
-rofi.lines:                          20 
-rofi.columns:                        1
-rofi.hide-scrollbar:				 true
-rofi.fullscreen:					 true
-rofi.color-enabled:                  true
-rofi.color-normal:                   background,foreground,background,color7,foreground
-rofi.color-urgent:                   background,color3,background,color3,background
-rofi.color-active:                   background,FG,background,color4,foreground
-rofi.color-window:                   background,background
-
-! Behaviour
-rofi.terminal:                       termite 
-rofi.levenshtein-sort:               true
-rofi.kb-cancel:                      Escape,Control+c
-rofi.case-sensitive:				 false
-rofi.opacity:						 80
-rofi.font: Hack 14
