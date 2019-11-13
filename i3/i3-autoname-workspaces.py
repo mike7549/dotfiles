@@ -55,6 +55,7 @@ FA_DL = '\uf019'
 FA_TEXT = '\uf0f6'
 FA_VOL = '\uf028'
 WINDOW_ICONS = {
+    'oss-code' : FA_CODE,
     'evince' : FA_FILE_PDF_O,
     'Navigator' : FA_FIREFOX,
     'Pavucontrol' : FA_VOL,

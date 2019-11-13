@@ -6,7 +6,7 @@ set $D1 $PRIMARY_SCREEN
 set $D2 $SECONDARY_SCREEN
 
 #Monitor
-exec_always --no-startup-id xrandr --output DP-0 --auto --primary --scale 0.75x0.75 --output DP-2 --left-of DP-0 --scale 0.75x0.75 --auto
+exec_always --no-startup-id xrandr --output DP-0 --auto --primary --output DP-2 --left-of DP-0 --auto
 
 #Compton
 exec_always --no-startup-id dbus-launch compton -b --config ~/dotfiles/config/compton.conf
@@ -201,7 +201,7 @@ bar {
   colors {
     background #141414
     statusline #b16286
-    focused_workspace	#d597ce #141414 #d597ce
+    focused_workspace	#b16286 #141414 #b16286
     active_workspace	#745c97 #141414 #745c97
     inactive_workspace	#39375b #141414 #39375b
     urgent_workspace	#ff0000 #000000 #ff0000
