@@ -2,11 +2,11 @@ set $mod Mod4
 set $alt Mod1
 
 set $dotdir $HOME/dotfiles
-set $D1 $PRIMARY_SCREEN
-set $D2 $SECONDARY_SCREEN
+set $D1 DP-0
+set $D2 DP-2
 
 #Monitor
-exec_always --no-startup-id xrandr --output DP-0 --auto --primary --output DP-2 --left-of DP-0 --auto
+exec_always --no-startup-id xrandr --output $D1 --auto --primary --output $D2 --left-of $D1 --auto
 
 #Compton
 exec_always --no-startup-id dbus-launch compton -b --config ~/dotfiles/config/compton.conf
