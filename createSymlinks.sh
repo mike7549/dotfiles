@@ -14,7 +14,7 @@ ln -sf $dotfiles/ranger/rifle.conf $homedir/.config/ranger/rifle.conf
 ln -sf $dotfiles/vim/init.vim $homedir/.vimrc
 ln -sf $dotfiles/vim/init.vim $homedir/.config/nvim/init.vim
 ln -sf $dotfiles/xorg/xinitrc $homedir/.xinitrc
-ln -sf $dotfiles/config/compton.conf $homedir/.compton.conf
+ln -sf $dotfiles/config/picom.conf $homedir/.picom.conf
 ln -sf $dotfiles/config/gtk.ini $homedir/.config/gtk-3.0/settings.ini
 ln -sf $dotfiles/termite/config $homedir/.config/termite/config
 ln -sf $dotfiles/i3/i3blocks.conf $homedir/.i3blocks.conf
