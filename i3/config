@@ -9,7 +9,7 @@ set $D2 DP-2
 exec_always --no-startup-id xrandr --output $D1 --auto --primary --output $D2 --left-of $D1 --auto
 
 #Compton
-exec_always --no-startup-id dbus-launch compton -b --config ~/dotfiles/config/compton.conf
+exec_always --no-startup-id dbus-launch picom -b --config ~/dotfiles/config/picom.conf
 
 #Background Picture
 exec_always --no-startup-id feh --randomize --bg-fill /home/michael/dotfiles/Pictures/bg* --bg-fill /home/michael/dotfiles/Pictures/bg*

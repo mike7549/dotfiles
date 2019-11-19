@@ -43,7 +43,7 @@ zip
 unzip
 xz
 
-compton
+picom
 dmenu2
 networkmanager-dmenu-git
 
