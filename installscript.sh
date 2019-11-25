@@ -26,6 +26,8 @@ sudo pip install i3ipc
 sudo cp -r $dotdir/Hack/ /usr/share/fonts
 sudo fc-cache
 
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 sudo chsh -s /usr/bin/zsh
 chsh -s /usr/bin/zsh
 
