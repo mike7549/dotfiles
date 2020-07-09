@@ -82,6 +82,7 @@ WINDOW_ICONS = {
     'mupdf': FA_FILE_PDF_O,
     'nautilus': FA_FILES_O,
     'mpv': FA_VIDEO,
+    'texstudio' : FA_TEXT,
     'explorer.exe' : FA_GAME,
     'discord' : FA_VOIP,
     'Steam' : FA_STEAM,
