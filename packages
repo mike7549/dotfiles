@@ -22,6 +22,8 @@ clang
 cmake
 gdb
 valgrind
+make
+gcc
 
 ntfs-3g
 
