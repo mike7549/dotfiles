@@ -12,6 +12,7 @@ boost
 feh
 xdotool
 iw
+iwd
 htop
 sysstat
 lm_sensors
