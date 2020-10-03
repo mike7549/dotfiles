@@ -18,6 +18,7 @@ sysstat
 lm_sensors
 acpi
 imagemagick
+reflector
 
 clang
 cmake
