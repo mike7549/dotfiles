@@ -5,7 +5,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERM=termite
 
-source $DOTFILES/zsh/antigen.zsh
+source ~/.antigen.zsh
 
 antigen use oh-my-zsh
 
