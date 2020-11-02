@@ -29,8 +29,7 @@ gcc
 
 ntfs-3g
 
-firejail 
-firefox
+chromium
 
 i3-gaps
 i3blocks
