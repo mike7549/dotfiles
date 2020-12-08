@@ -14,9 +14,9 @@ if [[ "$DEVNAME" = "" ]]; then
 elif [[ "$DEVNAME" = "enp" ]]; then
 	echo "  <i>Wired</i> "
 elif [[ "$DEVNAME" = "wlp" ]]; then
-	echo " ﬉ <i>$SSID</i> 說 $QUALITY% "
+	echo "  <i>$SSID</i>  $QUALITY<span size='x-small'></span> "
 elif [[ "$DEVNAME" = "wla" ]]; then
-	echo " ﬉ <i>$SSID</i> 說 $QUALITY% "
+	echo "  <i>$SSID</i>  $QUALITY<span size='x-small'></span> "
 else 
 	echo " Unknown device "
 fi

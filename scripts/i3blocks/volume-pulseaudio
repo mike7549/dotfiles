@@ -54,7 +54,7 @@ function print {
 			grep "alsa.card_name" |\
 			head -n1 |\
 			sed 's/.*= "\(.*\)".*/\1/')
-		echo "$STATE $NAME "
+		echo "$STATE<span size='x-small'></span> 蓼 $NAME 蓼 "
 	fi
 }
 
