@@ -7,7 +7,7 @@ temp=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locC
 temp2=${temp//C}
 SYMBOL=""
 case "$weather" in
-	"Clear"|"Mostly Clear"|"Mostly Sunny"|"Sunny") SYMBOL="";;
+	"Clear"|"Mostly Clear"|"Mostly Sunny"|'Sunny') SYMBOL='';;
 	"Partly Sunny") SYMBOL='';;
 	"Partly Cloudy"|"Intermittent Clouds") SYMBOL='';;
 	"Hazy Moonlight") SYMBOL='';;
@@ -15,7 +15,7 @@ case "$weather" in
 	"Mostly Cloudy W/ Showers") SYMBOL='';;
 	"Partly Cloudy W/ T-Storms") SYMBOL='';;
 	"Partly Sunny W/ Flurries") SYMBOL='';;
-	"Mostly Cloudy"|"Cloudy") SYMBOL="";;
+	"Mostly Cloudy"|"Cloudy") SYMBOL='';;
 	"Snow") SYMBOL='';;
 	"Ice") SYMBOL='';;
 	"Sleet"|"Freezing Rain"|"Rain and Snow"|"Flurries"|"Mostly Cloudy W/ Flurries") SYMBOL='';;
@@ -32,4 +32,4 @@ case "$weather" in
 	*) $weather;;
 esac
 		
-echo " <b>${SYMBOL}</b> <i>${weather}</i> ${temp2}<small>°C</small> "
+echo " <b>${SYMBOL}</b> ${temp2}<small>°C</small> <i>${weather}</i> "
