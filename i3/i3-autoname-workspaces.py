@@ -54,7 +54,9 @@ FA_PIC = '\uf03e'
 FA_DL = '\uf019'
 FA_TEXT = '\uf0f6'
 FA_VOL = '\uf028'
+FA_IMAGE = '\uf03e'
 WINDOW_ICONS = {
+    'gimp-2.10' : FA_IMAGE,
     'oss-code' : FA_CODE,
     'evince' : FA_FILE_PDF_O,
     'Navigator' : FA_FIREFOX,

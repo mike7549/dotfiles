@@ -1,5 +1,8 @@
 # Dotfiles
 Dotfiles for my Arch installation
+<p align="center">
+	<img src="screen.png" alt="Screeny"/>
+</p>
 
 ## Installation
 - clone the repository: `git clone https://github.com/mike7549/dotfiles`
@@ -13,7 +16,9 @@ Dotfiles for my Arch installation
 	- add to /etc/modprobe.d/blacklist.conf: `blacklist ideapad_laptop`
 - Refind manual boot stanzas:
 	- Miix Notebook: 
-	`Menuentry “Arch” {
+	
+	```
+	Menuentry “Arch” {
 		icon /EFI/refind/themes/rEFInd-minimal/icons/os_arch.png
 		volume “Arch Linux”
 		loader /vmlinuz-linux
@@ -25,7 +30,8 @@ Dotfiles for my Arch installation
 	menuentry “Windows” {
 		icon /EFI/refind/themes/rEFInd-minimal/icons/os_win.png
 		loader	\EFI\Microsoft\Boot\bootmgfw.efi
-	}`
+	}
+	```
 - Rename device name for pulse audio:
 	- add to /etc/pulse/default.pa: `load-module module-device-manager`
 	- in pavucontrol right click on the combo box widget next to port in in/output devices
