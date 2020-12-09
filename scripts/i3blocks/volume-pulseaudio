@@ -51,10 +51,14 @@ function print {
 	else
 		NAME=$(pacmd list-sinks |\
 			awk '/^\s*\*/{f=1}/^\s*index:/{f=0}f' |\
-			grep "alsa.card_name" |\
+			grep "device.description" |\
 			head -n1 |\
 			sed 's/.*= "\(.*\)".*/\1/')
-		echo "$STATE<span size='x-small'></span> 蓼 $NAME 蓼 "
+		case $NAME in 
+			"Z113") echo "$STATE<span size='x-small'></span> 蓼 $NAME 蓼 " ;;
+			"G533 Headset") echo "$STATE<span size='x-small'></span>  $NAME " ;;
+			*) echo "$STATE<span size='x-small'></span> $NAME " ;;
+		esac
 	fi
 }
 
