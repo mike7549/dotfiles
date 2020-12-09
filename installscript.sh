@@ -21,7 +21,6 @@ sudo nvim -u $dotdir/vim/init.vim -c :PlugInstall -c :q -c :q
 
 #other installations
 yes | sudo sensors-detect
-sudo pip install i3ipc
 
 sudo cp -r $dotdir/Hack/ /usr/share/fonts
 sudo fc-cache

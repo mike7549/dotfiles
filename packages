@@ -29,12 +29,12 @@ gcc
 
 ntfs-3g
 
-firejail 
-firefox
+chromium
 
 i3-gaps
 i3blocks
 i3lock
+python-i3ipc
 
 deepin-gtk-theme
 lxappearance

@@ -49,8 +49,8 @@ floating_modifier $mod
 bindsym $mod+i exec networkmanager_dmenu
 
 #start browser
-bindsym $mod+c exec firejail --seccomp firefox
-bindsym $mod+b exec firejail --seccomp firefox -private-window
+bindsym $mod+c exec chromium
+bindsym $mod+b exec chromium -incognito
 
 bindsym $mod+s exec "~/dotfiles/scripts/i3_settings.sh"
 
