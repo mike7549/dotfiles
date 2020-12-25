@@ -10,7 +10,7 @@ cd yay
 makepkg -si
 
 #install all the dotfile dependecies
-yay -S $(cat $dotdir/packages)  --answerclean N --answerdiff N --answeredit N 
+yay -S $(cat $dotdir/packages)  --answerclean All --answerdiff All --answeredit All
 
 #nvim install
 sudo pip install neovim
