@@ -13,6 +13,7 @@ ln -sf $dotfiles/ranger/rc.conf $homedir/.config/ranger/rc.conf
 ln -sf $dotfiles/ranger/rifle.conf $homedir/.config/ranger/rifle.conf
 ln -sf $dotfiles/vim/init.vim $homedir/.vimrc
 ln -sf $dotfiles/vim/init.vim $homedir/.config/nvim/init.vim
+ln -sf $dotfiles/config/google-chrome.conf $homedir/.config/google-chrome.conf
 ln -sf $dotfiles/xorg/xinitrc $homedir/.xinitrc
 ln -sf $dotfiles/config/picom.conf $homedir/.picom.conf
 mkdir -p .config/gtk-3.0/ && ln -sf $dotfiles/config/gtk.ini $homedir/.config/gtk-3.0/settings.ini
