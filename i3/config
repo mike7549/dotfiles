@@ -2,11 +2,11 @@ set $mod Mod4
 set $alt Mod1
 
 set $dotdir $HOME/dotfiles
-set $D1 DP-0
+set $D1 eDP-1
 set $D2 DP-2
 
 #Monitor
-exec_always --no-startup-id xrandr --output $D2 --auto --primary --output $D1 --right-of $D2 --auto --scale 1.5x1.5
+exec_always --no-startup-id xrandr --output $D1 --auto --primary
 
 #Compton
 exec_always --no-startup-id dbus-launch picom -b --config ~/dotfiles/config/picom.conf
