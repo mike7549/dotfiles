@@ -6,7 +6,7 @@ set $D1 DP-0
 set $D2 DP-2
 
 #Monitor
-exec_always --no-startup-id xrandr --output $D1 --auto --primary --output $D2 --left-of $D1 --auto
+exec_always --no-startup-id xrandr --output $D2 --auto --primary --output $D1 --right-of $D2 --auto --scale 1.5x1.5
 
 #Compton
 exec_always --no-startup-id dbus-launch picom -b --config ~/dotfiles/config/picom.conf
@@ -145,17 +145,17 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 0
 
 # workspaces on different outputs
-workspace 1 output $D1
-workspace 3 output $D1
-workspace 5 output $D1
-workspace 7 output $D1
-workspace 9 output $D1
+workspace 1 output $D2
+workspace 3 output $D2
+workspace 5 output $D2
+workspace 7 output $D2
+workspace 9 output $D2
 
-workspace 2 output $D2
-workspace 4 output $D2
-workspace 6 output $D2
-workspace 8 output $D2
-workspace 0 output $D2
+workspace 2 output $D1
+workspace 4 output $D1
+workspace 6 output $D1
+workspace 8 output $D1
+workspace 0 output $D1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
