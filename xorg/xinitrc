@@ -12,5 +12,4 @@ xset -dpms s off
 xrdb -load dotfiles/xorg/Xresources
 
 start-pulseaudio-x11 &
-udiskie &
 exec i3 -c dotfiles/i3/config
