@@ -26,7 +26,9 @@ ln -sf $dotfiles/zsh/zlogin $homedir/.zlogin
 sudo ln -sf $dotfiles/zsh/.zshrc $rootdir/.zshrc
 sudo ln -sf $dotfiles/vim/init.vim $rootdir/.vimrc
 sudo ln -sf $dotfiles/config/wifi_backend.conf /etc/NetworkManager/conf.d/wifi_backend.conf
-mkdir -p /etc/X11/xorg.conf.d/ && sudo cp $dotfiles/config/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
+mkdir -p /etc/X11/xorg.conf.d/ && sudo ln -sf $dotfiles/config/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
+sudo ln -sf $dotfiles/config/20-nvidia.conf /etc/X11/xorg.conf.d/20-nvidia.conf
+
 
 sudo sh -c "if [ -d $rootdir/dotfiles ]; then sudo rm -rf $rootdir/dotfiles; fi"
 sudo ln -s $dotfiles $rootdir/dotfiles
