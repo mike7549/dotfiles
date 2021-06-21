@@ -57,7 +57,7 @@ FA_VOL = '\uf028'
 FA_IMAGE = '\uf03e'
 WINDOW_ICONS = {
     'code' : FA_CODE,
-    'gimp-2.10' : FA_IMAGE,
+    'gimp-2.10' : FA_PIC,
     'oss-code' : FA_CODE,
     'evince' : FA_FILE_PDF_O,
     'Navigator' : FA_FIREFOX,
@@ -93,6 +93,7 @@ WINDOW_ICONS = {
     'Telegram' : FA_CHAT,
     'dolphin-emu' : FA_GAME,
     'spotify': FA_SPOTIFY,
+    'Google-chrome': FA_CHROME
     }
 
 

@@ -119,6 +119,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 assign [class="^baka-mplayer$"] → number 5
+assign [class="^qBittorrent$"] → number 4
+assign [class="^Gimp-2.10"] → number 3
 for_window [class="^baka-mplayer$"] focus
 # switch to workspace bindsym $mod+1 workspace $ws1
 bindsym $mod+1 workspace number 1 
