@@ -31,5 +31,9 @@ case "$weather" in
 	"Fog") SYMBOL='';;
 	*) $weather;;
 esac
-		
+
+case $BLOCK_BUTTON in
+	1) termite --hold -e "curl -Ss https://wttr.in/Innsbruck" & disown ;;
+esac
+
 echo " <b>${SYMBOL}</b> ${temp2}<small>°C</small> <i>${weather}</i> "
