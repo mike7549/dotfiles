@@ -118,8 +118,10 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-assign [class="(?i)baka-mplayer"] 4
-for_window [class="(?i)baka-mplayer"] focus
+assign [class="^baka-mplayer$"] → number 5
+assign [class="^qBittorrent$"] → number 4
+assign [class="^Gimp-2.10"] → number 3
+for_window [class="^baka-mplayer$"] focus
 # switch to workspace bindsym $mod+1 workspace $ws1
 bindsym $mod+1 workspace number 1 
 bindsym $mod+2 workspace number 2

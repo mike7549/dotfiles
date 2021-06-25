@@ -42,12 +42,11 @@ $cpu_usage eq -1 and die 'Can\'t find CPU information';
 
 # Print short_text, full_text
 printf "  %.2f<span size = 'x-small'></span> \n", $cpu_usage;
-printf "  %.2f<spna size = 'x-small'></span> \n", $cpu_usage;
+printf "  %.2f<span size = 'x-small'></span> \n", $cpu_usage;
 
 # Print color, if needed
 if ($cpu_usage >= $t_crit) {
-    print "#FF0000\n";
-    exit 33;
+    print "#8a4735\n";
 } elsif ($cpu_usage >= $t_warn) {
     print "#FFFC00\n";
 }
