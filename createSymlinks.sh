@@ -17,6 +17,8 @@ ln -sf $dotfiles/config/google-chrome.conf $homedir/.config/google-chrome.conf
 ln -sf $dotfiles/xorg/xinitrc $homedir/.xinitrc
 ln -sf $dotfiles/config/picom.conf $homedir/.picom.conf
 mkdir -p .config/gtk-3.0/ && ln -sf $dotfiles/config/gtk.ini $homedir/.config/gtk-3.0/settings.ini
+mkdir -p .config/rofi/
+ln -sf $dotfiles/config/config.rasi $homedir/.config/rofi/config.rasi
 ln -sf $dotfiles/termite/config $homedir/.config/termite/config
 ln -sf $dotfiles/i3/i3blocks.conf $homedir/.i3blocks.conf
 mkdir -p .config/networkmanager-dmenu/ && ln -sf $dotfiles/config/network_dmenu.conf $homedir/.config/networkmanager-dmenu/config.ini

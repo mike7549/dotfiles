@@ -1,0 +1,6 @@
+configuration {
+	modi: "window,drun,ssh";
+	font: "Hack 17";
+	location: 7;
+	theme: "solarized";
+}

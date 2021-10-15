@@ -49,6 +49,7 @@ xz
 
 picom
 dmenu2
+rofi
 networkmanager-dmenu-git
 
 alsa-utils
