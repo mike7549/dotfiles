@@ -56,6 +56,7 @@ FA_TEXT = '\uf0f6'
 FA_VOL = '\uf028'
 FA_IMAGE = '\uf03e'
 WINDOW_ICONS = {
+    'tidal-hifi' : FA_MUSIC,
     'code' : FA_CODE,
     'gimp-2.10' : FA_PIC,
     'oss-code' : FA_CODE,

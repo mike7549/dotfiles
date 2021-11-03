@@ -62,7 +62,10 @@ xorg-xprop
 xorg-server
 xorg-xinit
 
-baka-mplayer
+smplayer
+smplayer-themes
+smplayer-skins
+tidal-hifi
 evince
 
 nvm

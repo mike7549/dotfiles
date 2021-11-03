@@ -67,7 +67,8 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -p '>' -w 640 -l 1 -o 0.9 -b -i -sf '#f5b0cb' -sb '#745c97' -nf '#d597ce' -nb '#39375b' -fn 'Hack-12'"
-bindsym $mod+d exec --no-startup-id rofi -config .config/rofi/config.rasi -show drun -run-command 'sudo {cmd}'
+bindsym $mod+d exec --no-startup-id rofi -config .config/rofi/config.rasi -show drun -run-command '{cmd}'
+bindsym $mod+Shift+d exec --no-startup-id rofi -config .config/rofi/config.rasi -show drun -run-command 'sudo {cmd}'
 
 #border 2pixel
 gaps inner 20
@@ -120,6 +121,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 assign [class="^baka-mplayer$"] → number 5
+assign [class="^smplayer$"] → number 5
+assign [class="^tidal-hifi$"] → number 5
 assign [class="^qBittorrent$"] → number 4
 assign [class="^Gimp-2.10"] → number 3
 for_window [class="^baka-mplayer$"] focus
