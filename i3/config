@@ -49,8 +49,9 @@ floating_modifier $mod
 bindsym $mod+i exec networkmanager_dmenu
 
 #start browser
-bindsym $mod+c exec google-chrome-stable --new-window
-bindsym $mod+b exec google-chrome-stable --incognito
+bindsym $mod+c exec google-chrome-stable --new-window --profile-directory="Default"
+bindsym $alt+Shift+c exec google-chrome-stable --new-window --profile-directory="Profile 1"
+bindsym $mod+b exec google-chrome-stable --incognito --profile-directory="Default"
 
 bindsym $mod+s exec "~/dotfiles/scripts/i3_settings.sh"
 
