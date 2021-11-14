@@ -1,6 +1,12 @@
 configuration {
-	modi: "window,drun,ssh";
+	modi: "window,run,drun,ssh";
 	font: "Hack 17";
 	location: 7;
 	theme: "solarized";
+	show-icons: true;
+	drun-display-format: "{name}";
+	lines: 12;
+	columns: 1;
+	bw: 1;
+	padding: 20;
 }
