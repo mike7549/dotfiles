@@ -28,7 +28,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym $mod+$alt+l exec $dotdir/scripts/i3lock.sh
 
 #Ranger
-bindsym $mod+m exec termite -e ranger
+bindsym $mod+m exec kitty --class=ranger ranger
+
+# start a terminal
+bindsym $mod+Return exec kitty
 
 #BrightnessControl
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 25 -s "intel_backlight"
@@ -55,8 +58,6 @@ bindsym $mod+y exec $dotdir/scripts/dmenu_search.sh -y
 #open current clipboard link in mpv
 bindsym $mod+p exec mpv $(xclip -o)
 
-# start a terminal
-bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill

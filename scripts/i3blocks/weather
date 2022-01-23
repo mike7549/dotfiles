@@ -33,7 +33,7 @@ case "$weather" in
 esac
 
 case $BLOCK_BUTTON in
-	1) termite --hold -e "curl -Ss https://wttr.in/Skovde" & disown ;;
+	1) kitty --hold curl -Ss https://wttr.in/Skovde & disown ;;
 esac
 
 echo " <b>${SYMBOL}</b> ${temp2}<small>糖</small> <i>${weather}</i> "

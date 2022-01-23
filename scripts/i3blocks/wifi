@@ -18,8 +18,3 @@ elif [[ "$DEVNAME" = "wl" ]]; then
 else 
 	echo " Unknown device "
 fi
-
-case $BLOCK_BUTTON in
-	1) (termite -e nmtui &) && disown ;;
-esac
-

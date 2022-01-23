@@ -96,7 +96,10 @@ WINDOW_ICONS = {
     'Telegram' : FA_CHAT,
     'dolphin-emu' : FA_GAME,
     'spotify': FA_SPOTIFY,
-    'Google-chrome': FA_CHROME
+    'Google-chrome': FA_CHROME,
+    'kitty': FA_TERMINAL,
+    'ranger': FA_FILES_O
+
     }
 
 
