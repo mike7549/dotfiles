@@ -55,11 +55,13 @@ FA_DL = '\uf019'
 FA_TEXT = '\uf0f6'
 FA_VOL = '\uf028'
 FA_IMAGE = '\uf03e'
+FA_ANDROID = '\ue70e'
+FA_VS = '\ue70c'
 WINDOW_ICONS = {
     'tidal-hifi' : FA_MUSIC,
-    'code' : FA_CODE,
+    'code' : FA_VS,
     'gimp-2.10' : FA_PIC,
-    'oss-code' : FA_CODE,
+    'oss-code' : FA_VS,
     'evince' : FA_FILE_PDF_O,
     'Navigator' : FA_FIREFOX,
     'Pavucontrol' : FA_VOL,
@@ -74,7 +76,7 @@ WINDOW_ICONS = {
     'baka-mplayer': FA_VIDEO,
     'jetbrains-idea': FA_CODE,
     'Okular': FA_FILE_PDF_O,
-    'jetbrains-studio': FA_CODE,
+    'jetbrains-studio': FA_ANDROID,
     'MonoDevelop' : FA_CODE,
     'mtp-ng-qt': FA_FILES_O,
     'termite': FA_TERMINAL,

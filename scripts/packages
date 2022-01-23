@@ -54,7 +54,6 @@ xz
 picom
 dmenu2
 rofi
-networkmanager-dmenu-git
 
 alsa-utils
 ponymix
@@ -66,11 +65,11 @@ xorg-xprop
 xorg-server
 xorg-xinit
 
-smplayer
-smplayer-themes
-smplayer-skins
+baka-mplayer
 tidal-hifi
 evince
 
-nvm
+nodejs-lts-gallium
+npm
+
 visual-studio-code-bin

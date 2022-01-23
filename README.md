@@ -1,13 +1,13 @@
 # Dotfiles
 Dotfiles for my Arch installation
 <p align="center">
-	<img src="screen.png" alt="Screeny"/>
+	<img src="pictures/screen.png" alt="Screeny"/>
 </p>
 
 ## Installation
 - clone the repository: `git clone https://github.com/mike7549/dotfiles`
 - change to repository directory: `cd dotfiles`
-- run: `sh installscript.sh`
+- run: `sh scripts/installscript.sh`
 
 ## Configuration
 - Download Files:
@@ -35,4 +35,3 @@ Dotfiles for my Arch installation
 - Rename device name for pulse audio:
 	- add to /etc/pulse/default.pa: `load-module module-device-manager`
 	- in pavucontrol right click on the combo box widget next to port in in/output devices
-

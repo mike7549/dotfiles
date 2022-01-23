@@ -1,0 +1,33 @@
+#!/bin/bash
+
+MEM_TOTAL=$(awk '
+/^MemTotal:/ {
+	memTotal=$2/1024/1024
+}
+END {
+	printf("%.1f", memTotal)
+}
+' /proc/meminfo)
+
+MEM_FREE=$(awk '
+/^MemTotal:/ {
+	memTotal=$2
+}
+/^MemFree:/ {
+	memFree=$2
+}
+/^Buffers:/ {
+	memFree+=$2
+}
+/^Cached:/ {
+	memFree+=$2
+}
+END {
+	free = memFree / 1024 / 1024
+	memUsed = (memTotal - memFree) / 1024 / 1024
+	total = memTotal / 1024 / 1024
+	printf("%.1f", memUsed)
+}
+' /proc/meminfo)
+
+echo "  $MEM_FREE<span size='small'>G</span> / $MEM_TOTAL<span size='small'>G</span> "

@@ -7,16 +7,14 @@ QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }
 #------------------------------------------------------------------------
 
 SSID=$(iw dev $INTERFACE link | grep SSID | awk '{print $2;}')
-DEVNAME=$(echo "$INTERFACE" | cut -c-3 )
+DEVNAME=$(echo "$INTERFACE" | cut -c-2 )
 
 if [[ "$DEVNAME" = "" ]]; then
 	echo " Not connected "
-elif [[ "$DEVNAME" = "enp" ]]; then
-	echo "  <i>Wired</i> "
-elif [[ "$DEVNAME" = "wlp" ]]; then
-	echo "  <i>$SSID</i>  $QUALITY<span size='x-small'></span> "
-elif [[ "$DEVNAME" = "wla" ]]; then
-	echo "  <i>$SSID</i>  $QUALITY<span size='x-small'></span> "
+elif [[ "$DEVNAME" = "en" ]]; then
+	echo "  <i>Wired</i> "
+elif [[ "$DEVNAME" = "wl" ]]; then
+	echo "   <i>$SSID</i> 說 $QUALITY<span size='x-small'></span> "
 else 
 	echo " Unknown device "
 fi
@@ -25,15 +23,3 @@ case $BLOCK_BUTTON in
 	1) (termite -e nmtui &) && disown ;;
 esac
 
-echo $QUALITY%
-
-# color
-#if [[ $QUALITY -ge 80 ]]; then
-#    echo "#00FF00"
-#elif [[ $QUALITY -lt 80 ]]; then
-#    echo "#FFF600"
-#elif [[ $QUALITY -lt 60 ]]; then
-#    echo "#FFAE00"
-#elif [[ $QUALITY -lt 40 ]]; then
-#    echo "#FF0000"
-#fi

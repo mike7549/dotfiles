@@ -4,6 +4,7 @@ export ARCHFLAGS="-arch x86_64"
 export EDITOR=nvim
 export VISUAL=nvim
 export TERM=termite
+export GTK_THEME=deepin-dark
 
 source ~/.antigen.zsh
 
@@ -37,17 +38,16 @@ alias search='yay -Ss'
 
 alias dd='sudo dd status=progress bs=4M'
 
-alias i3conf="vim $DOTFILES/i3/config"
+alias i3conf="vim $DOTFILES/config/i3/config"
 alias cddot="cd $DOTFILES"
 alias ccmake='cmake . && make'
-alias gn='sh ~/dotfiles/scripts/gn.sh'
 alias x='atool -x'
 
-alias nvim='sudo nvim -u ~/dotfiles/vim/init.vim'
-alias vim='nvim -u ~/dotfiles/vim/init.vim'
+alias nvim='sudo nvim -u ~/dotfiles/config/vim/init.vim'
+alias vim='nvim -u ~/dotfiles/config/vim/init.vim'
 alias reload='source ~/.zshrc'
 
-source ~/dotfiles/zsh/functions
+source ~/dotfiles/config/zsh/functions
 
 autoload -Uz compinit -u
 compinit -u

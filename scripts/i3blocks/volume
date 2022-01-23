@@ -36,16 +36,19 @@ esac
 function print {
 	VOL="$(ponymix get-volume)"
 
-	if [[ $VOL -lt 10 ]]; then
-		STATE="  ${VOL}";
+	if [[ $VOL -eq 0 ]]; then
+		STATE=" 婢 ";
+	elif [[ $VOL -lt 10 ]]; then
+		STATE="  ${VOL}";
 	elif [[ $VOL -lt 50 ]]; then
-		STATE="  ${VOL}";
+		STATE="  ${VOL}";
+	elif [[ $VOL -lt 75 ]]; then
+		STATE=" 墳 ${VOL}";
 	else
-		STATE="  ${VOL}";
+		STATE="  ${VOL}";
 	fi
 
-	if ponymix is-muted; then
-		
+	if ponymix is-muted; then	
 		STATE="ﱝ"
 		echo " $STATE "
 	else
@@ -55,9 +58,9 @@ function print {
 			head -n1 |\
 			sed 's/.*= "\(.*\)".*/\1/')
 		case $NAME in 
-			"Z313") echo "$STATE<span size='x-small'></span> 蓼 $NAME 蓼 " ;;
-			"G533 Headset") echo "$STATE<span size='x-small'></span>  $NAME " ;;
-			*) echo "$STATE<span size='x-small'></span> $NAME " ;;
+			"Z313") echo "$STATE 蓼 $NAME 蓼 " ;;
+			"G533") echo "$STATE  $NAME " ;;
+			*) echo "$STATE $NAME " ;;
 		esac
 	fi
 }

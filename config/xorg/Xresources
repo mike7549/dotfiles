@@ -1,4 +1,4 @@
-#include "/home/michael/dotfiles/xorg/current.xcolors"
+#include "/home/michael/dotfiles/config/xorg/current.xcolors"
 
 
 !-------------------------------------------------------------------------------
@@ -9,6 +9,8 @@ Xft.lcdfilter: lcddefault
 Xft.antialias: true
 Xft.autohint: 0
 Xft.hinting: true
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
 Xft.rgba: rgb
-Xft.dpi:  143	
+! change dpi for smaller screens
+Xft.dpi:  143
+

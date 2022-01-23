@@ -9,7 +9,7 @@ fi
 export DESKTOP_SESSION=gnome
 
 xset -dpms s off
-xrdb -load dotfiles/xorg/Xresources
+xrdb -load dotfiles/config/xorg/Xresources
 
 start-pulseaudio-x11 &
-exec i3 -c dotfiles/i3/config
+exec i3 -c dotfiles/config/i3/config

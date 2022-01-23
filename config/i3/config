@@ -9,15 +9,15 @@ set $D2 DP-2
 exec_always --no-startup-id xrandr --output $D2 --auto --primary --output $D1 --right-of $D2 --auto --scale 1.5x1.5
 
 #Compton
-exec_always --no-startup-id dbus-launch picom -b --config ~/dotfiles/config/picom.conf
+exec_always --no-startup-id dbus-launch picom -b --config $dotdir/config/picom/picom.conf
 
 #Background Picture
-exec_always --no-startup-id feh --randomize --bg-fill /home/michael/dotfiles/Pictures/bg* --bg-fill /home/michael/dotfiles/Pictures/bg*
+exec_always --no-startup-id feh --randomize --bg-fill $dotdir/pictures/bg* --bg-fill $dotdir/pictures/bg*
 
 #load Xresources
-exec_always --no-startup-id xrdb -load /home/michael/dotfiles/xorg/Xresources
+exec_always --no-startup-id xrdb -load $dotdir/config/xorg/Xresources
 
-exec_always --no-startup-id python /home/michael/dotfiles/i3/i3-autoname-workspaces.py &
+exec_always --no-startup-id python $dotdir/config/i3/i3-autoname-workspaces.py &
 
 #Audio Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &&killall -SIGUSR1 i3status
@@ -25,7 +25,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &&killall -SIGUSR1 i3status
 
 #Lock
-bindsym $mod+$alt+l exec ~/dotfiles/scripts/i3lock.sh
+bindsym $mod+$alt+l exec $dotdir/scripts/i3lock.sh
 
 #Ranger
 bindsym $mod+m exec termite -e ranger
@@ -45,19 +45,14 @@ font xft:Hack 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-#dmenu network
-bindsym $mod+i exec networkmanager_dmenu
-
 #start browser
-bindsym $mod+c exec google-chrome-stable --new-window --profile-directory="Default"
-bindsym $alt+Shift+c exec google-chrome-stable --new-window --profile-directory="Profile 1"
-bindsym $mod+b exec google-chrome-stable --incognito --profile-directory="Default"
+bindsym $mod+c exec google-chrome-stable --new-window
+bindsym $mod+b exec google-chrome-stable --incognito
 
-bindsym $mod+s exec "~/dotfiles/scripts/i3_settings.sh"
 
-bindsym $mod+g exec "~/dotfiles/scripts/dmenu_search.sh -g"
-bindsym $mod+y exec "~/dotfiles/scripts/dmenu_search.sh -y"
-#open current clipboard link in mpv (for example youtube)
+bindsym $mod+g exec $dotdir/scripts/dmenu_search.sh -g
+bindsym $mod+y exec $dotdir/scripts/dmenu_search.sh -y
+#open current clipboard link in mpv
 bindsym $mod+p exec mpv $(xclip -o)
 
 # start a terminal
