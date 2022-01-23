@@ -10,7 +10,7 @@ SSID=$(iw dev $INTERFACE link | grep SSID | awk '{print $2;}')
 DEVNAME=$(echo "$INTERFACE" | cut -c-2 )
 
 if [[ "$DEVNAME" = "" ]]; then
-	echo " Not connected "
+	echo " 睊 "
 elif [[ "$DEVNAME" = "en" ]]; then
 	echo "  <i>Wired</i> "
 elif [[ "$DEVNAME" = "wl" ]]; then
