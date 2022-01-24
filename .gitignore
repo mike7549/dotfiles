@@ -14,4 +14,4 @@ config/vim/bundle
 config/vim/undo
 config/vim/deinvim/repos
 config/zsh/dotfiles.zsh
-
+yay/
