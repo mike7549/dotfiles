@@ -9,7 +9,7 @@ mkdir -p "$homedir/.config/ranger/"
 mkdir -p "$homedir/.config/zsh/"
 mkdir -p "$homedir/.config/nvim/"
 mkdir -p "$homedir/.config/gtk-3.0/"
-mkdir -p "$homedir/.config/rofi/"
+mkdir -p "$homedir/.config/rofi/themes"
 mkdir -p "$homedir/.config/kitty"
 sudo mkdir -p "/etc/X11/xorg.conf.d/" 
 sudo mkdir -p "/etc/iwd/"
@@ -25,6 +25,7 @@ ln -sf $dotfiles/picom/picom.conf $homedir/.picom.conf
 ln -sf $dotfiles/gtk/gtk-2 $homedir/.gtkrc-2.0
 ln -sf $dotfiles/gtk/gtk-3 $homedir/.config/gtk-3.0/settings.ini
 ln -sf $dotfiles/rofi/config.rasi $homedir/.config/rofi/config.rasi
+ln -sf $dotfiles/rofi/themes/nord.rasi $homedir/.config/rofi/themes/nord.rasi
 ln -sf $dotfiles/kitty/kitty.conf $homedir/.config/kitty/kitty.conf
 ln -sf $dotfiles/kitty/nord.conf $homedir/.config/kitty/nord.conf
 ln -sf $dotfiles/i3/i3blocks.conf $homedir/.i3blocks.conf

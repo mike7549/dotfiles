@@ -1,0 +1,8 @@
+@theme "nord"
+configuration {
+	font: "Hack 25";
+}
+listview {
+	lines: 0;
+	columns: 1;
+}

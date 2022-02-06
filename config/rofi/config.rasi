@@ -1,7 +1,5 @@
 configuration {
 	modi: "window,run,drun,ssh";
-	font: "Hack 17";
-	location: 7;
 	show-icons: true;
 	drun-display-format: "{name}";
 	lines: 12;
@@ -9,4 +7,4 @@ configuration {
 	bw: 1;
 	padding: 20;
 }
-@theme "purple"
+@theme "nord"

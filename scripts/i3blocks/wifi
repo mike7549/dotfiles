@@ -9,6 +9,11 @@ QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }
 SSID=$(iw dev $INTERFACE link | grep SSID | awk '{print $2;}')
 DEVNAME=$(echo "$INTERFACE" | cut -c-2 )
 
+case $BLOCK_BUTTON in
+	1) sh ~/dotfiles/scripts/rofi-iwd.sh
+esac
+
+
 if [[ "$DEVNAME" = "" ]]; then
 	echo " 睊 "
 elif [[ "$DEVNAME" = "en" ]]; then
