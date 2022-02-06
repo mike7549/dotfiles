@@ -17,7 +17,7 @@ esac
 if [[ "$DEVNAME" = "" ]]; then
 	echo " 睊 "
 elif [[ "$DEVNAME" = "en" ]]; then
-	echo "  <i>Wired</i> "
+	echo "  "
 elif [[ "$DEVNAME" = "wl" ]]; then
 	echo "   <i>$SSID</i> 說 $QUALITY<span size='x-small'></span> "
 else 

@@ -60,6 +60,7 @@ function print {
 		case $NAME in 
 			"Z313") echo "$STATE 蓼 $NAME 蓼 " ;;
 			"G533") echo "$STATE  $NAME " ;;
+			"Speakers") echo "$STATE 蓼 $NAME 蓼 " ;; 
 			*) echo "$STATE $NAME " ;;
 		esac
 	fi

@@ -35,3 +35,15 @@ Dotfiles for my Arch installation
 - Rename device name for pulse audio:
 	- add to /etc/pulse/default.pa: `load-module module-device-manager`
 	- in pavucontrol right click on the combo box widget next to port in in/output devices
+
+### Network Configuration
+- Enable networking and resolving:
+	Edit /etc/iwd/main.conf
+	```
+		[General]
+		EnableNetworkConfiguration=true
+
+		[Network]
+		NameResolvingService=systemd
+	```
+

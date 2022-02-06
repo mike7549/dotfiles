@@ -13,7 +13,7 @@ feh
 xdotool
 iw
 iwd
-htop
+vtop
 sysstat
 lm_sensors
 acpi
@@ -27,16 +27,14 @@ valgrind
 make
 gcc
 
-ntfs-3g
-
 google-chrome-stable
+deepin-gtk-theme
 
 i3-gaps
 i3blocks
 i3lock
 python-i3ipc
 
-deepin-gtk-theme
 lxappearance
 ttf-droid
 ttf-hack
@@ -52,7 +50,6 @@ unzip
 xz
 
 picom
-dmenu2
 rofi
 
 alsa-utils
