@@ -27,7 +27,7 @@ valgrind
 make
 gcc
 
-google-chrome-stable
+firefox
 deepin-gtk-theme
 
 i3-gaps
