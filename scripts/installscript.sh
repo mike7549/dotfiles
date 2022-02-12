@@ -24,8 +24,10 @@ sudo nvim -u $dotdir/vim/init.vim -c :PlugInstall -c :q -c :q
 yes | sudo sensors-detect
 
 # install nerd fonts
-sudo cp -r $dotdir/fonts/hack/ /usr/share/fonts
-sudo fc-cache
+curl -L https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip > hack.zip
+sudo unzip hack.zip -d /usr/share/fonts
+rm hack.zip
+sudo fc-cache -f -v
 
 # oh-my-zsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

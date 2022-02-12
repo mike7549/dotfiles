@@ -47,3 +47,18 @@ Dotfiles for my Arch installation
 		NameResolvingService=systemd
 	```
 
+### Firefox Custom Theme
+1. Type about:profiles into your urlbar and go to the page
+2. Open the root directory folder specified on the page
+3. `mkdir chrome`
+4. `cp config/firefox/userchrome.css <path-to-root-profile-dir>`
+5. Edit in about:config:
+
+	`toolkit.legacyUserProfileCustomizations.stylesheets` &rarr; set to true
+
+	`ui.prefersReducedMotion` &rarr; set to 1
+
+### Firefox Tweaks
+- Disable Fullscreen Message: `full-screen-api.warning.timeout` &rarr; set to 0
+- Prevent screen tearing issues: `layers.acceleration.force-enabled` &rarr; set to true
+- Disable pocket: `extensions.pocket.enabled` &rarr; set to false
