@@ -27,7 +27,9 @@ binmode(STDOUT, ":utf8");
 # default values
 my $t_warn = 70;
 my $t_crit = 90;
-my $chip = "nct6683-isa-0a20";
+# uncomment line for cpu vendor
+my $chip = "nct6683-isa-0a20"; #AMD
+#my $chip = "coretemp-isa-0000"; #Intel
 my $temperature = -9999;
 
 sub help {
