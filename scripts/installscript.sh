@@ -7,7 +7,7 @@ sudo pacman -Syu wget base-devel
 
 # yay
 git clone https://aur.archlinux.org/yay-bin.git
-cd yay
+cd yay-bin
 makepkg -si
 
 # install all the dotfile dependecies
