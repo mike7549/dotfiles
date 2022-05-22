@@ -12,5 +12,5 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 ! change dpi for smaller screens
-Xft.dpi: 120
+Xft.dpi: 110
 

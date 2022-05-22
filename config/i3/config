@@ -49,8 +49,8 @@ font xft:Hack 10
 floating_modifier $mod
 
 #start browser
-bindsym $mod+c exec firefox
-bindsym $mod+b exec firefox -private-window
+bindsym $mod+c exec com.google.Chrome
+bindsym $mod+b exec com.google.Chrome --incognito
 
 
 #open current clipboard link in mpv
