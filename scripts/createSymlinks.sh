@@ -21,8 +21,7 @@ ln -sf $dotfiles/vim/init.vim $homedir/.config/nvim/init.vim
 ln -sf $dotfiles/chrome/google-chrome.conf $homedir/.config/google-chrome.conf
 ln -sf $dotfiles/xorg/xinitrc $homedir/.xinitrc
 ln -sf $dotfiles/picom/picom.conf $homedir/.picom.conf
-ln -sf $dotfiles/gtk/gtk-2 $homedir/.gtkrc-2.0
-ln -sf $dotfiles/gtk/gtk-3 $homedir/.config/gtk-3.0/settings.ini
+ln -sf $dotfiles/gtk/gtk.conf $homedir/.config/gtk-3.0/settings.ini
 ln -sf $dotfiles/rofi/config.rasi $homedir/.config/rofi/config.rasi
 ln -sf $dotfiles/rofi/themes/nord.rasi $homedir/.config/rofi/themes/nord.rasi
 ln -sf $dotfiles/kitty/kitty.conf $homedir/.config/kitty/kitty.conf

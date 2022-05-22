@@ -5,15 +5,13 @@ ranger
 neovim
 python
 python-pip
-python-neovim
 
 bc
 boost
 feh
 xdotool
-iw
 iwd
-vtop
+btop
 sysstat
 lm_sensors
 acpi
@@ -27,8 +25,10 @@ valgrind
 make
 gcc
 
-firefox
 deepin-gtk-theme
+
+xdg-desktop-portal-gtk
+flatpak
 
 i3-gaps
 i3blocks
@@ -53,7 +53,6 @@ picom
 rofi
 
 alsa-utils
-ponymix
 pavucontrol
 
 xorg-xrdb
@@ -62,11 +61,7 @@ xorg-xprop
 xorg-server
 xorg-xinit
 
-baka-mplayer
-tidal-hifi
 evince
 
 nodejs-lts-gallium
 npm
-
-visual-studio-code-bin
