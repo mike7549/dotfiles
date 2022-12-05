@@ -17,6 +17,7 @@ exec_always --no-startup-id feh --randomize --bg-fill $dotdir/pictures/bg* --bg-
 #load Xresources
 exec_always --no-startup-id xrdb -load $dotdir/config/xorg/Xresources
 
+exec_always --no-startup-id setxkbmap -layout de -option "caps:escape"
 exec_always --no-startup-id python $dotdir/config/i3/i3-autoname-workspaces.py &
 
 #Audio Control
@@ -51,7 +52,6 @@ floating_modifier $mod
 #start browser
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+b exec google-chrome-stable --incognito
-
 
 #open current clipboard link in mpv
 bindsym $mod+p exec mpv $(xclip -o)
@@ -183,10 +183,10 @@ mode "resize" {
         bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -197,7 +197,6 @@ bindsym $mod+r mode "resize"
 
 bar {
   status_command i3blocks
-  tray_output none
   mode dock
   position top
   font xft:Hack 12, Hack Nerd Font, Icons 10

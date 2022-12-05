@@ -74,6 +74,7 @@ WINDOW_ICONS = {
     'Thunderbird': FA_MAIL,
     'smplayer': FA_VIDEO,
     'baka-mplayer': FA_VIDEO,
+    'jetbrains-webstorm': FA_CODE,
     'jetbrains-idea': FA_CODE,
     'Okular': FA_FILE_PDF_O,
     'jetbrains-studio': FA_ANDROID,
@@ -98,8 +99,8 @@ WINDOW_ICONS = {
     'spotify': FA_SPOTIFY,
     'Google-chrome': FA_CHROME,
     'kitty': FA_TERMINAL,
-    'ranger': FA_FILES_O
-
+    'ranger': FA_FILES_O,
+    'Inkscape': FA_PIC,
     }
 
 
