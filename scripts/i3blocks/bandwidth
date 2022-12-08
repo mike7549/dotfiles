@@ -95,7 +95,7 @@ tx_rate=$(( $tx_diff / $time_diff ))
 # incoming
 echo -n " $INLABEL"
 rx_kib=$(( $rx_rate >> 10 ))
-if hash bc 2>i /dev/null && [[ "$rx_rate" -gt 1048576 ]]; then
+if hash bc 2> /dev/null && [[ "$rx_rate" -gt 1048576 ]]; then
   #printf '%sM' "`echo "scale=1; $rx_kib / 1024" | bc`"
   rx_mib=$(echo "scale=1; $rx_kib / 1024" | bc)
   echo -n "${rx_mib}<small>M</small>"

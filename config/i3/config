@@ -200,6 +200,7 @@ bar {
   mode dock
   position top
   font xft:Hack 12, Hack Nerd Font, Icons 10
+  tray_padding 3
   colors {
     background #141414
     statusline #b16286
