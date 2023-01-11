@@ -9,3 +9,8 @@ update_all () {
 	flatpak update -y
 	sudo nvim -u ~/dotfiles/config/vim/init.vim -c :PlugUpgrade -c :PlugUpdate -c :q -c :q
 }
+
+pip_env () {
+	pipenv install --python=3.8 -r requirements.txt --skip-lock
+	pipenv shell
+}

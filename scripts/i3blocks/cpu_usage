@@ -42,7 +42,7 @@ $cpu_usage eq -1 and die 'Can\'t find CPU information';
 
 # Open htop if block is pressed
 if ($ENV{'BLOCK_BUTTON'} == 1) {
-	system qq{kitty -e 'btop'};
+	system qq{kitty -e 'htop'};
 }
 
 # Print short_text, full_text
