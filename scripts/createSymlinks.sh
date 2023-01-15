@@ -18,7 +18,7 @@ ln -sf $dotfiles/ranger/rifle.conf $homedir/.config/ranger/rifle.conf
 ln -sf $dotfiles/vim/init.vim $homedir/.vimrc
 ln -sf $dotfiles/vim/init.vim $homedir/.config/nvim/init.vim
 ln -sf $dotfiles/chrome/google-chrome.conf $homedir/.config/google-chrome.conf
-ln -sf $dotfiles/picom/picom.conf $homedir/.picom.conf
+ln -sf $dotfiles/electron/electron-flags.conf $homedir/.config/electron-flags.conf
 ln -sf $dotfiles/gtk/gtk.conf $homedir/.config/gtk-3.0/settings.ini
 ln -sf $dotfiles/rofi/config.rasi $homedir/.config/rofi/config.rasi
 ln -sf $dotfiles/rofi/themes/nord.rasi $homedir/.config/rofi/themes/nord.rasi
