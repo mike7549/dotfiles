@@ -6,6 +6,5 @@ win_reboot () {
 update_all () {
 	yay -Syu --answerdiff All --answerclean All --answeredit All --devel
 	omz update
-	flatpak update -y
 	sudo nvim -u ~/dotfiles/config/vim/init.vim -c :PlugUpgrade -c :PlugUpdate -c :q -c :q
 }

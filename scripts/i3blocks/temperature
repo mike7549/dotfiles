@@ -28,8 +28,9 @@ binmode(STDOUT, ":utf8");
 my $t_warn = 70;
 my $t_crit = 90;
 # uncomment line for cpu vendor
-my $chip = "nct6683-isa-0a20"; #AMD
-#my $chip = "coretemp-isa-0000"; #Intel
+#my $chip = "nct6683-isa-0a20"; #AMD
+
+my $chip = `sensors | grep "ISA adapter" -B 1 | head -n 1`;
 my $temperature = -9999;
 
 sub help {

@@ -11,6 +11,7 @@ boost
 feh
 xdotool
 iwd
+iw
 btop
 sysstat
 lm_sensors
@@ -30,9 +31,12 @@ deepin-gtk-theme
 xdg-desktop-portal-gtk
 flatpak
 
-i3-gaps
+sway
 i3blocks
-i3lock
+swaylock-effects-git
+swaybg
+swayidle
+grim
 python-i3ipc
 
 lxappearance
@@ -49,19 +53,14 @@ zip
 unzip
 xz
 
-picom
 rofi
 
 alsa-utils
 pavucontrol
 
-xorg-xrdb
-xorg-xrandr
-xorg-xprop
-xorg-server
-xorg-xinit
-
 evince
+
+galculator
 
 nodejs-lts-gallium
 npm

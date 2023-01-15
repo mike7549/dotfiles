@@ -47,6 +47,13 @@ Dotfiles for my Arch installation
 		NameResolvingService=systemd
 	```
 
+### Pacman Options
+Enable:
+ - ParallelDownloads
+ - Color
+ - VerbosePkgLists
+ - ILoveCandy
+
 ### Firefox Custom Theme
 1. Type about:profiles into your urlbar and go to the page
 2. Open the root directory folder specified on the page

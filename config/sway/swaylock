@@ -1,0 +1,21 @@
+# General:
+#ignore-empty-password
+show-failed-attempts
+indicator-idle-visible
+
+# Clock:
+clock
+timestr=%H:%M:%S
+datestr=%a, %b %d
+
+# Appearance:
+font=Hack
+indicator-caps-lock
+indicator-thickness=20
+indicator-radius=250
+
+# Effects:
+screenshots
+effect-greyscale
+effect-blur=10x2
+fade-in=1.0

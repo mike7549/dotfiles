@@ -49,6 +49,7 @@ alias x='atool -x'
 alias nvim='sudo nvim -u ~/dotfiles/config/vim/init.vim'
 alias vim='nvim -u ~/dotfiles/config/vim/init.vim'
 alias reload='source ~/.zshrc'
+alias icat="kitty +kitten icat"
 alias cap_live='ionic cap run android -l --external'
 
 source ~/dotfiles/config/zsh/functions
