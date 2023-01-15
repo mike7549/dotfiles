@@ -10,6 +10,7 @@ bc
 boost
 feh
 xdotool
+iw
 iwd
 iw
 btop
@@ -26,10 +27,14 @@ valgrind
 make
 gcc
 
+visual-studio-code-bin
+google-chrome
+baka-mplayer-git
+ponymix
+
 deepin-gtk-theme
 
 xdg-desktop-portal-gtk
-flatpak
 
 sway
 i3blocks
@@ -62,5 +67,5 @@ evince
 
 galculator
 
-nodejs-lts-gallium
+nodejs-lts-hydrogen
 npm
