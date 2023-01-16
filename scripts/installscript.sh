@@ -35,9 +35,6 @@ curl -L git.io/antigen > $HOME/.antigen.zsh
 sudo chsh -s /usr/bin/zsh
 chsh -s /usr/bin/zsh
 
-# flatpak
-flatpak install flathub -y com.google.Chrome com.visualstudio.code org.gnome.Totem
-
 # create symlinks
 sh $dotdir/scripts/createSymlinks.sh
 
