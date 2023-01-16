@@ -31,7 +31,6 @@ ln -sf $dotfiles/zsh/zshrc $homedir/.zshrc
 ln -sf $dotfiles/zsh/zlogin $homedir/.zlogin
 
 sudo ln -sf $dotfiles/xorg.conf/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
-sudo ln -sf $dotfiles/xorg.conf/20-nvidia.conf /etc/X11/xorg.conf.d/20-nvidia.conf
 
 sudo sh -c "if [ -d $rootdir/dotfiles ]; then sudo rm -rf $rootdir/dotfiles; fi"
 sudo ln -s $dotfiles $rootdir/dotfiles

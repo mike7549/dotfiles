@@ -28,9 +28,8 @@ gcc
 deepin-gtk-theme
 
 xdg-desktop-portal-gtk
-flatpak
 
-i3-gaps
+i3-wm
 i3blocks
 i3lock
 python-i3ipc
@@ -63,5 +62,5 @@ xorg-xinit
 
 evince
 
-nodejs-lts-gallium
+nodejs-lts-hydrogen
 npm
