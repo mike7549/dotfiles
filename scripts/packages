@@ -37,7 +37,7 @@ deepin-gtk-theme
 xdg-desktop-portal-gtk
 
 sway
-i3blocks
+waybar
 swaylock-effects-git
 swaybg
 swayidle

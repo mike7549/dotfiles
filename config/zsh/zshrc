@@ -41,7 +41,7 @@ alias search='yay -Ss'
 
 alias dd='sudo dd status=progress bs=4M'
 
-alias i3conf="vim $DOTFILES/config/i3/config"
+alias swayconf="vim $DOTFILES/config/sway/config"
 alias cddot="cd $DOTFILES"
 alias ccmake='cmake . && make'
 alias x='atool -x'

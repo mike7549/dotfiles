@@ -186,19 +186,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-  status_command i3blocks
-  mode dock
-  position top
-  font xft:Hack 12, Hack Nerd Font, Icons 10
-  tray_padding 3
-  colors {
-    background #141414
-    statusline #b16286
-    focused_workspace	#b16286 #141414 #b16286
-    active_workspace	#745c97 #141414 #745c97
-    inactive_workspace	#39375b #141414 #39375b
-    urgent_workspace	#ff0000 #000000 #ff0000
-  }
+  status_command waybar
+  mode invisible
 }
 
 input * {
