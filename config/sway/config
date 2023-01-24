@@ -186,7 +186,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-  status_command waybar
+  status_command "waybar -c $dotdir/config/waybar/config -s $dotdir/config/waybar/styles.css"
   mode invisible
 }
 

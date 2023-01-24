@@ -1,0 +1,40 @@
+#!/bin/bash
+
+weather=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=EUR|SE|SW021|SKOVDE" | perl -ne 'use utf8; if (/Currently/) {chomp;/\<title\>Currently: (.*)?\<\/title\>/; my @values=split(":",$1);binmode(STDOUT, ":utf8");print"$values[0]"}')
+
+temp=$(curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=EUR|SE|SW021|SKOVDE" | perl -ne 'use utf8; if (/Currently/) {chomp;/\<title\>Currently: (.*)?\<\/title\>/; my @values=split(":",$1);binmode(STDOUT, ":utf8");print"$values[1]"}')
+[[ -z "$weather" ]] && exit
+
+temp2=${temp//C}
+SYMBOL=""
+case "$weather" in
+	"Clear"|"Mostly Clear"|"Mostly Sunny"|'Sunny') SYMBOL='';;
+	"Partly Sunny") SYMBOL='';;
+	"Partly Cloudy"|"Intermittent Clouds") SYMBOL='';;
+	"Hazy Moonlight") SYMBOL='';;
+	"Partly Cloudy W/ Showers") SYMBOL='';;
+	"Mostly Cloudy W/ Showers") SYMBOL='';;
+	"Partly Cloudy W/ T-Storms") SYMBOL='';;
+	"Partly Sunny W/ Flurries") SYMBOL='';;
+	"Mostly Cloudy"|"Cloudy") SYMBOL='';;
+	"Snow") SYMBOL='';;
+	"Ice") SYMBOL='';;
+	"Sleet"|"Freezing Rain"|"Rain and Snow"|"Flurries"|"Mostly Cloudy W/ Flurries") SYMBOL='';;
+	"Cold") SYMBOL='';;
+	"Windy") SYMBOL='';;
+	"Showers") SYMBOL='';;
+	"Partly Sunny W/ Showers") SYMBOL='';;
+	"T-Storms") SYMBOL='';;
+	"Mostly Cloudy W/ T-Storms") SYMBOL='';;
+	"Partly Sunny W/ T-Storms") SYMBOL='';;
+	"Rain") SYMBOL='';;
+	"Dreary (Overcast)") SYMBOL='';; 
+	"Fog") SYMBOL='';;
+	*) $weather;;
+esac
+
+case $BLOCK_BUTTON in
+	1) kitty --hold curl -Ss https://wttr.in/Skovde & disown ;;
+esac
+
+echo " <b>${SYMBOL}</b> ${temp2}<small>糖</small> <i>${weather}</i> "

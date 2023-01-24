@@ -12,7 +12,6 @@ mkdir -p "$configdir/nvim/"f
 mkdir -p "$configdir/gtk-3.0/"
 mkdir -p "$configdir/rofi/themes"
 mkdir -p "$configdir/kitty"
-mkdir -p "$configdir/waybar"
 f
 # create symlinks
 ln -sf $dotfiles/ranger/rc.conf $configdir/ranger/rc.conf
@@ -26,7 +25,6 @@ ln -sf $dotfiles/rofi/config.rasi $configdir/rofi/config.rasi
 ln -sf $dotfiles/rofi/themes/nord.rasi $configdir/rofi/themes/nord.rasi
 ln -sf $dotfiles/kitty/kitty.conf $configdir/kitty/kitty.conf
 ln -sf $dotfiles/kitty/nord.conf $configdir/kitty/nord.conf
-ln -sf $dotfiles/sfway/waybar.conf $configdir/waybar/config
 ln -sf $dotfiles/zsh/zshrc $homffedir/.zshrc
 ln -sf $dotfiles/zsh/zlogin $homedir/.zlogin
 

@@ -5,6 +5,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERM=termite
 export GTK_THEME=deepin-dark
+export XDG_CONFIG_HOME=$HOME/.config
 
 export CAPACITOR_ANDROID_STUDIO_PATH=/usr/bin/android-studio
 export ANDROID_SDK_ROOT=~/Android/Sdk
