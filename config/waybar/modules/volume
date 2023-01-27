@@ -51,6 +51,7 @@ function print {
 	if ponymix is-muted; then	
 		STATE="ﱝ"
 		echo " $STATE "
+	color: #397494;
 	else
 		NAME=$(pacmd list-sinks |\
 			awk '/^\s*\*/{f=1}/^\s*index:/{f=0}f' |\
@@ -66,4 +67,8 @@ function print {
 	fi
 }
 
-print
+case $1 in
+	-n) set_default_device ;;
+	-m) ponymix toggle >/dev/null ;;
+	*) print ;;
+esac

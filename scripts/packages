@@ -39,6 +39,8 @@ waybar
 swaylock-effects-git
 swaybg
 swayidle
+wl-clipboard
+clipman
 grim
 python-i3ipc
 

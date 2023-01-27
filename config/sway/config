@@ -8,6 +8,8 @@ set $D2 DP-2
 exec_always --no-startup-id python $dotdir/config/sway/autoname-workspaces.py &
 exec_always --no-startup-id python $dotdir/config/sway/inactive-window-transparency.py &
 
+exec wl-paste -t text --watch clipman store --no-persist
+
 # Set background
 exec_always --no-startup-id sh $dotdir/scripts/swaybg.sh
 

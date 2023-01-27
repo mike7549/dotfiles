@@ -75,7 +75,6 @@
     },
     "clock#1": {
 		"format": "{:%a}",
-		"tooltip": false
 	},
 	"clock#2": {
 		"format": "{:%H:%M}",
@@ -113,33 +112,33 @@
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "ip route get 8.8.8.8 | head -n1 | awk '{print $7}' | wl-copy"
     },
     "pulseaudio": {
         "scroll-step": 5,
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": " {icon}",
-        "format-muted": " {format_source}",
+        "format-muted": " ﱝ ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+		"on-click-right": "sh $HOME/dotfiles/config/waybar/modules/volume -m",
+		"on-click-middle": "sh $HOME/dotfiles/config/waybar/modules/volume -n"
     },
 	"custom/weather": {
 		"exec": "$HOME/dotfiles/config/waybar/modules/weather",
