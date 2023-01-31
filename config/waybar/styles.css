@@ -15,11 +15,13 @@ window#waybar.hidden {
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
 	color: #1a1a1a;
+	font-size: 16px;
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
 	color: #292b2e;
 	background: #1a1a1a;
+	font-size: 16px;
 }
 
 button {
