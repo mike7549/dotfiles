@@ -12,7 +12,7 @@ mkdir -p "$configdir/nvim/"f
 mkdir -p "$configdir/gtk-3.0/"
 mkdir -p "$configdir/rofi/themes"
 mkdir -p "$configdir/kitty"
-f
+
 # create symlinks
 ln -sf $dotfiles/ranger/rc.conf $configdir/ranger/rc.conf
 ln -sf $dotfiles/ranger/rifle.conf $configdir/ranger/rifle.conf
