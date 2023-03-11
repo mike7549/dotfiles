@@ -84,7 +84,11 @@ WINDOW_ICONS = {
     'ranger': FA_FILES_O,
     'Inkscape': FA_PIC,
     'Opera': FA_OPERA,
-    'pavucontrol': FA_SPEAKER
+    'pavucontrol': FA_SPEAKER,
+    'Godot_Engine': FA_GAME,
+    'godot': FA_GAME,
+    'Godot_ProjectList': FA_GAME,
+    'Godot': FA_GAME
 }
 
 DEFAULT_ICON = '\u003f'
