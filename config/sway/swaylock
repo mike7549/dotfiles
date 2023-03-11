@@ -9,7 +9,7 @@ timestr=%H:%M:%S
 datestr=%a, %b %d
 
 # Appearance:
-font=Hack
+font=FiraCode
 indicator-caps-lock
 indicator-thickness=20
 indicator-radius=250

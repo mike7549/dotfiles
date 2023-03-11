@@ -13,7 +13,7 @@ exec wl-paste -t text --watch clipman store --no-persist
 # Set background
 exec_always --no-startup-id sh $dotdir/scripts/swaybg.sh
 
-# output "*" scale 1.25
+output "*" scale 1.25
 
 #Audio Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &&killall -SIGUSR1 i3status
@@ -39,7 +39,7 @@ default_floating_border pixel 3
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font xft:Hack 10
+font xft:FiraCode 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

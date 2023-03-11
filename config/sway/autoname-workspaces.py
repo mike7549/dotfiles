@@ -37,6 +37,8 @@ FA_VOL = '\uf028'
 FA_IMAGE = '\uf03e'
 FA_ANDROID = '\ue70e'
 FA_VS = '\ue70c'
+FA_OPERA = '\uf26a'
+FA_SPEAKER = '\uf028'
 
 WINDOW_ICONS = {
     'code' : FA_VS,
@@ -81,6 +83,8 @@ WINDOW_ICONS = {
     'kitty': FA_TERMINAL,
     'ranger': FA_FILES_O,
     'Inkscape': FA_PIC,
+    'Opera': FA_OPERA,
+    'pavucontrol': FA_SPEAKER
 }
 
 DEFAULT_ICON = '\u003f'

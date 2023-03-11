@@ -11,7 +11,7 @@ DEVICE=${1:-wlan0}
 POSITION=${2:-0}
 Y_OFF=${3:-0}
 X_OFF=${4:-0}
-FONT="Hack 12"
+FONT="FiraCode 12"
 
 ## Scan for available and broadcasting SSIDs.
 iwctl station $DEVICE scan

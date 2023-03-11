@@ -37,7 +37,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 if has('gui_running')
-	set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ Mono.ttf
+	set guifont=FiraCode\ Regular\ Nerd\ Font\ Complete\ Mono.ttf
 endif
 syntax enable
 colorscheme nord

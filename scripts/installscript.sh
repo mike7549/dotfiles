@@ -22,10 +22,6 @@ sudo nvim -u $dotdir/vim/init.vim -c :PlugInstall -c :q -c :q
 # detect sensors
 yes | sudo sensors-detect
 
-# install nerd fonts
-curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip > hack.zip
-sudo unzip hack.zip -d /usr/share/fonts
-rm hack.zip
 sudo fc-cache -f -v
 
 # oh-my-zsh
