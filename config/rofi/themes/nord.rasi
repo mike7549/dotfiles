@@ -8,7 +8,7 @@
 
 configuration {
 
-	font: "Hack 20";
+	font: "FiraCode 20";
 	width: 30;
 	line-margin: 10;
 	lines: 6;

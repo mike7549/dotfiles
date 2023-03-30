@@ -13,8 +13,6 @@ exec wl-paste -t text --watch clipman store --no-persist
 # Set background
 exec_always --no-startup-id sh $dotdir/scripts/swaybg.sh
 
-output "*" scale 1.25
-
 #Audio Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &&killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% &&killall -SIGUSR1 i3status
@@ -45,8 +43,8 @@ font xft:FiraCode 10
 floating_modifier $mod
 
 #start browser
-bindsym $mod+c exec google-chrome-stable
-bindsym $mod+b exec google-chrome-stable --incognito
+bindsym $mod+c exec vivaldi-stable
+bindsym $mod+b exec vivaldi-stable --incognito
 
 #open current clipboard link in mpv
 bindsym $mod+p exec mpv $(xclip -o)

@@ -39,6 +39,7 @@ FA_ANDROID = '\ue70e'
 FA_VS = '\ue70c'
 FA_OPERA = '\uf26a'
 FA_SPEAKER = '\uf028'
+FA_VIVALDI = '\uf194'
 
 WINDOW_ICONS = {
     'code' : FA_VS,
@@ -88,7 +89,8 @@ WINDOW_ICONS = {
     'Godot_Engine': FA_GAME,
     'godot': FA_GAME,
     'Godot_ProjectList': FA_GAME,
-    'Godot': FA_GAME
+    'Godot': FA_GAME,
+    'vivaldi-stable': FA_VIVALDI
 }
 
 DEFAULT_ICON = '\u003f'
