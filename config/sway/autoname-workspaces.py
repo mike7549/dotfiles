@@ -40,8 +40,10 @@ FA_VS = '\ue70c'
 FA_OPERA = '\uf26a'
 FA_SPEAKER = '\uf028'
 FA_VIVALDI = '\uf194'
+FA_PRIVATE = '󰗹'
 
 WINDOW_ICONS = {
+    'incognito': FA_PRIVATE,
     'code' : FA_VS,
     'gimp-2.10' : FA_PIC,
     'oss-code' : FA_VS,

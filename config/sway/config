@@ -44,7 +44,7 @@ floating_modifier $mod
 
 #start browser
 bindsym $mod+c exec firefox
-bindsym $mod+b exec firefox -private-window
+bindsym $mod+b exec firefox -private-window --class=incognito
 
 #open current clipboard link in mpv
 bindsym $mod+p exec mpv $(xclip -o)
