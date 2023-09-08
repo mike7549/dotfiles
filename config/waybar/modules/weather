@@ -37,4 +37,4 @@ case $BLOCK_BUTTON in
 	1) kitty --hold curl -Ss https://wttr.in/Skovde & disown ;;
 esac
 
-echo " <b>${SYMBOL}</b> ${temp2}<small>糖</small> <i>${weather}</i> "
+echo " <b>${SYMBOL}</b> ${temp2}<small>󰔄</small> <i>${weather}</i> "

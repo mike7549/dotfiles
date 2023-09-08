@@ -28,7 +28,8 @@ make
 gcc
 
 visual-studio-code-bin
-vivaldi
+firefox
+chromium
 baka-mplayer-git
 ponymix
 

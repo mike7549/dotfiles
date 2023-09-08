@@ -47,6 +47,7 @@ WINDOW_ICONS = {
     'oss-code' : FA_VS,
     'evince' : FA_FILE_PDF_O,
     'Navigator' : FA_FIREFOX,
+    'firefox': FA_FIREFOX,
     'Pavucontrol' : FA_VOL,
     'qBittorrent' : FA_DL,
     'urxvt': FA_TERMINAL,

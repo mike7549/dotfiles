@@ -43,8 +43,8 @@ font xft:FiraCode 10
 floating_modifier $mod
 
 #start browser
-bindsym $mod+c exec vivaldi-stable
-bindsym $mod+b exec vivaldi-stable --incognito
+bindsym $mod+c exec firefox
+bindsym $mod+b exec firefox -private-window
 
 #open current clipboard link in mpv
 bindsym $mod+p exec mpv $(xclip -o)
