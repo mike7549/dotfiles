@@ -6,7 +6,7 @@ set $D1 DP-0
 set $D2 DP-2
 
 exec_always --no-startup-id python $dotdir/config/sway/autoname-workspaces.py &
-exec_always --no-startup-id python $dotdir/config/sway/inactive-window-transparency.py &
+exec_always --no-startup-id python $dotdir/config/sway/inactive-window-transparency.py --opacity=0.95 &
 
 exec wl-paste -t text --watch clipman store --no-persist
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -14,7 +14,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 # Set background
 exec_always --no-startup-id sh $dotdir/scripts/swaybg.sh
 
-#output "*" scale 1.25
+output "*" scale 1.15
 
 #Audio Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &&killall -SIGUSR1 i3status
@@ -64,8 +64,8 @@ bindsym $mod+y exec --no-startup-id $dotdir/scripts/rofi-search.sh -y
 bindsym $mod+i exec --no-startup-id $dotdir/scripts/rofi-iwd.sh
 
 #border 2pixel
-gaps inner 20
-gaps outer 1
+gaps outer 7
+gaps inner 10
 smart_gaps on
 smart_borders on
 
@@ -113,13 +113,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-for_window [app_id="galculator"] floating enable
-assign [class="^baka-mplayer$"] → number 5
-assign [class="^smplayer$"] → number 5
-assign [class="^tidal-hifi$"] → number 5
+for_window [app_id="galculator"] floating enabled
 assign [class="^qBittorrent$"] → number 4
 assign [class="^Gimp-2.10"] → number 3
-for_window [class="^baka-mplayer$"] focus
 # switch to workspace bindsym $mod+1 workspace $ws1
 bindsym $mod+1 workspace number 1 
 bindsym $mod+2 workspace number 2
@@ -208,7 +204,7 @@ input type:touchpad {
 }
 
 # class					        border	backgr.	text	indicator	child_border
-client.focused			    #745c97 #39375b #39375b 
-client.unfocused	      #39375b #745c97 #745c97 
-client.focused_inactive #d597ce #d597ce #d597ce 
-client.urgent			      #ff0000 #ff0000 #ff0000 
+client.focused			    #b6b4de #b6b4de #b6b4de 
+client.unfocused	      #543b78 #543b78 #543b78 
+client.focused_inactive #543b78 #543b78 #543b78 
+client.urgent			      #d98423 #d98423 #d98423 
