@@ -2,6 +2,22 @@ zsh
 kitty
 ranger
 
+i3-wm
+i3status
+polybar
+i3lock
+python-i3ipc
+
+deepin-gtk-theme
+
+xdg-desktop-portal-gtk
+
+xorg-xrdb
+xorg-xrandr
+xorg-xprop
+xorg-server
+xorg-xinit
+
 neovim
 python
 python-pip
@@ -10,9 +26,7 @@ bc
 boost
 feh
 xdotool
-iw
-iwd
-iw
+xclip
 btop
 sysstat
 lm_sensors
@@ -30,20 +44,6 @@ gcc
 visual-studio-code-bin
 firefox
 chromium
-baka-mplayer-git
-ponymix
-
-deepin-gtk-theme
-
-sway
-waybar
-swaylock-effects-git
-swaybg
-swayidle
-wl-clipboard
-clipman
-grim
-python-i3ipc
 
 lxappearance
 ttf-droid
@@ -61,6 +61,7 @@ xz
 
 rofi
 
+pulseaudio
 alsa-utils
 pavucontrol
 
@@ -68,5 +69,5 @@ evince
 
 galculator
 
-nodejs-lts-hydrogen
+nodejs-lts-iron
 npm
