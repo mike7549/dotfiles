@@ -33,6 +33,7 @@ lm_sensors
 acpi
 imagemagick
 reflector
+direnv
 
 clang
 cmake

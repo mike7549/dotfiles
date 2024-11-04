@@ -31,7 +31,7 @@ function install_neovim {
 
 function install_zsh {
     echo "<< Installing zsh and oh my zsh >>"
-    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     curl -L git.io/antigen > $HOME/.antigen.zsh
 
     sudo chsh -s /usr/bin/zsh
