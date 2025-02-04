@@ -192,8 +192,8 @@ bar {
 }
 
 input * {
-	xkb_layout "de"
-	xkb_model "pc104"
+	xkb_layout "de,sv"
+	xkb_model "pc105"
 	xkb_options "caps:escape"
 	xkb_numlock enabled
 }

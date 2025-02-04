@@ -2,6 +2,7 @@
 
 # set dotfiles directory
 dotdir="$HOME/dotfiles"
+configdir="$HOME/.config"
 # update System before starting
 sudo pacman -Syu wget base-devel
 
@@ -61,8 +62,9 @@ function create_symlinks {
     ln -sf $dotdir/config/kitty/kitty.conf $configdir/kitty/kitty.conf
     ln -sf $dotdir/config/kitty/nord.conf $configdir/kitty/nord.conf
 
-    mkdir -p $configdir/polybar
-    ln -sf $dotdir/config/polybar/config.ini $configdir/polybar/config.ini
+    #sway
+    mkdir -p $configdir/sway
+    ln -sf $dotdir/config/sway/config $configdir/sway/config
 
     mkdir -p $configdir/gtk-3.0/
     ln -sf $dotdir/config/gtk/gtk.conf $configdir/gtk-3.0/settings.ini
