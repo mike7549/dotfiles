@@ -8,3 +8,31 @@ update_all () {
 	omz update
 	sudo nvim -u ~/dotfiles/config/vim/init.vim -c :PlugUpgrade -c :PlugUpdate -c :q -c :q
 }
+
+create_pyvenv () {
+	if [[ $# -ne 2 ]]; then
+		echo "Usage: create_pyvenv <venv_name> <requirements_file>"
+		return 1
+	fi
+	python -m venv $HOME/.venv/$1
+	source $HOME/.venv/$1/bin/activate
+
+	python -m pip install -r $2
+}
+
+pyvenv() {
+	if [[ $# -ne 1 ]]; then
+    	echo "Usage: pyvenv <venv_name>"
+    	return 1
+  	fi
+	source $HOME/.venv/$1/bin/activate
+}
+
+adb_connect() {
+	if [[ $# -ne 2 ]]; then
+		echo "Usage: adb_connect <port> <remote_ip>"
+		return 1
+	fi
+	adb -d tcpip $1
+	adb -d connect $2:$1
+}

@@ -19,6 +19,7 @@ lm_sensors
 acpi
 imagemagick
 reflector
+direnv
 
 clang
 cmake
@@ -35,7 +36,6 @@ ponymix
 
 sway
 waybar
-swaylock-effects-git
 swaybg
 swayidle
 wl-clipboard
@@ -66,5 +66,5 @@ evince
 
 galculator
 
-nodejs-lts-hydrogen
+nodejs-lts-jod
 npm

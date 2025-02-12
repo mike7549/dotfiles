@@ -1,14 +1,13 @@
-export DOTFILES=~/dotfiles
 export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
 export EDITOR=nvim
 export VISUAL=nvim
-export TERM=termite
+export TERM=kitty
 export GTK_THEME=deepin-dark
 export XDG_CONFIG_HOME=$HOME/.config
 
 export CAPACITOR_ANDROID_STUDIO_PATH=/usr/bin/android-studio
-export ANDROID_SDK_ROOT=~/Android/Sdk
+export ANDROID_SDK_ROOT=$HOME/Android
 export MOZ_ENABLE_WAYLAND=1 firefox
 
 source ~/.antigen.zsh
@@ -20,13 +19,15 @@ antigen bundle heroku
 antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
+antigen bundle direnv
+antigen bundle web-search
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
 
-antigen theme gnzh
+antigen theme gallifrey
 
 antigen apply
 
@@ -43,16 +44,13 @@ alias search='yay -Ss'
 
 alias dd='sudo dd status=progress bs=4M'
 
-alias swayconf="vim $DOTFILES/config/sway/config"
-alias cddot="cd $DOTFILES"
-alias ccmake='cmake . && make'
 alias x='atool -x'
 
 alias nvim='sudo nvim -u ~/dotfiles/config/vim/init.vim'
 alias vim='nvim -u ~/dotfiles/config/vim/init.vim'
-alias reload='source ~/.zshrc'
+alias reload='omz reload'
+alias www='web_search duckduckgo'
 alias icat="kitty +kitten icat"
-alias cap_live='ionic cap run android -l --external'
 
 source ~/dotfiles/config/zsh/functions
 
@@ -60,3 +58,11 @@ autoload -Uz compinit -u
 compinit -u
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
+
+# pnpm
+export PNPM_HOME="/home/michael/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
