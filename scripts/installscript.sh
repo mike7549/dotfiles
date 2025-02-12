@@ -91,3 +91,5 @@ sudo fc-cache -f -v
 
 # change colors
 dircolors -p > $HOME/.dircolors
+
+pyenv init

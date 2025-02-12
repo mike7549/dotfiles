@@ -28,6 +28,8 @@ valgrind
 make
 gcc
 
+pyenv
+
 visual-studio-code-bin
 firefox
 chromium

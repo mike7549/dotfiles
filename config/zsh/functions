@@ -10,8 +10,12 @@ update_all () {
 }
 
 create_pyvenv () {
+	if [[ $# -eq 3 ]]; then
+		pyenv install $3
+		pyenv shell $3
+	fi
 	if [[ $# -ne 2 ]]; then
-		echo "Usage: create_pyvenv <venv_name> <requirements_file>"
+		echo "Usage: create_pyvenv <venv_name> <requirements_file> <optional: python version>"
 		return 1
 	fi
 	python -m venv $HOME/.venv/$1
