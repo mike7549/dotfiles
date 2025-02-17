@@ -33,10 +33,10 @@ pyvenv() {
 }
 
 adb_connect() {
-	if [[ $# -ne 2 ]]; then
-		echo "Usage: adb_connect <port> <remote_ip>"
-		return 1
-	fi
-	adb -d tcpip $1
-	adb -d connect $2:$1
+	adb disconnect
+	adb tcpip 5555
+	sleep 3
+	IP=$(adb shell ip addr show wlan0 | grep 'inet' | cut -d ' ' -f6 | cut -d/ -f1 | head -n1)
+	echo "Connecting to: ${IP}"
+	adb connect $IP
 }
