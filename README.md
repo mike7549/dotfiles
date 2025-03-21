@@ -1,8 +1,5 @@
 # Dotfiles
 Dotfiles for my Arch installation
-<p align="center">
-	<img src="pictures/screen.png" alt="Screeny"/>
-</p>
 
 ## Installation
 - clone the repository: `git clone https://github.com/mike7549/dotfiles`
@@ -32,20 +29,6 @@ Dotfiles for my Arch installation
 		loader	\EFI\Microsoft\Boot\bootmgfw.efi
 	}
 	```
-- Rename device name for pulse audio:
-	- add to /etc/pulse/default.pa: `load-module module-device-manager`
-	- in pavucontrol right click on the combo box widget next to port in in/output devices
-
-### Network Configuration
-- Enable networking and resolving:
-	Edit /etc/iwd/main.conf
-	```
-		[General]
-		EnableNetworkConfiguration=true
-
-		[Network]
-		NameResolvingService=systemd
-	```
 
 ### Pacman Options
 Enable:
@@ -69,3 +52,12 @@ Enable:
 - Disable Fullscreen Message: `full-screen-api.warning.timeout` &rarr; set to 0
 - Prevent screen tearing issues: `layers.acceleration.force-enabled` &rarr; set to true
 - Disable pocket: `extensions.pocket.enabled` &rarr; set to false
+
+### Vivaldi Custom Theme
+1. Enable css modifications in `vivaldi:experiments`
+2. Set path to css folder in `Appearance -> Custom UI Modifications`
+
+#### Add custom css
+When css modifactions are enabled it is possible to inspect the browser by navigating to `vivaldi:inspect/#apps`
+
+

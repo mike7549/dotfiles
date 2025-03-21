@@ -66,6 +66,10 @@ function create_symlinks {
     mkdir -p $configdir/sway
     ln -sf $dotdir/config/sway/config $configdir/sway/config
 
+    #vivaldi
+    mkdir -p $configdir/vivaldi/css
+    ln -sf $dotdir/config/vivaldi/custom.css $configdir/vivaldi/css/custom.css
+
     mkdir -p $configdir/gtk-3.0/
     ln -sf $dotdir/config/gtk/gtk.conf $configdir/gtk-3.0/settings.ini
 
