@@ -9,6 +9,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export CAPACITOR_ANDROID_STUDIO_PATH=/usr/bin/android-studio
 export ANDROID_SDK_ROOT=$HOME/Android
 export MOZ_ENABLE_WAYLAND=1 firefox
+export CHROME_BIN=/usr/bin/chromium
 
 source ~/.antigen.zsh
 

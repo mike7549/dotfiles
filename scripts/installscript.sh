@@ -70,6 +70,13 @@ function create_symlinks {
     mkdir -p $configdir/vivaldi/css
     ln -sf $dotdir/config/vivaldi/custom.css $configdir/vivaldi/css/custom.css
 
+    #dolphin context menus
+    context_menu_path=$HOME/.local/share/kio/servicemenus
+    mkdir -p $context_menu_path
+    for contextmenu in $dotdir/config/kde/contextmenu/*; do
+        ln -sf $contextmenu $context_menu_path/$contextmenu
+    done
+
     mkdir -p $configdir/gtk-3.0/
     ln -sf $dotdir/config/gtk/gtk.conf $configdir/gtk-3.0/settings.ini
 
