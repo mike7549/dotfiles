@@ -1,8 +1,0 @@
-@theme "nord"
-configuration {
-	font: "FiraCode NFM 25";
-}
-listview {
-	lines: 0;
-	columns: 1;
-}

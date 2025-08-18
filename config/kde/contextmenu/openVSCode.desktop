@@ -1,19 +1,19 @@
  [Desktop Entry]
- Name = Open in VS Code
+ Name = Open in VS Codium
  Type=Service
  ServiceTypes=KonqPopupMenu/Plugin
  MimeType=inode/directory
  X-KDE-Priority=TopLevel
- Actions=openInVSCode
+ Actions=openInVSCodium
  
- [Desktop Action openInVSCode]
- Name=Open in VS Code
- Name[nl]=Openen in VS Code
- Name[cs]=Otevřít ve VS Code
- Name[es]=Abrir en VS Code
- Name[pl]=Otwórz za pomocą VS Code
- Name[zh]=在VS Code中打开
- Name[zh_CN]=在VS Code中打开
- Name[de]=In VS Code öffnen
- Icon=com.visualstudio.code
- Exec=code %u
+ [Desktop Action openInVSCodium]
+ Name=Open in VS Codium
+ Name[nl]=Openen in VS Codium
+ Name[cs]=Otevřít ve VS Codium
+ Name[es]=Abrir en VS Codium
+ Name[pl]=Otwórz za pomocą VS Codium
+ Name[zh]=在VS Codium中打开
+ Name[zh_CN]=在VS Codium中打开
+ Name[de]=In VS Codium öffnen
+ Icon=com.visualstudio.code.oss
+ Exec=vscodium %u
