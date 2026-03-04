@@ -7,10 +7,10 @@ export GTK_THEME=deepin-dark
 export XDG_CONFIG_HOME=$HOME/.config
 
 export CAPACITOR_ANDROID_STUDIO_PATH=/usr/bin/android-studio
-export ANDROID_SDK_ROOT=$HOME/Android
+export ANDROID_SDK_ROOT=/opt/android-sdk
 export MOZ_ENABLE_WAYLAND=1 firefox
 export CHROME_BIN=/usr/bin/chromium
-
+export JAVA_HOME=/opt/android-studio/jbr
 source ~/.antigen.zsh
 
 antigen use oh-my-zsh
@@ -71,3 +71,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
