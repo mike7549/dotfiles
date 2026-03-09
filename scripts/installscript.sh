@@ -43,6 +43,10 @@ function install_zsh {
     mkdir -p "$configdir/zsh/"
     ln -sf $dotdir/config/zsh/zshrc $HOME/.zshrc
     ln -sf $dotdir/config/zsh/zlogin $HOME/.zlogin
+    ln -sf $dotdir/config/zsh/.zsh_plugins.txt $HOME/.zsh_plugins.txt
+
+    mkdir -p "$HOME/.cache"
+    ln -sf $dotdir/config/zsh/p10k-instant-prompt.zsh $HOME/.cache/p10k-instant-prompt.zsh
 }
 
 function create_symlinks {
