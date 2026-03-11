@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set dotfiles directory
-dotdir="$HOME/$(pwd)"
+dotdir=$(pwd)
 configdir="$HOME/.config"
 
 function install_yay {
@@ -52,12 +52,6 @@ function create_symlinks {
     ln -sf $dotdir/config/kitty/kitty.conf $configdir/kitty/kitty.conf
     ln -sf $dotdir/config/kitty/nord.conf $configdir/kitty/nord.conf
 
-    #dolphin context menus
-    context_menu_path=$HOME/.local/share/kio/servicemenus
-    mkdir -p $context_menu_path
-    for contextmenu in $dotdir/config/kde/contextmenu/*; do
-        ln -sf $contextmenu $context_menu_path/$contextmenu
-    done
 
     ln -sf $dotdir/config/picom/picom.conf $HOME/.picom.conf
     ln -sf $dotdir/config/chrome/chrome-flags.conf $configdir/chrome-flags.conf
@@ -69,9 +63,16 @@ function create_symlinks {
     fish_config_path=$configdir/fish
     ln -sf $dotdir/config/fish/config.fish $fish_config_path/config.fish
     ln -sf $dotdir/config/fish/functions/fish_prompt.fish $fish_config_path/functions/fish_prompt.fish
+
+    #dolphin context menus
+    context_menu_path=$HOME/.local/share/kio/servicemenus
+    mkdir -p $context_menu_path
+    for contextmenu in $dotdir/config/kde/contextmenu/*; do
+        ln -sf $contextmenu $context_menu_path/$(basename $contextmenu)
+    done
 }
 
-if [ $(lsb_release -si) = 'arch' ]; then
+if [ $(lsb_release -si) = 'Arch' ]; then
     install_yay
 fi
 
