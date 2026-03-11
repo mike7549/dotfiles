@@ -34,14 +34,13 @@ visual-studio-code-bin
 firefox
 chromium
 vivaldi
-ponymix
 
 sway
 waybar
 swaybg
 swayidle
 wl-clipboard
-clipman
+cliphist
 grim
 python-i3ipc
 
@@ -52,6 +51,7 @@ noto-fonts
 noto-fonts-extra
 noto-fonts-emoji
 noto-fonts-cjk
+fzf
 
 atool
 unrar

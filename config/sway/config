@@ -8,7 +8,7 @@ set $D2 DP-2
 exec_always --no-startup-id python $dotdir/config/sway/autoname-workspaces.py &
 exec_always --no-startup-id python $dotdir/config/sway/inactive-window-transparency.py --opacity=0.95 &
 
-exec wl-paste -t text --watch clipman store --no-persist
+exec wl-paste -t text --watch cliphist store --no-persist
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Set background

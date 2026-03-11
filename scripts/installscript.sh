@@ -35,14 +35,13 @@ function install_neovim {
 function install_zsh {
     echo "<< Installing zsh and oh my zsh >>"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    curl -L git.io/antigen > $HOME/.antigen.zsh
+    git clone --depth=1 https://github.com/mattmc3/antidote.git $HOME/.antidote
 
     sudo chsh -s /usr/bin/zsh
     chsh -s /usr/bin/zsh
 
     mkdir -p "$configdir/zsh/"
-    ln -sf $dotdir/config/zsh/zshrc $HOME/.zshrc
-    ln -sf $dotdir/config/zsh/zlogin $HOME/.zlogin
+    ln -sf $dotdir/config/zsh/.zshrc $HOME/.zshrc
     ln -sf $dotdir/config/zsh/.zsh_plugins.txt $HOME/.zsh_plugins.txt
 
     mkdir -p "$HOME/.cache"

@@ -25,50 +25,52 @@ function set_default_device {
     move_sinks_to_new_default $default_sink
 }
 
-case $BLOCK_BUTTON in	# Ponymix auto-prints volume so >/dev/null
+case $BLOCK_BUTTON in
   1) set_default_device ;;
   2) (pavucontrol &) ;;
-  3) ponymix toggle >/dev/null;;				# Right Click
-  4) ponymix --max-volume $CEILING increase $STEP >/dev/null;;	# Scroll Up
-  5) ponymix --max-volume $CEILING decrease $STEP >/dev/null;;	# Scroll Down
+  3) pactl set-sink-mute @DEFAULT_SINK@ toggle >/dev/null ;;           # Right Click
+  4) pactl set-sink-volume @DEFAULT_SINK@ +${STEP}% >/dev/null         # Scroll Up
+     VOL=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%' | head -n1 | tr -d '%')
+     [[ $VOL -gt $CEILING ]] && pactl set-sink-volume @DEFAULT_SINK@ ${CEILING}% >/dev/null ;;
+  5) pactl set-sink-volume @DEFAULT_SINK@ -${STEP}% >/dev/null ;;      # Scroll Down
 esac
 
 function print {
-	VOL="$(ponymix get-volume)"
+    VOL=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%' | head -n1 | tr -d '%')
+    MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o 'yes\|no')
 
-	if [[ $VOL -eq 0 ]]; then
-		STATE=" 婢 ";
-	elif [[ $VOL -lt 10 ]]; then
-		STATE="  ${VOL}";
-	elif [[ $VOL -lt 50 ]]; then
-		STATE="  ${VOL}";
-	elif [[ $VOL -lt 75 ]]; then
-		STATE=" 墳 ${VOL}";
-	else
-		STATE="  ${VOL}";
-	fi
+    if [[ $VOL -eq 0 ]]; then
+        STATE=" 婢 ";
+    elif [[ $VOL -lt 10 ]]; then
+        STATE="  ${VOL}";
+    elif [[ $VOL -lt 50 ]]; then
+        STATE="  ${VOL}";
+    elif [[ $VOL -lt 75 ]]; then
+        STATE=" 墳 ${VOL}";
+    else
+        STATE="  ${VOL}";
+    fi
 
-	if ponymix is-muted; then	
-		STATE="ﱝ"
-		echo " $STATE "
-	color: #397494;
-	else
-		NAME=$(pacmd list-sinks |\
-			awk '/^\s*\*/{f=1}/^\s*index:/{f=0}f' |\
-			grep "device.description" |\
-			head -n1 |\
-			sed 's/.*= "\(.*\)".*/\1/')
-		case $NAME in 
-			"Z313") echo "$STATE 蓼 $NAME 蓼 " ;;
-			"G533") echo "$STATE  $NAME " ;;
-			"Speakers") echo "$STATE 蓼 $NAME 蓼 " ;; 
-			*) echo "$STATE $NAME " ;;
-		esac
-	fi
+    if [[ "$MUTED" == "yes" ]]; then
+        STATE="ﱝ"
+        echo " $STATE "
+    else
+        NAME=$(pacmd list-sinks |\
+            awk '/^\s*\*/{f=1}/^\s*index:/{f=0}f' |\
+            grep "device.description" |\
+            head -n1 |\
+            sed 's/.*= "\(.*\)".*/\1/')
+        case $NAME in
+            "Z313") echo "$STATE 蓼 $NAME 蓼 " ;;
+            "G533") echo "$STATE  $NAME " ;;
+            "Speakers") echo "$STATE 蓼 $NAME 蓼 " ;;
+            *) echo "$STATE $NAME " ;;
+        esac
+    fi
 }
 
 case $1 in
-	-n) set_default_device ;;
-	-m) ponymix toggle >/dev/null ;;
-	*) print ;;
+    -n) set_default_device ;;
+    -m) pactl set-sink-mute @DEFAULT_SINK@ toggle >/dev/null ;;
+    *) print ;;
 esac
