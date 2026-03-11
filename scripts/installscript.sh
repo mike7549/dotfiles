@@ -88,6 +88,7 @@ function create_symlinks {
 
     ln -sf $dotdir/config/picom/picom.conf $HOME/.picom.conf
     ln -sf $dotdir/config/chrome/chrome-flags.conf $configdir/chrome-flags.conf
+    ln -sf $dotdir/config/electron/electron-flags.conf $configdir/electron-flags.conf
     ln -sf $dotdir/config/xorg/xinitrc $HOME/.xinitrc
 }
 
