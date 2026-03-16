@@ -31,16 +31,12 @@ function install_neovim {
 function create_symlinks {
     echo "<< Creating symlinks >>"
 
-    # kitty
-    mkdir -p $configdir/kitty
-    ln -sf $dotdir/config/kitty/kitty.conf $configdir/kitty/kitty.conf
-    ln -sf $dotdir/config/kitty/nord.conf $configdir/kitty/nord.conf
+    mkdir -p $configdir/alacritty
+    ln -sf $dotdir/config/alacritty/alacritty.toml $configdir/alacritty/alacritty.toml
 
 
-    ln -sf $dotdir/config/picom/picom.conf $HOME/.picom.conf
     ln -sf $dotdir/config/chrome/chrome-flags.conf $configdir/chrome-flags.conf
     ln -sf $dotdir/config/electron/electron-flags.conf $configdir/electron-flags.conf
-    ln -sf $dotdir/config/xorg/xinitrc $HOME/.xinitrc
 
     # fish
     mkdir -p $configdir/fish/functions
