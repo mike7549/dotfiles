@@ -88,8 +88,8 @@ end
 
 
 function update_all
-    yay -Syu --answerdiff All --answerclean All --answeredit All --devel --diffmenu=false
     sudo nvim -u ~/dotfiles/config/vim/init.vim -c :PlugUpgrade -c :PlugUpdate -c :q -c :q
+    arch-update
 end
 
 function create_pyvenv
@@ -117,13 +117,29 @@ function pyvenv
     source "$HOME/.venv/$argv[1]/bin/activate"
 end
 
-function adb_connect
-    adb disconnect
-    adb tcpip 5555
-    sleep 3
-    set -l IP (adb shell ip addr show wlan0 | grep 'inet' | cut -d ' ' -f6 | cut -d/ -f1 | head -n1)
-    echo "Connecting to: $IP"
-    adb connect "$IP"
+function adb_connect_mdns
+    for line in (avahi-browse --terminate --resolve --parsable --no-db-lookup _adb-tls-connect._tcp)
+        if not string match -q '=*' $line
+            continue
+        end
+
+        set fields (string split ';' $line)
+        set uri "$fields[8]:$fields[9]"
+
+        echo "INFO: it will try to connect on $uri"
+        set adb_result (adb connect $uri)
+        echo $adb_result
+
+        # Note: adb exits with 0 even if the connection fails,
+        # so I'm checking its output
+        if string match -q '*connected*' $adb_result
+            echo "INFO: successfully connected"
+            return 0
+        end
+    end
+
+    echo "ERROR: unable to identify the ADB port on the android device"
+    return 1
 end
 
 ## Useful aliases
@@ -172,7 +188,7 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
-set -x JAVA_HOME /usr/lib/jvm/java-21-openjdk
+set -x JAVA_HOME $(dirname $(dirname $(readlink -f $(which java))))
 set -x CAPACITOR_ANDROID_STUDIO_PATH /usr/bin/android-studio
 set -x ANDROID_SDK_ROOT $HOME/Android
 set -x CHROME_BIN /usr/bin/chromium

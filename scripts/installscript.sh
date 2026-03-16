@@ -28,22 +28,6 @@ function install_neovim {
     ln -sf $dotdir/config/vim/init.vim $HOME/.vimrc
 }
 
-function install_zsh {
-    echo "<< Installing zsh and oh my zsh >>"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone --depth=1 https://github.com/mattmc3/antidote.git $HOME/.antidote
-
-    sudo chsh -s /usr/bin/zsh
-    chsh -s /usr/bin/zsh
-
-    mkdir -p "$configdir/zsh/"
-    ln -sf $dotdir/config/zsh/.zshrc $HOME/.zshrc
-    ln -sf $dotdir/config/zsh/.zsh_plugins.txt $HOME/.zsh_plugins.txt
-
-    mkdir -p "$HOME/.cache"
-    ln -sf $dotdir/config/zsh/p10k-instant-prompt.zsh $HOME/.cache/p10k-instant-prompt.zsh
-}
-
 function create_symlinks {
     echo "<< Creating symlinks >>"
 
@@ -82,5 +66,7 @@ if [[ "$confirm" == "yes" ]]; then
 fi
 
 install_neovim
-install_zsh
+
+sudo chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish
 create_symlinks

@@ -1,32 +1,8 @@
-zsh 
-kitty
-ranger
-
 neovim
 python
 python-pip
 
-bc
-boost
-feh
-xdotool
-iw
-iwd
-iw
-btop
-sysstat
-lm_sensors
-acpi
-imagemagick
-reflector
 direnv
-
-clang
-cmake
-gdb
-valgrind
-make
-gcc
 
 pyenv
 
@@ -35,27 +11,18 @@ firefox
 chromium
 vivaldi
 
-plasma
-kde-applications
-kde-utilities
-
-lxappearance
-ttf-droid
-ttf-firacode-nerd
 noto-fonts
 noto-fonts-extra
 noto-fonts-emoji
 noto-fonts-cjk
 fzf
 
-atool
-unrar
-zip
-unzip
-xz
-
-alsa-utils
-pavucontrol
-
 nodejs-lts-jod
 npm
+
+spotify-launcher
+gimp
+inkscape
+okular
+
+mission-center
