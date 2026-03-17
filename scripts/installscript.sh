@@ -62,9 +62,23 @@ function install_fish {
     fi
 }
 
+function install_devtools {
+	echo ">> Installing devtools"
+	read -p "Install devtools? (yes/no): " confirm
+	if [[ "$confirm" = "yes" ]]; then
+		yay -S $(cat $dotdir/scripts/packages-devtools) --answerclean All --answerdiff All --answeredit All
+		echo ">> accepting licenses"
+        sudo chown -R $(whoami) /opt/android-studio
+        sudo chown -R $(whoami) /opt/android-sdk
+        sudo sh /opt/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+	fi
+}
+
+
 install_packages
 install_neovim
 install_fish
+install_devtools
 
 create_symlinks
 echo ">> Finished running install script"
