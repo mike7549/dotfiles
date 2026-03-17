@@ -10,7 +10,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 " theme
 Plug 'bling/vim-airline'
-Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " formatting
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-commentary'
@@ -40,7 +40,7 @@ if has('gui_running')
 	set guifont=FiraCode\ Regular\ Nerd\ Font\ Complete\ Mono.ttf
 endif
 syntax enable
-colorscheme nord
+colorscheme dracula
 set laststatus=2
 set relativenumber
 set number

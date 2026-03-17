@@ -4,36 +4,35 @@
 dotdir=$(pwd)
 configdir="$HOME/.config"
 
-function install_yay {
-    echo "<< Installing yay >>"
-    git clone https://aur.archlinux.org/yay-bin.git
-    cd yay-bin
-    makepkg -si
-    cd .. && rm -rf yay-bin
-}
-
 function install_packages {
-    echo "<< Installing packages >>"
-    yay -S $(cat $dotdir/scripts/packages)  --answerclean All --answerdiff All --answeredit All
+    echo ">> Installing packages"
+    read -p "Install packages? (yes/no): " confirm
+    if [[ "$confirm" == "yes" ]]; then
+        yay -S $(cat $dotdir/scripts/packages) --answerclean All --answerdiff All --answeredit All
+    fi
 }
 
 function install_neovim {
-    echo "<< Installing neovim >>"
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    nvim -u $dotdir/config/vim/init.vim -c :PlugInstall -c :q -c :q
-    sudo nvim -u $dotdir/config/vim/init.vim -c :PlugInstall -c :q -c :q
-    mkdir -p "$configdir/nvim/"
-    ln -sf $dotdir/config/vim/init.vim $configdir/nvim/init.vim
-    ln -sf $dotdir/config/vim/init.vim $HOME/.vimrc
+    echo ">> Installing neovim"
+    if [ "$(readlink $configdir/nvim/init.vim)" != "$dotdir/config/vim/init.vim" ]; then
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        nvim -u $dotdir/config/vim/init.vim -c :PlugInstall -c :q -c :q
+        sudo nvim -u $dotdir/config/vim/init.vim -c :PlugInstall -c :q -c :q
+        mkdir -p "$configdir/nvim/"
+        ln -sf $dotdir/config/vim/init.vim $configdir/nvim/init.vim
+        ln -sf $dotdir/config/vim/init.vim $HOME/.vimrc
+    else
+        echo "init.vim already points to the right file, skipping"
+    fi
 }
 
 function create_symlinks {
-    echo "<< Creating symlinks >>"
+    echo ">> Creating symlinks"
 
-    mkdir -p $configdir/alacritty
+    mkdir -p $configdir/alacritty/themes
     ln -sf $dotdir/config/alacritty/alacritty.toml $configdir/alacritty/alacritty.toml
-
+    ln -sf $dotdir/config/alacritty/themes/dracula.toml $configdir/alacritty/themes/dracula.toml
 
     ln -sf $dotdir/config/chrome/chrome-flags.conf $configdir/chrome-flags.conf
     ln -sf $dotdir/config/electron/electron-flags.conf $configdir/electron-flags.conf
@@ -52,17 +51,20 @@ function create_symlinks {
     done
 }
 
-if [ $(lsb_release -si) = 'Arch' ]; then
-    install_yay
-fi
+function install_fish {
+    echo ">> Installing fish"
+    if [ "$SHELL" != "/usr/bin/fish" ]; then
+        curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+        sudo chsh -s /usr/bin/fish
+        chsh -s /usr/bin/fish
+    else
+        echo "Shell is already fish, skipping"
+    fi
+}
 
-read -p "Install packages? (yes/no): " confirm
-if [[ "$confirm" == "yes" ]]; then
-    install_packages
-fi
-
+install_packages
 install_neovim
+install_fish
 
-sudo chsh -s /usr/bin/fish
-chsh -s /usr/bin/fish
 create_symlinks
+echo ">> Finished running install script"
