@@ -57,6 +57,8 @@ function install_fish {
         curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
         sudo chsh -s /usr/bin/fish
         chsh -s /usr/bin/fish
+        fisher install dracula/fish
+        fish_config theme choose Dracula
     else
         echo "Shell is already fish, skipping"
     fi
@@ -71,6 +73,7 @@ function install_devtools {
         sudo chown -R $(whoami) /opt/android-studio
         sudo chown -R $(whoami) /opt/android-sdk
         sudo sh /opt/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+        sudo npm install -g @angular/cli @ionic/cli @capacitor/cli ts-node
 	fi
 }
 
@@ -81,4 +84,6 @@ install_fish
 install_devtools
 
 create_symlinks
+
+sudo fc-cache -f -v
 echo ">> Finished running install script"

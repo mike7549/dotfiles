@@ -192,5 +192,3 @@ set -x JAVA_HOME $(dirname $(dirname $(readlink -f $(which java))))
 set -x CAPACITOR_ANDROID_STUDIO_PATH $(which android-studio)
 set -x ANDROID_SDK_ROOT /opt/android-sdk/
 set -x CHROME_BIN $(which chromium)
-set -x TERM $(which fish)
-set -x EDITOR $(which nvim)
