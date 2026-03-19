@@ -193,3 +193,5 @@ set -x CAPACITOR_ANDROID_STUDIO_PATH /usr/bin/android-studio
 set -x ANDROID_SDK_ROOT /opt/android-sdk/
 set -x CHROME_BIN /usr/bin/chromium
 set -x EDITOR /usr/bin/nvim
+
+fish_config theme choose Dracula

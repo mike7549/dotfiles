@@ -53,12 +53,11 @@ function create_symlinks {
 
 function install_fish {
     echo ">> Installing fish"
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+    fisher install dracula/fish
     if [ "$SHELL" != "/usr/bin/fish" ]; then
-        curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
         sudo chsh -s /usr/bin/fish
         chsh -s /usr/bin/fish
-        fisher install dracula/fish
-        fish_config theme choose Dracula
     else
         echo "Shell is already fish, skipping"
     fi
