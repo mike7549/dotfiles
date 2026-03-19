@@ -189,6 +189,7 @@ alias jctl="journalctl -p 3 -xb"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 set -x JAVA_HOME $(dirname $(dirname $(readlink -f $(which java))))
-set -x CAPACITOR_ANDROID_STUDIO_PATH $(which android-studio)
+set -x CAPACITOR_ANDROID_STUDIO_PATH /usr/bin/android-studio
 set -x ANDROID_SDK_ROOT /opt/android-sdk/
-set -x CHROME_BIN $(which chromium)
+set -x CHROME_BIN /usr/bin/chromium
+set -x EDITOR /usr/bin/nvim
