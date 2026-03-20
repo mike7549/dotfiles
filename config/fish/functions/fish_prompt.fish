@@ -33,5 +33,9 @@ function fish_prompt --description 'Write out the prompt'
         end
     
         echo -s (prompt_login) ' ' $cwd_color (prompt_pwd) $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status
-        echo -n -s $status_color $suffix ' ' $normal
+        set -l venv_info ""
+        if set -q VIRTUAL_ENV
+                set venv_info (set_color bryellow) "(" (basename $VIRTUAL_ENV) ")" $normal " "
+        end
+        echo -n -s $venv_info $status_color $suffix ' ' $normal
 end

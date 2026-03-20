@@ -142,3 +142,8 @@ working_directory = "None"
 import = [
     "~/.config/alacritty/themes/dracula.toml"
 ]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

@@ -93,18 +93,18 @@ function update_all
 end
 
 function create_pyvenv
+    if test (count $argv) -lt 2 -o (count $argv) -gt 3
+        echo "Usage: create_pyvenv <venv_name> <requirements_file> <optional: python version>"
+        return 1
+    end
+
     if test (count $argv) -eq 3
         pyenv install "$argv[3]"
         pyenv shell "$argv[3]"
     end
 
-    if test (count $argv) -ne 2
-        echo "Usage: create_pyvenv <venv_name> <requirements_file> <optional: python version>"
-        return 1
-    end
-
     python -m venv "$HOME/.venv/$argv[1]"
-    source "$HOME/.venv/$argv[1]/bin/activate"
+    source "$HOME/.venv/$argv[1]/bin/activate.fish"
 
     python -m pip install -r "$argv[2]"
 end
@@ -114,7 +114,7 @@ function pyvenv
         echo "Usage: pyvenv <venv_name>"
         return 1
     end
-    source "$HOME/.venv/$argv[1]/bin/activate"
+    source "$HOME/.venv/$argv[1]/bin/activate.fish"
 end
 
 function adb_connect_mdns
