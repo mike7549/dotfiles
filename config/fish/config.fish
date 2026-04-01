@@ -98,12 +98,15 @@ function create_pyvenv
         return 1
     end
 
+    set -l python_bin python
+
     if test (count $argv) -eq 3
         pyenv install "$argv[3]"
-        pyenv shell "$argv[3]"
+        set -l resolved_version (pyenv latest --known "$argv[3]")
+        set python_bin (pyenv root)/versions/$resolved_version/bin/python
     end
 
-    python -m venv "$HOME/.venv/$argv[1]"
+    $python_bin -m venv "$HOME/.venv/$argv[1]"
     source "$HOME/.venv/$argv[1]/bin/activate.fish"
 
     python -m pip install -r "$argv[2]"
