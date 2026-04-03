@@ -29,11 +29,72 @@ fi
 
 log "Detected outputs: $(echo "$OUTPUTS" | tr '\n' ' ')"
 
+
+# Returns all mode strings (e.g. "1920x1080@60.00") for the given output name
+get_available_modes() {
+    local output="$1"
+    kscreen-doctor -o 2>/dev/null \
+        | sed 's/\x1b\[[0-9;]*m//g' \
+        | awk -v out="$output" '
+            /^Output:/ { in_block = ($3 == out) }
+            in_block && /Modes:/ { print }
+        ' \
+        | grep -oE '[0-9]+x[0-9]+@[0-9]+(\.[0-9]+)?[!*]?' \
+        | sed 's/[!*]//' || true
+}
+
+# Returns the best available mode for the requested resolution/fps.
+# Priority: exact match → same resolution closest fps → 1920x1080@60
+find_best_mode() {
+    local width="$1" 
+    local height="$2"
+    local fps="$3"
+    local modes
+    modes=$(get_available_modes "$DUMMY_OUTPUT")
+
+    # Exact match (integer fps matches float, e.g. 60 matches 60.00)
+    local exact
+    exact=$(echo "$modes" | grep -E "^${width}x${height}@${fps}(\.[0-9]+)?$" | head -n1 || true)
+    if [[ -n "$exact" ]]; then
+        echo "$exact"
+        return
+    fi
+
+    # Same resolution, pick mode with fps closest to requested
+    local same_res
+    same_res=$(echo "$modes" | grep -E "^${width}x${height}@" || true)
+    if [[ -n "$same_res" ]]; then
+        local best
+        best=$(echo "$same_res" | awk -F@ -v target="$fps" '
+            {
+                f = $2 + 0
+                diff = (f > target) ? f - target : target - f
+                if (NR == 1 || diff < min_diff) { min_diff = diff; best = $0 }
+            }
+            END { print best }
+        ')
+        if [[ -n "$best" ]]; then
+            echo "$best"
+            return
+        fi
+    fi
+
+    # Ultimate fallback
+    echo "1920x1080@60"
+}
+
+
+
+# Resolve the mode, falling back if the exact one isn't available
+MODE=$(find_best_mode "$WIDTH" "$HEIGHT" "$FPS")
+#if [[ "$MODE" != "${WIDTH}x${HEIGHT}@${FPS}" && "$MODE" != "${WIDTH}x${HEIGHT}@${FPS}."* ]]; then
+#    log "WARNING: mode ${WIDTH}x${HEIGHT}@${FPS} not found — using closest available: ${MODE}"
+#fi
 ARGS=()
 
 # Enable the dummy display and set the requested mode
 ARGS+=("output.${DUMMY_OUTPUT}.enable")
-ARGS+=("output.${DUMMY_OUTPUT}.mode.${WIDTH}x${HEIGHT}@${FPS}")
+ARGS+=("output.${DUMMY_OUTPUT}.mode.${MODE}")
 ARGS+=("output.${DUMMY_OUTPUT}.position.0,0")
 
 # Disable every other output
@@ -45,4 +106,4 @@ done <<< "$OUTPUTS"
 log "Running: kscreen-doctor ${ARGS[*]}"
 kscreen-doctor "${ARGS[@]}" 2>&1 | tee -a "$LOG_FILE"
 
-log "Prep complete — streaming on ${DUMMY_OUTPUT} at ${WIDTH}x${HEIGHT}@${FPS}"
+log "Prep complete — streaming on ${DUMMY_OUTPUT} at ${MODE}"

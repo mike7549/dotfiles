@@ -8,8 +8,8 @@
 			"name": "Desktop",
 			"prep-cmd": [
 				{
-					"do": "sh $HOME/dotfiles/scripts/sunshine-prep.sh",
-					"undo": "sh $HOME/dotfiles/scripts/sunshine-undo.sh"
+					"do": "sh /home/michael/dotfiles/scripts/sunshine-prep.sh",
+					"undo": "sh /home/michael/dotfiles/scripts/sunshine-undo.sh"
 				}
 			],
 			"wait-all": true
@@ -27,8 +27,8 @@
 					"undo": "setsid steam steam://close/bigpicture"
 				},
 				{
-					"do": "sh $HOME/dotfiles/scripts/sunshine-prep.sh",
-					"undo": "sh $HOME/dotfiles/scripts/sunshine-undo.sh"
+					"do": "sh /home/michael/dotfiles/scripts/sunshine-prep.sh",
+					"undo": "sh /home/michael/dotfiles/scripts/sunshine-undo.sh"
 				}
 			],
 			"wait-all": false
