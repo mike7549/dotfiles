@@ -43,6 +43,11 @@ function create_symlinks {
     ln -sf $dotdir/config/fish/config.fish $fish_config_path/config.fish
     ln -sf $dotdir/config/fish/functions/fish_prompt.fish $fish_config_path/functions/fish_prompt.fish
 
+    #sunshine
+    mkdir -p $configdir/sunshine
+    ln -sf $dotdir/config/sunshine/apps.json $configdir/sunshine/apps.json
+    ln -sf $dotdir/config/sunshine/sunshine.conf $configdir/sunshine/sunshine.conf
+
     #dolphin context menus
     context_menu_path=$HOME/.local/share/kio/servicemenus
     mkdir -p $context_menu_path
