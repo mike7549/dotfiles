@@ -88,9 +88,9 @@ find_best_mode() {
 # Resolve the mode, falling back if the exact one isn't available
 # kscreen-doctor requires integer fps (e.g. 1280x800@60, not 1280x800@59.81)
 MODE=$(find_best_mode "$WIDTH" "$HEIGHT" "$FPS" | awk -F'@' '{ printf "%s@%.0f", $1, $2 }')
-#if [[ "$MODE" != "${WIDTH}x${HEIGHT}@${FPS}" && "$MODE" != "${WIDTH}x${HEIGHT}@${FPS}."* ]]; then
-#    log "WARNING: mode ${WIDTH}x${HEIGHT}@${FPS} not found — using closest available: ${MODE}"
-#fi
+if [[ "$MODE" != "${WIDTH}x${HEIGHT}@${FPS}" && "$MODE" != "${WIDTH}x${HEIGHT}@${FPS}."* ]]; then
+    log "WARNING: mode ${WIDTH}x${HEIGHT}@${FPS} not found — using closest available: ${MODE}"
+fi
 ARGS=()
 
 # Enable the dummy display and set the requested mode
