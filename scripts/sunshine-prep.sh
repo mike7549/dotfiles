@@ -14,11 +14,12 @@ log "Dummy output identified: $DUMMY_OUTPUT"
 WIDTH="${SUNSHINE_CLIENT_WIDTH:-1920}"
 HEIGHT="${SUNSHINE_CLIENT_HEIGHT:-1080}"
 FPS="${SUNSHINE_CLIENT_FPS:-60}"
+HDR="${SUNSHINE_CLIENT_HDR:-false}"
 
 
 
 log "=== Sunshine prep started ==="
-log "Requested resolution: ${WIDTH}x${HEIGHT}@${FPS}"
+log "Requested resolution: ${WIDTH}x${HEIGHT}@${FPS}, HDR: ${HDR}"
 
 OUTPUTS=$(kscreen-doctor -o | grep Output | awk -F' ' '{print $3}' | grep -iv "HDMI")
 
@@ -98,6 +99,7 @@ ARGS+=("output.${DUMMY_OUTPUT}.enable")
 ARGS+=("output.${DUMMY_OUTPUT}.mode.${MODE}")
 ARGS+=("output.${DUMMY_OUTPUT}.position.0,0")
 
+
 # Disable every other output
 while IFS= read -r name; do
     log "Disabling output: $name"
@@ -106,5 +108,10 @@ done <<< "$OUTPUTS"
 
 log "Running: kscreen-doctor ${ARGS[*]}"
 kscreen-doctor "${ARGS[@]}" 2>&1 | tee -a "$LOG_FILE"
+
+if [[ "$HDR" == "true" ]]; then
+    log "HDR requested — enabling HDR on ${DUMMY_OUTPUT}"
+    kscreen-doctor output.$DUMMY_OUTPUT.hdr.enable output.$DUMMY_OUTPUT.wcg.enable
+fi
 
 log "Prep complete — streaming on ${DUMMY_OUTPUT} at ${MODE}"
