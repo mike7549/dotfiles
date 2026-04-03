@@ -6,13 +6,18 @@
 			"exit-timeout": 5,
 			"image-path": "desktop.png",
 			"name": "Desktop",
-			"prep-cmd": [
-				{
-					"do": "sh /home/michael/dotfiles/scripts/sunshine-prep.sh",
-					"undo": "sh /home/michael/dotfiles/scripts/sunshine-undo.sh"
-				}
-			],
 			"wait-all": true
+		},
+		{
+			"auto-detach": false,
+			"cmd": "MoonDeckStream",
+			"elevated": false,
+			"exclude-global-prep-cmd": false,
+			"exit-timeout": 5,
+			"image-path": "",
+			"name": "MoonDeckStream",
+			"output": "",
+			"wait-all": false
 		},
 		{
 			"auto-detach": true,
@@ -25,10 +30,6 @@
 				{
 					"do": "",
 					"undo": "setsid steam steam://close/bigpicture"
-				},
-				{
-					"do": "sh /home/michael/dotfiles/scripts/sunshine-prep.sh",
-					"undo": "sh /home/michael/dotfiles/scripts/sunshine-undo.sh"
 				}
 			],
 			"wait-all": false
