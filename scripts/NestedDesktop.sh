@@ -17,6 +17,10 @@ EOF
 chmod a+x $XDG_RUNTIME_DIR/nested_kde/kwin_wayland_wrapper
 export PATH=$XDG_RUNTIME_DIR/nested_kde:$PATH
 
+export XKB_DEFAULT_LAYOUT=de
+export XKB_DEFAULT_MODEL=pc105
+export XKB_DEFAULT_VARIANT=nodeadkeys
+
 dbus-run-session startplasma-wayland &
 PLASMA_PID=$!
 

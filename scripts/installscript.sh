@@ -56,6 +56,16 @@ function create_symlinks {
     done
 }
 
+function exportScripts {
+    echo ">> Exporting scripts to PATH"
+    read -p "Export scripts? (yes/no): " confirm
+    if [[ "$confirm" == "yes" ]]; then
+        sudo ln -s $dotdir/scripts/sunshine-prep.sh /usr/local/bin/sunshine-prep
+        udo ln -s $dotdir/scripts/sunshine-undo.sh /usr/local/bin/sunshine-undo
+        sudo ln -s $dotdir/scripts/NestedDesktop.sh /usr/local/bin/nested-desktop
+    fi
+}
+
 function install_fish {
     echo ">> Installing fish"
     curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
@@ -88,6 +98,7 @@ install_fish
 install_devtools
 
 create_symlinks
+
 
 sudo fc-cache -f -v
 echo ">> Finished running install script"
