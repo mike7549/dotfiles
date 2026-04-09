@@ -4,11 +4,18 @@
 dotdir=$(pwd)
 configdir="$HOME/.config"
 
+function install_yay {
+    if ! command -v yay &>/dev/null; then
+        echo ">> Installing yay"
+        sudo pacman -S --noconfirm yay
+    fi
+}
+
 function install_packages {
     echo ">> Installing packages"
     read -p "Install packages? (yes/no): " confirm
     if [[ "$confirm" == "yes" ]]; then
-        yay -S $(cat $dotdir/scripts/packages) --answerclean All --answerdiff All --answeredit All
+        yay -S $(cat $dotdir/scripts/packages) --noconfirm --answerclean All --answerdiff All --answeredit All
     fi
 }
 
@@ -43,13 +50,6 @@ function create_symlinks {
     ln -sf $dotdir/config/fish/config.fish $fish_config_path/config.fish
     ln -sf $dotdir/config/fish/functions/fish_prompt.fish $fish_config_path/functions/fish_prompt.fish
 
-    #sunshine
-    mkdir -p $configdir/sunshine
-    ln -sf $dotdir/config/sunshine/apps.json $configdir/sunshine/apps.json
-    ln -sf $dotdir/config/sunshine/sunshine.conf $configdir/sunshine/sunshine.conf
-    mkdir -p $configdir/systemd/user/sunshine.service.d
-    ln -sf $dotdir/config/sunshine/undo-on-crash.conf $configdir/systemd/user/sunshine.service.d/undo-on-crash.conf
-
     #dolphin context menus
     context_menu_path=$HOME/.local/share/kio/servicemenus
     mkdir -p $context_menu_path
@@ -58,13 +58,29 @@ function create_symlinks {
     done
 }
 
-function exportScripts {
+function export_scripts {
     echo ">> Exporting scripts to PATH"
     read -p "Export scripts? (yes/no): " confirm
     if [[ "$confirm" == "yes" ]]; then
         sudo ln -s $dotdir/scripts/sunshine-prep.sh /usr/local/bin/sunshine-prep
         udo ln -s $dotdir/scripts/sunshine-undo.sh /usr/local/bin/sunshine-undo
         sudo ln -s $dotdir/scripts/NestedDesktop.sh /usr/local/bin/nested-desktop
+    fi
+}
+
+function install_sunshine {
+    read -p "Install sunshine? (yes/no): " confirm
+    if [[ "$confirm" == "yes" ]]; then
+        echo ">> Installing sunshine"
+        yay -S --noconfirm sunshine
+        sudo setcap cap_sys_admin+p $(readlink -f $(which sunshine))
+        mkdir -p $configdir/sunshine
+        ln -sf $dotdir/config/sunshine/apps.json $configdir/sunshine/apps.json
+        ln -sf $dotdir/config/sunshine/sunshine.conf $configdir/sunshine/sunshine.conf
+        mkdir -p $configdir/systemd/user/sunshine.service.d
+        ln -sf $dotdir/config/sunshine/undo-on-crash.conf $configdir/systemd/user/sunshine.service.d/undo-on-crash.conf
+        systemctl --user enable --now sunshine
+        export_scripts
     fi
 }
 
@@ -93,9 +109,10 @@ function install_devtools {
 	fi
 }
 
-
+install_yay
 install_packages
 install_neovim
+install_sunshine
 install_fish
 install_devtools
 
