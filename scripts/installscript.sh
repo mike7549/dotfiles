@@ -47,6 +47,8 @@ function create_symlinks {
     mkdir -p $configdir/sunshine
     ln -sf $dotdir/config/sunshine/apps.json $configdir/sunshine/apps.json
     ln -sf $dotdir/config/sunshine/sunshine.conf $configdir/sunshine/sunshine.conf
+    mkdir -p $configdir/systemd/user/sunshine.service.d
+    ln -sf $dotdir/config/sunshine/undo-on-crash.conf $configdir/systemd/user/sunshine.service.d/undo-on-crash.conf
 
     #dolphin context menus
     context_menu_path=$HOME/.local/share/kio/servicemenus
