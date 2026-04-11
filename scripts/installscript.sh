@@ -63,7 +63,7 @@ function export_scripts {
     read -p "Export scripts? (yes/no): " confirm
     if [[ "$confirm" == "yes" ]]; then
         sudo ln -s $dotdir/scripts/sunshine-prep.sh /usr/local/bin/sunshine-prep
-        udo ln -s $dotdir/scripts/sunshine-undo.sh /usr/local/bin/sunshine-undo
+        sudo ln -s $dotdir/scripts/sunshine-undo.sh /usr/local/bin/sunshine-undo
         sudo ln -s $dotdir/scripts/NestedDesktop.sh /usr/local/bin/nested-desktop
     fi
 }
@@ -79,6 +79,8 @@ function install_sunshine {
         ln -sf $dotdir/config/sunshine/sunshine.conf $configdir/sunshine/sunshine.conf
         mkdir -p $configdir/systemd/user/sunshine.service.d
         ln -sf $dotdir/config/sunshine/undo-on-crash.conf $configdir/systemd/user/sunshine.service.d/undo-on-crash.conf
+        sudo ln -sf $dotdir/scripts/sunshine-sleep-hook.sh /lib/systemd/system-sleep/sunshine-sleep-hook
+        sudo chmod +x /lib/systemd/system-sleep/sunshine-sleep-hook
         systemctl --user enable --now sunshine
         export_scripts
     fi
