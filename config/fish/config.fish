@@ -93,14 +93,14 @@ function update_all
 end
 
 function create_pyvenv
-    if test (count $argv) -lt 2 -o (count $argv) -gt 3
-        echo "Usage: create_pyvenv <venv_name> <requirements_file> <optional: python version>"
+    if test (count $argv) -lt 2 -o (count $argv) -gt 4
+        echo "Usage: create_pyvenv <venv_name> <requirements_file> [python_version] [env_file]"
         return 1
     end
 
     set -l python_bin python
 
-    if test (count $argv) -eq 3
+    if test (count $argv) -ge 3
         pyenv install "$argv[3]"
         set -l resolved_version (pyenv latest --known "$argv[3]")
         set python_bin (pyenv root)/versions/$resolved_version/bin/python
@@ -110,6 +110,10 @@ function create_pyvenv
     source "$HOME/.venv/$argv[1]/bin/activate.fish"
 
     python -m pip install -r "$argv[2]"
+
+    if test (count $argv) -eq 4
+        cp "$argv[4]" "$HOME/.venv/$argv[1]/.env"
+    end
 end
 
 function pyvenv
@@ -118,6 +122,19 @@ function pyvenv
         return 1
     end
     source "$HOME/.venv/$argv[1]/bin/activate.fish"
+    set -l env_file "$HOME/.venv/$argv[1]/.env"
+    if test -f $env_file
+        if string match -q '#!*' (head -1 $env_file)
+            source $env_file
+        else
+            for line in (grep -v '^\s*#' $env_file | grep -v '^\s*$')
+                set -l parts (string split -m 1 '=' $line)
+                set -l value (string replace -r '^"(.*)"$' '$1' -- $parts[2])
+                set value (string replace -r "^'(.*)'$" '$1' -- $value)
+                set -gx (string replace -r '^\s*export\s+' '' $parts[1]) $value
+            end
+        end
+    end
 end
 
 function adb_connect_mdns
