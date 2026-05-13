@@ -130,7 +130,7 @@ function pyvenv
             for line in (grep -v '^\s*#' $env_file | grep -v '^\s*$')
                 set -l parts (string split -m 1 '=' $line)
                 set -l value (string replace -r '^"(.*)"$' '$1' -- $parts[2])
-                set value (string replace -r "^'(.*)'$" '$1' -- $value)
+                set value (string replace -r "^'(.*)'\$" '$1' -- $value)
                 set -gx (string replace -r '^\s*export\s+' '' $parts[1]) $value
             end
         end
