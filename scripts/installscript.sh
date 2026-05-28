@@ -58,31 +58,12 @@ function create_symlinks {
     done
 }
 
-function export_scripts {
-    echo ">> Exporting scripts to PATH"
-    read -p "Export scripts? (yes/no): " confirm
-    if [[ "$confirm" == "yes" ]]; then
-        sudo ln -s $dotdir/scripts/sunshine-prep.sh /usr/local/bin/sunshine-prep
-        sudo ln -s $dotdir/scripts/sunshine-undo.sh /usr/local/bin/sunshine-undo
-        sudo ln -s $dotdir/scripts/NestedDesktop.sh /usr/local/bin/nested-desktop
-    fi
-}
+
 
 function install_sunshine {
     read -p "Install sunshine? (yes/no): " confirm
     if [[ "$confirm" == "yes" ]]; then
-        echo ">> Installing sunshine"
-        yay -S --noconfirm sunshine
-        sudo setcap cap_sys_admin+p $(readlink -f $(which sunshine))
-        mkdir -p $configdir/sunshine
-        ln -sf $dotdir/config/sunshine/apps.json $configdir/sunshine/apps.json
-        ln -sf $dotdir/config/sunshine/sunshine.conf $configdir/sunshine/sunshine.conf
-        mkdir -p $configdir/systemd/user/sunshine.service.d
-        ln -sf $dotdir/config/sunshine/undo-on-crash.conf $configdir/systemd/user/sunshine.service.d/undo-on-crash.conf
-        sudo ln -sf $dotdir/scripts/sunshine-sleep-hook.sh /lib/systemd/system-sleep/sunshine-sleep-hook
-        sudo chmod +x /lib/systemd/system-sleep/sunshine-sleep-hook
-        systemctl --user enable --now sunshine
-        export_scripts
+        sh "$dotdir/scripts/sunshine/install-sunshine.sh"
     fi
 }
 
