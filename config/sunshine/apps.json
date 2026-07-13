@@ -9,17 +9,6 @@
 			"wait-all": true
 		},
 		{
-			"auto-detach": false,
-			"cmd": "MoonDeckStream",
-			"elevated": false,
-			"exclude-global-prep-cmd": false,
-			"exit-timeout": 5,
-			"image-path": "",
-			"name": "MoonDeckStream",
-			"output": "",
-			"wait-all": false
-		},
-		{
 			"auto-detach": true,
 			"detached": ["setsid steam steam://open/bigpicture"],
 			"exclude-global-prep-cmd": false,
