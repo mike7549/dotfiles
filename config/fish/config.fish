@@ -162,6 +162,19 @@ function adb_connect_mdns
     return 1
 end
 
+function win_reboot
+    set -l entry (efibootmgr | string match -r '^Boot[0-9A-Fa-f]{4}\*? .*Windows Boot Manager.*')
+    if test -z "$entry"
+        echo "ERROR: unable to find Windows Boot Manager entry in efibootmgr"
+        return 1
+    end
+
+    set -l bootnum (string sub -s 5 -l 4 (string split -f 1 ' ' -- $entry))
+    echo "INFO: setting BootNext to $bootnum (Windows Boot Manager) and rebooting"
+    sudo efibootmgr -n $bootnum
+    and systemctl reboot
+end
+
 ## Useful aliases
 # Replace ls with eza
 alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
