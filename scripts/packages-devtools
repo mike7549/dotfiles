@@ -1,4 +1,4 @@
-nodejs-lts-krypton
+nodejs
 npm
 pnpm
 
@@ -8,3 +8,5 @@ android-sdk-build-tools
 android-sdk-platform-tools
 android-platform
 android-tools
+
+godot

@@ -22,13 +22,11 @@ function install_packages {
 function install_neovim {
     echo ">> Installing neovim"
     if [ "$(readlink $configdir/nvim/init.vim)" != "$dotdir/config/vim/init.vim" ]; then
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        nvim -u $dotdir/config/vim/init.vim -c :PlugInstall -c :q -c :q
-        sudo nvim -u $dotdir/config/vim/init.vim -c :PlugInstall -c :q -c :q
+        # init.vim downloads vim-plug itself if it's missing
+        nvim --headless -u $dotdir/config/vim/init.vim +'PlugInstall --sync' +qa
+        sudo nvim --headless -u $dotdir/config/vim/init.vim +'PlugInstall --sync' +qa
         mkdir -p "$configdir/nvim/"
         ln -sf $dotdir/config/vim/init.vim $configdir/nvim/init.vim
-        ln -sf $dotdir/config/vim/init.vim $HOME/.vimrc
     else
         echo "init.vim already points to the right file, skipping"
     fi
@@ -42,6 +40,7 @@ function create_symlinks {
     ln -sf $dotdir/config/alacritty/themes/dracula.toml $configdir/alacritty/themes/dracula.toml
 
     ln -sf $dotdir/config/chrome/chrome-flags.conf $configdir/chrome-flags.conf
+    ln -sf $dotdir/config/chrome/chrome-flags.conf $configdir/vivaldi-stable.conf
     ln -sf $dotdir/config/electron/electron-flags.conf $configdir/electron-flags.conf
 
     # fish
