@@ -83,11 +83,7 @@ function install_devtools {
 	read -p "Install devtools? (yes/no): " confirm
 	if [[ "$confirm" = "yes" ]]; then
 		yay -S $(cat $dotdir/scripts/packages-devtools) --answerclean All --answerdiff All --answeredit All
-		echo ">> accepting licenses"
-        sudo chown -R $(whoami) /opt/android-studio
-        sudo chown -R $(whoami) /opt/android-sdk
-        sudo sh /opt/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
-        sudo npm install -g @angular/cli @ionic/cli @capacitor/cli ts-node
+        sudo npm install -g @angular/cli ts-node
 	fi
 }
 

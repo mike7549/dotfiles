@@ -1,13 +1,19 @@
 neovim
+wl-clipboard
 python
 python-pip
+
+jdk-openjdk
+java-runtime-common 
+java-environment-common
 
 direnv
 
 pyenv
 
+android-tools
+
 visual-studio-code-bin
-firefox
 vivaldi
 
 noto-fonts
