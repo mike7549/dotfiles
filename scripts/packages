@@ -27,6 +27,7 @@ spotify-launcher
 gimp
 inkscape
 okular
+libresprite
 
 steam
 lutris
@@ -43,6 +44,8 @@ smbclient
 kio-fuse
 cifs-utils
 cachyos-samba-settings
+openbsd-netcat
+kdenetwork-filesharing
 
 sbctl
 

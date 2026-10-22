@@ -79,3 +79,36 @@ EOF
 #### Take ownership of other drives
 
 sudo chown -R $USER:$USER <path/to/drive>
+
+#### Enable SMB1
+
+edit `/etc/samba/smb.conf`
+
+change `client min protocol` to `NT1`
+
+#### Run app-images with wake lock enabled
+
+1.  Add desktop entry to `~/.local/share/applications/<app-image-name>.desktop`
+2.  Add following content and edit as needed:
+
+```
+[Desktop Entry]
+Categories=<Category>
+Comment=<some comment goes here>
+Exec=systemd-inhibit --what=sleep:idle '--who=<App Name>' '--why=<Reason>' --mode=block </path/to/app-image> %U
+Icon=<path/to/icon>
+Name=<App name>
+NoDisplay=false
+Path=
+PrefersNonDefaultGPU=false
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+```
+
+#### Add commands to path
+
+Run `sudo ln -s </path/to/command> /usr/local/bin/<command>`
