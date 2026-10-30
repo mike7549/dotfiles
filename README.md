@@ -1,69 +1,123 @@
 # Dotfiles
 
-Dotfiles for my Arch installation
-https://github.com/login?client_id=01ab8ac9400c4e429b23&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3D01ab8ac9400c4e429b23%26code_challenge%3DmYGL-6XlfTKxxI8ynzF4j58kspVGj-y6Ag_zVvG8j_g%26code_challenge_method%3DS256%26get_started_with%3Dcopilot-vscode%26prompt%3Dselect_account%26redirect_uri%3Dhttps%253A%252F%252Fvscode.dev%252Fredirect%26scope%3Dread%253Auser%2Brepo%2Buser%253Aemail%2Bworkflow%26state%3Dhttp%253A%252F%252F127.0.0.1%253A45401%252Fcallback%253Fnonce%253DSZzvp1OUlnwKmDF547Gv9Q%25253D%25253D
+Dotfiles for my CachyOs installation.
+
+## Contents
+
+- [Installation](#installation)
+- [Post install](#post-install)
+  - [Drives](#drives)
+  - [Networking](#networking)
+  - [Desktop](#desktop)
+  - [Gaming](#gaming)
+  - [Misc](#misc)
 
 ## Installation
 
-- clone the repository: `git clone https://github.com/mike7549/dotfiles`
-- change to repository directory: `cd dotfiles`
-- run: `sh scripts/installscript.sh`
+```bash
+git clone https://github.com/mike7549/dotfiles
+cd dotfiles
+sh scripts/installscript.sh
+```
 
-### Post Install
+## Post install
 
-#### Adding Drives to fstab
+### Drives
 
-1.  Run `sudo blkid -f`
-2.  Copy UUID of wanted drive
-3.  Edit fstab: `sudo vim /etc/fstab`
-4.  Add entry: `UUID=<UUID-of-drive> <mount-point> <type (e.g. ext4)> <options (e.g. defaults)> <dump> <pass>
+#### Add drives to fstab
 
-#### Adding rules to ufw for sunshine
+1. Find the drive's UUID:
 
-1. `sudo ufw allow from 192.168.50.0/24 to any port 47984,47989,47990,48010 proto tcp`
-2. `sudo ufw allow from 192.168.50.0/24 to any port 47998:48002 proto udp`
-3. `sudo ufw reload`
+   ```bash
+   sudo blkid -f
+   ```
 
-#### Autologin
+2. Edit fstab:
 
-1.  Go to system settings -> Login Screen
-2.  Enable automatically login as user
-3.  Open kwalletsettings
-4.  Click change password for kwallet and set to empty password
+   ```bash
+   sudo vim /etc/fstab
+   ```
 
-#### Enable WOL
+3. Add an entry:
 
-1. BIOS (MSI Click BIOS)
+   ```
+   UUID=<uuid> <mount-point> <type, e.g. ext4> <options, e.g. defaults> <dump> <pass>
+   ```
 
-Press Del at boot, then F7 for Advanced mode.
-Go to Settings → Advanced → Power Management Setup.
-ErP Ready → Disabled. This setting cuts standby power to the NIC, so it must be off.
-Go to Settings → Advanced → Wake Up Event Setup.
-Resume By PCI-E Device → Enabled. The onboard LAN counts as a PCIe device.
-Press F10 to save and reboot.
-
-2. Linux: check support
+#### Take ownership of other drives
 
 ```bash
-ip link                      # find interface name, e.g. enp5s0
+sudo chown -R $USER:$USER <path/to/drive>
+```
+
+### Networking
+
+#### Enable Wake-on-LAN
+
+**1. BIOS (MSI Click BIOS)**
+
+1. Press `Del` at boot, then `F7` for Advanced mode.
+2. **Settings → Advanced → Power Management Setup**: set **ErP Ready** to **Disabled**. ErP cuts standby power to the NIC, so it must be off.
+3. **Settings → Advanced → Wake Up Event Setup**: set **Resume By PCI-E Device** to **Enabled**. The onboard LAN counts as a PCIe device.
+4. Press `F10` to save and reboot.
+
+**2. Check Linux support**
+
+```bash
+ip link                          # find the interface name, e.g. enp5s0
 sudo ethtool enp5s0 | grep -i wake
 ```
 
-Supports Wake-on: pumbg means the card can do it. Wake-on: d means it’s currently disabled.
+`Supports Wake-on: pumbg` means the card supports it. `Wake-on: d` means it's currently disabled.
 
-3. Enable it permanently
-
-If you use NetworkManager (most desktops):
+**3. Enable it permanently (NetworkManager)**
 
 ```bash
-nmcli c show                 # find your wired connection name
+nmcli c show                     # find the wired connection name
 sudo nmcli c modify "Wired connection 1" 802-3-ethernet.wake-on-lan magic
 sudo nmcli c up "Wired connection 1"
 ```
 
-#### Proton Env variables
+#### Samba / SMB1
 
-To set these globally, edit /etc/environment, and add these values:
+See [configure-samba.md](configure-samba.md).
+
+### Desktop
+
+#### Autologin (KDE)
+
+1. Open **System Settings → Login Screen**.
+2. Enable **Automatically log in** as your user.
+3. Open `kwalletsettings`.
+4. Click **Change Password** for the wallet and set an empty password.
+
+#### Run AppImages with a wake lock
+
+Create `~/.local/share/applications/<app-name>.desktop` with the following content, edited as needed:
+
+```ini
+[Desktop Entry]
+Type=Application
+Name=<App Name>
+Comment=<Comment>
+Categories=<Category>
+Icon=<path/to/icon>
+Exec=systemd-inhibit --what=sleep:idle '--who=<App Name>' '--why=<Reason>' --mode=block </path/to/app-image> %U
+Path=
+Terminal=false
+TerminalOptions=
+StartupNotify=true
+NoDisplay=false
+PrefersNonDefaultGPU=false
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+```
+
+### Gaming
+
+#### Proton environment variables
+
+Set these globally in `/etc/environment`:
 
 ```bash
 sudo tee -a /etc/environment > /dev/null << 'EOF'
@@ -76,39 +130,18 @@ ENABLE_LAYER_MESA_ANTI_LAG=1
 EOF
 ```
 
-#### Take ownership of other drives
+#### Allow Sunshine through ufw
 
-sudo chown -R $USER:$USER <path/to/drive>
-
-#### Enable SMB1
-
-edit `/etc/samba/smb.conf`
-
-change `client min protocol` to `NT1`
-
-#### Run app-images with wake lock enabled
-
-1.  Add desktop entry to `~/.local/share/applications/<app-image-name>.desktop`
-2.  Add following content and edit as needed:
-
-```
-[Desktop Entry]
-Categories=<Category>
-Comment=<some comment goes here>
-Exec=systemd-inhibit --what=sleep:idle '--who=<App Name>' '--why=<Reason>' --mode=block </path/to/app-image> %U
-Icon=<path/to/icon>
-Name=<App name>
-NoDisplay=false
-Path=
-PrefersNonDefaultGPU=false
-StartupNotify=true
-Terminal=false
-TerminalOptions=
-Type=Application
-X-KDE-SubstituteUID=false
-X-KDE-Username=
+```bash
+sudo ufw allow from 192.168.50.0/24 to any port 47984,47989,47990,48010 proto tcp
+sudo ufw allow from 192.168.50.0/24 to any port 47998:48002 proto udp
+sudo ufw reload
 ```
 
-#### Add commands to path
+### Misc
 
-Run `sudo ln -s </path/to/command> /usr/local/bin/<command>`
+#### Add commands to PATH
+
+```bash
+sudo ln -s </path/to/command> /usr/local/bin/<command>
+```
