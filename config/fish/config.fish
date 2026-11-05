@@ -90,6 +90,12 @@ end
 function update_all
     sudo nvim -u ~/dotfiles/config/vim/init.vim -c :PlugUpgrade -c :PlugUpdate -c :q -c :q
     arch-update
+
+    if type -q protonplus
+        protonplus update all
+    else
+        echo "protonplus not installed, skipping Proton updates"
+    end
 end
 
 function create_pyvenv
