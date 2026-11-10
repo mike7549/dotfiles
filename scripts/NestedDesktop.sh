@@ -1,181 +1,26 @@
 #!/bin/bash
 set -euo pipefail
 
-COMPOSITOR="${NESTED_COMPOSITOR:-kwin}"
-RESOLUTION="${NESTED_RES:-1280x800}"
-LOG_DIR="${XDG_RUNTIME_DIR:-/tmp}/nested-desktop"
-LOG_FILE="${LOG_DIR}/nested.log"
-SOCKET_NAME="nested-wayland-$(date +%s)"
-RUN_IN_GAMESCOPE=0
-
-log()  { 
-    echo "[nested-desktop] $*" | tee -a "$LOG_FILE"; 
-}
-
-die()  { 
-    log "ERROR: $*"; exit 1; 
-}
-
-show_help() {
-cat << HELP
-Usage: nested-desktop.sh [OPTIONS]
-
-Options:
-    -c, --compositor <name>   Compositor to nest: kwin, cage
-    -r, --resolution <WxH>    Virtual output resolution (default: 1280x800)
-    -g, --gamescope           Run in gamescope
-    -h, --help                Show this help
-
-Environment variables:
-    NESTED_COMPOSITOR         Same as --compositor
-    NESTED_RES                Same as --resolution
-    CAGE_APP                  App to launch when compositor=cage (default: alacritty)
-
-Examples:
-    # Nested KDE Plasma:
-    ./nested-desktop.sh --compositor kwin
-
-    # Kiosk-mode single app (Firefox):
-    CAGE_APP=firefox ./nested-desktop.sh --compositor cage
-    # or
-    ./nested-desktop.sh --compositor cage --cage-app firefox
-HELP
-
-    exit 0
-}
-
-preflight() {
-    mkdir -p "$LOG_DIR"
-    log "=== Starting nested desktop ==="
-    log "Compositor : $COMPOSITOR"
-    log "Resolution : $RESOLUTION"
-    log "Socket     : $SOCKET_NAME"
-
-    [[ -n "${WAYLAND_DISPLAY:-}" ]] || \
-        die "No WAYLAND_DISPLAY found."
-}
-
-launch_kwin() {
-    log "Launching KWin Wayland nested session..."
-
-    local W H
-    W="${RESOLUTION%%x*}"
-    H="${RESOLUTION##*x}"
-
-    local socket_path="${XDG_RUNTIME_DIR}/${SOCKET_NAME}"
-
-    # Run kwin and plasmashell in the same dbus session, but started separately
-    # so plasmashell connects to the nested compositor rather than spawning its own kwin.
-    dbus-run-session -- bash -c "
-        kwin_wayland \
-            --wayland-display '${WAYLAND_DISPLAY}' \
-            --width  '${W}' \
-            --height '${H}' \
-            --socket '${SOCKET_NAME}' &
-        kwin_pid=\$!
-        for i in \$(seq 40); do
-            [ -S '${socket_path}' ] && break
-            sleep 0.25
-        done
-        WAYLAND_DISPLAY='${SOCKET_NAME}' plasmashell &
-        wait \$kwin_pid
-    " >> "$LOG_FILE" 2>&1 &
-
-    NESTED_PID=$!
-    log "Nested session PID: $NESTED_PID"
-    log "Child apps should use: WAYLAND_DISPLAY=${socket_path}"
-}
-
-launch_cage() {
-    local app="${CAGE_APP:-alacritty}"
-    log "Launching cage (kiosk) with app: $app"
-
-    WLR_BACKENDS=wayland \
-    WAYLAND_DISPLAY="${WAYLAND_DISPLAY}" \
-    cage -d -- "$app" \
-        >> "$LOG_FILE" 2>&1 &
-
-    NESTED_PID=$!
-    log "cage PID: $NESTED_PID"
-}
-
-launch_with_gamescope() {
-    log "Launching Gamescope..."
-
-    local W H
-    W="${RESOLUTION%%x*}"
-    H="${RESOLUTION##*x}"
-    local socket_path="${XDG_RUNTIME_DIR}/${SOCKET_NAME}"
-
-    case "$COMPOSITOR" in
-        kwin)
-            # Gamescope sets WAYLAND_DISPLAY for its child; kwin inherits it.
-            # W/H/SOCKET_NAME/socket_path are expanded now (outer-script values).
-            gamescope -W "$W" -H "$H" -- \
-                dbus-run-session -- bash -c "
-                    kwin_wayland \
-                        --width '${W}' \
-                        --height '${H}' \
-                        --socket '${SOCKET_NAME}' &
-                    kwin_pid=\$!
-                    for i in \$(seq 40); do
-                        [ -S '${socket_path}' ] && break
-                        sleep 0.25
-                    done
-                    WAYLAND_DISPLAY='${SOCKET_NAME}' plasmashell &
-                    wait \$kwin_pid
-                " >> "$LOG_FILE" 2>&1 &
-            ;;
-        cage)
-            local app="${CAGE_APP:-alacritty}"
-            WLR_BACKENDS=wayland gamescope -W "$W" -H "$H" -- cage -d -- "$app" \
-                >> "$LOG_FILE" 2>&1 &
-            ;;
-        *)
-            die "Unknown compositor '$COMPOSITOR'. Choose: kwin, cage"
-            ;;
-    esac
-
-    NESTED_PID=$!
-    log "Gamescope PID: $NESTED_PID"
-    log "Child apps should use: WAYLAND_DISPLAY=${socket_path}"
-}
-
-cleanup() {
-    log "Caught exit signal. Stopping nested session (PID: ${NESTED_PID:-unknown})..."
-    [[ -n "${NESTED_PID:-}" ]] && kill "$NESTED_PID" 2>/dev/null || true
-    log "Done."
-}
-
-while [[ $# -gt 0 ]]; do
-    case "$1" in
-        -c|--compositor) COMPOSITOR="$2"; shift 2 ;;
-        -r|--resolution) RESOLUTION="$2"; shift 2 ;;
-        -g|--gamescope)  RUN_IN_GAMESCOPE=1; shift 1 ;;
-        --cage-app)      CAGE_APP="$2"; shift 2 ;;
-        -h|--help)       show_help ;;
-        *) die "Unknown option: $1. Use --help for usage." ;;
-    esac
-done
-
-trap cleanup EXIT INT TERM
-
-preflight
-
-NESTED_PID=""
-
-if [ $RUN_IN_GAMESCOPE -eq 1 ]; then
-    launch_with_gamescope
-else 
-    case "$COMPOSITOR" in
-        kwin)  launch_kwin  ;;
-        cage)  launch_cage  ;;
-        *)     die "Unknown compositor '$COMPOSITOR'. Choose: kwin, cage" ;;
-    esac
+if [ $# -eq 0 ]; then
+    echo "Usage: $(basename "$0") <command> [args...]" >&2
+    exit 1
 fi
 
+if ! command -v kwin_wayland >/dev/null 2>&1; then
+    echo "kwin_wayland not found" >&2
+    exit 1
+fi
 
-# Wait for the nested compositor to exit
-log "Nested desktop running. Waiting for PID $NESTED_PID to exit..."
-wait "$NESTED_PID" || true
-log "Nested desktop exited."
+WIDTH="${NESTED_WIDTH:-1280}"
+HEIGHT="${NESTED_HEIGHT:-800}"
+
+unset LD_PRELOAD
+
+printf -v SESSION_CMD '%q ' "$@"
+
+exec kwin_wayland \
+    --xwayland \
+    --no-lockscreen \
+    --width "$WIDTH" \
+    --height "$HEIGHT" \
+    --exit-with-session "$SESSION_CMD"
