@@ -1,11 +1,14 @@
 ﻿## Source from conf.d before our fish config
 source /usr/share/cachyos-fish-config/conf.d/done.fish
 
-
-## Set values
-## Run fastfetch as welcome message
 function fish_greeting
 end
+
+set -x JAVA_HOME $(dirname $(dirname $(readlink -f $(which java))))
+set -x CAPACITOR_ANDROID_STUDIO_PATH /usr/bin/android-studio
+set -x ANDROID_SDK_ROOT /opt/android-sdk/
+set -x CHROME_BIN /usr/bin/chromium
+set -x EDITOR /usr/bin/nvim
 
 # Format man pages
 set -x MANROFFOPT "-c"
@@ -88,7 +91,7 @@ end
 
 
 function update_all
-    sudo nvim -u ~/dotfiles/config/vim/init.vim -c :PlugUpgrade -c :PlugUpdate -c :q -c :q
+    nvim :PlugUpgrade -c :PlugUpdate -c :q -c :q
     arch-update
 
     if type -q protonplus
@@ -181,6 +184,15 @@ function win_reboot
     and systemctl reboot
 end
 
+function run_nvim --description 'nvim, or sudoedit if the file is not writable by me'
+    set -l f $argv[1]
+    if test -w "$f"; or begin; not test -e "$f"; and test -w (dirname "$f"); end
+        nvim $argv
+    else
+        sudoedit $argv
+    end
+end
+
 ## Useful aliases
 # Replace ls with eza
 alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
@@ -213,8 +225,7 @@ alias update='yay -Syu'
 alias inst='yay -S'
 alias uinst='yay -Rsnc'
 alias search='yay -Ss'
-alias vim='nvim'
-alias svim='sudo nvim'
+alias vim='run_nvim'
 # Get fastest mirrors
 alias mirror="sudo cachyos-rate-mirrors"
 
@@ -227,10 +238,5 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
-set -x JAVA_HOME $(dirname $(dirname $(readlink -f $(which java))))
-set -x CAPACITOR_ANDROID_STUDIO_PATH /usr/bin/android-studio
-set -x ANDROID_SDK_ROOT /opt/android-sdk/
-set -x CHROME_BIN /usr/bin/chromium
-set -x EDITOR /usr/bin/nvim
 
 fish_config theme choose Dracula
