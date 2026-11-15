@@ -91,7 +91,7 @@ end
 
 
 function update_all
-    vim -c :PlugUpgrade -c :PlugUpdate -c :q -c :q
+    nvim :PlugUpgrade -c :PlugUpdate -c :q -c :q
     arch-update
 
     if type -q protonplus
