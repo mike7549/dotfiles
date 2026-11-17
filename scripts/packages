@@ -16,6 +16,10 @@ android-tools
 visual-studio-code-bin
 vivaldi
 
+krdc
+freerdp
+libvncserver
+
 noto-fonts
 noto-fonts-extra
 noto-fonts-emoji
