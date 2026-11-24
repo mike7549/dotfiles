@@ -91,13 +91,20 @@ end
 
 
 function update_all
-    nvim :PlugUpgrade -c :PlugUpdate -c :q -c :q
+	echo -e "\e[1;32m==>\e[0m Looking for new Plug version"
+    nvim --headless +'PlugUpgrade' +qa >/dev/null 2>&1
+	printf '\n'
+	echo -e "\e[1;32m==>\e[0m Updating Plug Plugins"
+	nvim --headless +'PlugUpdate' +qa >/dev/null 2>&1
+	printf '\n'
+
     arch-update
 
     if type -q protonplus
         protonplus update all
     else
-        echo "protonplus not installed, skipping Proton updates"
+		printf '\n'
+        echo -e "\e[1;32m==>\e[0m ProtonPlus not installed, skipping"
     end
 end
 
