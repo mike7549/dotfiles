@@ -1,18 +1,17 @@
 #!/bin/bash
-
-# set dotfiles directory
-dotdir=$(pwd)
+dotdir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+cd "$dotdir" || exit 1
 configdir="$HOME/.config"
 
 function install_yay {
     if ! command -v yay &>/dev/null; then
-        echo ">> Installing yay"
+        echo -e "\e[1;32m==>\e[0m Installing yay"
         sudo pacman -S --noconfirm yay
     fi
 }
 
 function install_packages {
-    echo ">> Installing packages"
+    echo -e "\e[1;32m==>\e[0m Installing packages"
     read -p "Install packages? (yes/no): " confirm
     if [[ "$confirm" == "yes" ]]; then
         yay -S $(cat $dotdir/scripts/packages) --noconfirm --answerclean All --answerdiff All --answeredit All
@@ -20,7 +19,7 @@ function install_packages {
 }
 
 function install_neovim {
-    echo ">> Installing neovim"
+    echo -e "\e[1;32m==>\e[0m Installing neovim"
     if [ "$(readlink $configdir/nvim/init.vim)" != "$dotdir/config/vim/init.vim" ]; then
         # init.vim downloads vim-plug itself if it's missing
         nvim --headless -u $dotdir/config/vim/init.vim +'PlugInstall --sync' +qa
@@ -28,12 +27,12 @@ function install_neovim {
         mkdir -p "$configdir/nvim/"
         ln -sf $dotdir/config/vim/init.vim $configdir/nvim/init.vim
     else
-        echo "init.vim already points to the right file, skipping"
+        echo -e "\e[1;32m==>\e[0m init.vim already points to the right file, skipping"
     fi
 }
 
 function create_symlinks {
-    echo ">> Creating symlinks"
+    echo -e "\e[1;32m==>\e[0m Creating symlinks"
 
     mkdir -p $configdir/alacritty/themes
     ln -sf $dotdir/config/alacritty/alacritty.toml $configdir/alacritty/alacritty.toml
@@ -60,6 +59,7 @@ function create_symlinks {
 
 
 function install_sunshine {
+	echo -e "\e[1;32m==>\e[0m Installing sunshine"
     read -p "Install sunshine? (yes/no): " confirm
     if [[ "$confirm" == "yes" ]]; then
         sh "$dotdir/scripts/sunshine/install-sunshine.sh"
@@ -67,9 +67,8 @@ function install_sunshine {
 }
 
 function install_fish {
-    echo ">> Installing fish"
-    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-    fisher install dracula/fish
+    echo -e "\e[1;32m==>\e[0m Installing fish"
+    fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install dracula/fish'
     if [ "$SHELL" != "/usr/bin/fish" ]; then
         sudo chsh -s /usr/bin/fish
         chsh -s /usr/bin/fish
@@ -79,7 +78,7 @@ function install_fish {
 }
 
 function install_devtools {
-	echo ">> Installing devtools"
+	echo -e "\e[1;32m==>\e[0m Installing devtools"
 	read -p "Install devtools? (yes/no): " confirm
 	if [[ "$confirm" = "yes" ]]; then
 		yay -S $(cat $dotdir/scripts/packages-devtools) --answerclean All --answerdiff All --answeredit All
@@ -96,6 +95,5 @@ install_devtools
 
 create_symlinks
 
-
-sudo fc-cache -f -v
-echo ">> Finished running install script"
+sudo fc-cache -f -v >/dev/null
+echo -e "\e[1;32m==>\e[0m Finished running install script"
