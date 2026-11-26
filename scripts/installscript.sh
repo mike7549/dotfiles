@@ -3,6 +3,62 @@ dotdir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 cd "$dotdir" || exit 1
 configdir="$HOME/.config"
 
+packages=(
+    neovim
+    wl-clipboard
+    python
+    python-pip
+    jdk-openjdk
+    java-runtime-common
+    java-environment-common
+    direnv
+    pyenv
+    android-tools
+    visual-studio-code-bin
+    vivaldi
+    krdc
+    freerdp
+    libvncserver
+    noto-fonts
+    noto-fonts-extra
+    noto-fonts-emoji
+    noto-fonts-cjk
+    ttf-firacode-nerd
+    fzf
+    spotify-launcher
+    gimp
+    inkscape
+    okular
+    libresprite
+    tk
+    smbclient
+    kio-fuse
+    cifs-utils
+    cachyos-samba-settings
+    openbsd-netcat
+    kdenetwork-filesharing
+    sbctl
+    mission-center
+)
+
+gaming=(
+    steam
+    lutris
+    umu-launcher
+    fuse2
+    protonplus
+    appmenu-gtk-module
+    libdbusmenu-glib
+    vesktop
+)
+
+devtools=(
+    nodejs
+    npm
+    pnpm
+    godot
+)
+
 function install_yay {
     if ! command -v yay &>/dev/null; then
         echo -e "\e[1;32m==>\e[0m Installing yay"
@@ -14,7 +70,7 @@ function install_packages {
     echo -e "\e[1;32m==>\e[0m Installing packages"
     read -p "Install packages? (yes/no): " confirm
     if [[ "$confirm" == "yes" ]]; then
-        yay -S $(cat $dotdir/scripts/packages) --noconfirm --answerclean All --answerdiff All --answeredit All
+        yay -S "${packages[@]}" --noconfirm --answerclean All --answerdiff All --answeredit All
     fi
 }
 
@@ -58,8 +114,12 @@ function create_symlinks {
 
 
 
-function install_sunshine {
-	echo -e "\e[1;32m==>\e[0m Installing sunshine"
+function install_gaming {
+	echo -e "\e[1;32m==>\e[0m Installing gaming packages"
+    read -p "Install gaming packages? (yes/no): " confirm
+    if [[ "$confirm" == "yes" ]]; then
+        yay -S "${gaming[@]}" --noconfirm --answerclean All --answerdiff All --answeredit All
+    fi
     read -p "Install sunshine? (yes/no): " confirm
     if [[ "$confirm" == "yes" ]]; then
         sh "$dotdir/scripts/sunshine/install-sunshine.sh"
@@ -81,7 +141,7 @@ function install_devtools {
 	echo -e "\e[1;32m==>\e[0m Installing devtools"
 	read -p "Install devtools? (yes/no): " confirm
 	if [[ "$confirm" = "yes" ]]; then
-		yay -S $(cat $dotdir/scripts/packages-devtools) --answerclean All --answerdiff All --answeredit All
+		yay -S "${devtools[@]}" --answerclean All --answerdiff All --answeredit All
         sudo npm install -g @angular/cli ts-node
 	fi
 }
@@ -89,7 +149,7 @@ function install_devtools {
 install_yay
 install_packages
 install_neovim
-install_sunshine
+install_gaming
 install_fish
 install_devtools
 
