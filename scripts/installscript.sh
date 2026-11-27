@@ -146,14 +146,24 @@ function install_devtools {
 	fi
 }
 
+function install_run_kwin {
+    echo -e "\e[1;32m==>\e[0m Installing run_kwin command"
+    sudo ln -sf "$dotdir/scripts/run_kwin.sh" /usr/local/bin/run_kwin
+}
+
+function build_font_cache {
+    echo -e "\e[1;32m==>\e[0m Building font cache"
+    sudo fc-cache -f -v >/dev/null
+}
+
 install_yay
 install_packages
 install_neovim
 install_gaming
 install_fish
 install_devtools
-
+install_run_kwin
 create_symlinks
+build_font_cache
 
-sudo fc-cache -f -v >/dev/null
 echo -e "\e[1;32m==>\e[0m Finished running install script"
